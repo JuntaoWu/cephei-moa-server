@@ -91,7 +91,7 @@ router.get('/photon-login', (req: Request, res: Response, next: NextFunction) =>
 
     const openId = req.query.openId;
 
-    if (!openId) {
+    if (!openId || openId == "undefined") {
         //Anonymous user login via photon custom auth.
         //Return a new random userId.
         return res.json({
