@@ -9,6 +9,22 @@ import { Request, Response, NextFunction } from 'express';
 router.post('/login', (req: Request, res: Response, next: NextFunction) => {
     var code = req.query["code"];
 
+    if(!code) {
+        return res.json({
+            error: true,
+            message: "No code provided",
+            data: {}
+        });
+    }
+
+    if(code == "debug") {
+        return res.json({
+            error: 0,
+            message: "OK",
+            data: {}
+        });
+    }
+
     var url = `https://api.weixin.qq.com/sns/jscode2session?appid=${req.app.get("appId")}&secret=${req.app.get("appSecret")}&js_code=${code}&grant_type=authorization_code`;
 
     console.log(url);
@@ -31,7 +47,7 @@ router.post('/login', (req: Request, res: Response, next: NextFunction) => {
                 if (!openid) {
                     return res.json({
                         error: true,
-                        message: data.message,
+                        message: data.errmsg || "",
                         data: {}
                     })
                 }
