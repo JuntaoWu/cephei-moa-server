@@ -89,7 +89,7 @@ router.post('/login', (req: Request, res: Response, next: NextFunction) => {
 
 router.post('/photon-login', (req: Request, res: Response, next: NextFunction) => {
 
-    const openId = req.body.openId;
+    const openId = req.query.openId;
 
     if (!openId) {
         //Anonymous user login via photon custom auth.
