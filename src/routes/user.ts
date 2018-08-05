@@ -87,7 +87,7 @@ router.post('/login', (req: Request, res: Response, next: NextFunction) => {
     });
 });
 
-router.post('/photon-login', (req: Request, res: Response, next: NextFunction) => {
+router.get('/photon-login', (req: Request, res: Response, next: NextFunction) => {
 
     const openId = req.query.openId;
 
