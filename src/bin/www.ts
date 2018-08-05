@@ -24,14 +24,14 @@ var mongoose = require('mongoose');
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-var appId = process.env.APPID || 'wxa52d1b9b2ec7f91f';
-var appSecret = process.env.APPSECRET || 'b2938b442cd350a8d7896ca78e2ccbec';
+var appId = process.env.APPID || 'wxa6bac7ec18f19732';
+var appSecret = process.env.APPSECRET || '9df9e27221bc1e4683912409bbca9940';
 app.set('port', port);
 app.set('appId', appId);
 app.set('appSecret', appSecret);
 
 // connect to mongo db
-const mongoUri = process.env.MONGOURI || 'mongodb://tk2048:tk2048@ds239911.mlab.com:39911/heroku_pk0r0r4w';
+const mongoUri = process.env.MONGOURI || 'mongodb://cephei:cephei-2018@ds213612.mlab.com:13612/heroku_96p9gt12';
 mongoose.connect(mongoUri, { server: { socketOptions: { keepAlive: 1 } } });
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`);
