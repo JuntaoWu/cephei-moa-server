@@ -15,7 +15,7 @@ router.route('/check')
         var request = https.request({
             hostname: "cephei-dashboard.herokuapp.com",
             port: 443,
-            path: `/version/check?version=${req.query.version || 0}`,
+            path: `/version/check?appName=cephei-moa&version=${req.query.version || 0}`,
             method: "GET",
         }, (cepheiRes) => {
             console.log("response from cephei-dashboard api.");
