@@ -1,4 +1,4 @@
-import GameModel, { Game } from '../models/Game.model';
+import GameModel, { Game } from '../models/game.model';
 import { Request, Response, NextFunction } from "express";
 import { IncomingMessage } from 'http';
 
