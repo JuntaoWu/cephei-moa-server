@@ -7,11 +7,9 @@ import cors from 'cors';
 
 import indexRouter from './routes';
 import userRouter from './routes/user';
-import playerRouter from './routes/player';
-import nodesInfoRouter from './routes/nodesinfo';
-import levelInfoRouter from './routes/levelinfo';
 import rankRouter from './routes/rank';
 import versionRouter from './routes/version';
+import gameRouter from './routes/game';
 
 var app = express();
 
@@ -38,11 +36,9 @@ app.use(express.static(path.join(__dirname, '../public/sw.js'), {
 
 app.use('/', indexRouter);
 app.use('/users', userRouter);
-app.use('/players', playerRouter);
-app.use('/nodesInfo', nodesInfoRouter);
-app.use('/levelInfo', levelInfoRouter);
 app.use('/ranks', rankRouter);
 app.use('/version', versionRouter);
+app.use('/games/:gameId', gameRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
