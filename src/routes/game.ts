@@ -9,7 +9,7 @@ import { Request, Response, NextFunction } from 'express';
 router.post('/create', (req, res, next) => {
     console.log("create:", req.body);
 
-    return gameCtrl.create(req)
+    return gameCtrl.create(req.body)
         .then(savedGame => {
             let result = {
                 ResultCode: 0,
