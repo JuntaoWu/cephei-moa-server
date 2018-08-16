@@ -23,7 +23,7 @@ router.post('/create', (req, res, next) => {
 router.post('/load', (req, res, next) => {
     console.log("load:", req.query);
 
-    gameCtrl.load(req)
+    gameCtrl.load(req.body.GameId)
         .then(game => {
             if (!game && !req.body.CreateIfNotExists) {
                 return res.json({

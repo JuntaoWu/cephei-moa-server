@@ -2,8 +2,8 @@ import GameModel, { Game } from '../models/game.model';
 import { Request, Response, NextFunction } from "express";
 import { IncomingMessage } from 'http';
 
-export let load = async (params: any) => {
-    return GameModel.findOne({ GameId: params.body.GameId });
+export let load = async (gameId: string) => {
+    return GameModel.findOne({ GameId: gameId });
 }
 
 export let create = async (body: any) => {
@@ -14,7 +14,7 @@ export let create = async (body: any) => {
 }
 
 export let update = (gameId, body: Game) => {
-    return load({ GameId: gameId }).then(async (game) => {
+    return load(gameId).then(async (game) => {
         if(game) {
             const tmp = game;
             game.ActorCount = body.ActorCount;
