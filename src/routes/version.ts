@@ -13,12 +13,12 @@ router.route('/check')
     .get((req: Request, res: Response, next: NextFunction) => {
         // todo: check version.
         var request = https.request({
-            hostname: "cephei-dashboard.herokuapp.com",
-            port: 443,
+            hostname: "dashboard.hzsdgames.com",
+            port: 8088,
             path: `/version/check?appName=cephei-moa&version=${req.query.version || 0}`,
             method: "GET",
         }, (cepheiRes) => {
-            console.log("response from cephei-dashboard api.");
+            console.log("response from dashboard api.");
 
             cepheiRes.on("data", (chunk: string) => {
                 let data = JSON.parse(chunk);

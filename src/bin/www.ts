@@ -23,7 +23,7 @@ var mongoose = require('mongoose');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8083');
 var appId = process.env.APPID || 'wxa6bac7ec18f19732';
 var appSecret = process.env.APPSECRET || '9df9e27221bc1e4683912409bbca9940';
 app.set('port', port);
@@ -51,8 +51,8 @@ if (process.env.MONGOOSE_DEBUG) {
  */
 
 var options = {
-  key: fs.readFileSync('public/key.pem'),
-  cert: fs.readFileSync('public/cert.pem')
+  key: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem')
 };
 
 var server = http.createServer(app);
@@ -67,7 +67,7 @@ server.on('error', onError);
 
 server.on('listening', onListening);
 
-sslServer.listen(`4096`);
+sslServer.listen(`8084`);
 sslServer.on('error', onError);
 
 sslServer.on('listening', onListening);
