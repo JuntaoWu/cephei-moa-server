@@ -689,11 +689,11 @@ self.__precacheManifest = [
   },
   {
     "url": "miniGame/resource/assets/myInfo/tu.json",
-    "revision": "603dbd4074879cc7a7ac590d60f315cd"
+    "revision": "a998e916e24908406a5f29cbd7e84400"
   },
   {
     "url": "miniGame/resource/assets/myInfo/tu.png",
-    "revision": "33db2fca2acd0dad15f917c852d9acce"
+    "revision": "90f52e0bd016ac699f63ae5c18287ed5"
   },
   {
     "url": "miniGame/resource/assets/myInfo/win_rate.png",
@@ -1225,7 +1225,7 @@ self.__precacheManifest = [
   },
   {
     "url": "miniGame/resource/config/photon.json",
-    "revision": "badf85c277c401bd73bcc284a10aae30"
+    "revision": "9ee304bbff81116b44fe85ab8cf01823"
   },
   {
     "url": "miniGame/resource/config/rank.json",

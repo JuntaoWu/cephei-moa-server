@@ -20,11 +20,16 @@ router.route('/check')
         }, (cepheiRes) => {
             console.log("response from dashboard api.");
 
-            cepheiRes.on("data", (chunk: string) => {
-                let data = JSON.parse(chunk);
-                console.log(data);
+            let data = "";
+            cepheiRes.on("data", (chunk: ArrayBuffer) => {
+                data += chunk;
+                console.log("chunk:", chunk);
+            });
 
-                res.json(data);
+            cepheiRes.on("end", () => {
+                let result = JSON.parse(data);
+                console.log("result:", result);
+                res.json(result);
             });
         });
 
