@@ -1,7 +1,7 @@
 import RankModel, { Rank } from '../models/rank.model';
 import { Request, Response } from "express";
 import { IncomingMessage } from 'http';
-import UserInfoModel from '../models/userinfo.model';
+import UserInfoModel from '../models/wxuser.model';
 
 export let load = async (params: any) => {
     return RankModel.findOne({ openId: params.openId });

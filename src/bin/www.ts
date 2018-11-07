@@ -3,15 +3,13 @@
 /**
  * Module dependencies.
  */
+// config should be imported before importing any other file
+import config from '../config/config';
 
 import app from '../app';
-var http = require('http');
-var https = require('https');
-var fs = require('fs');
-
-var mongoose = require('mongoose');
-
-// config should be imported before importing any other file
+import * as http from 'http';
+//import https from 'https';
+import mongoose from 'mongoose';
 
 // // make bluebird default Promise
 // Promise = require('bluebird'); // eslint-disable-line no-global-assign
@@ -23,15 +21,10 @@ var mongoose = require('mongoose');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '8083');
-var appId = process.env.APPID || 'wxa6bac7ec18f19732';
-var appSecret = process.env.APPSECRET || '9df9e27221bc1e4683912409bbca9940';
-app.set('port', port);
-app.set('appId', appId);
-app.set('appSecret', appSecret);
+const port = normalizePort(config.port || '4040');
 
 // connect to mongo db
-const mongoUri = process.env.MONGOURI || 'mongodb://cephei:cephei-2018@ds213612.mlab.com:13612/heroku_96p9gt12';
+const mongoUri = config.mongo.host;
 mongoose.connect(mongoUri, { server: { socketOptions: { keepAlive: 1 } } });
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`);
@@ -49,7 +42,7 @@ if (process.env.MONGOOSE_DEBUG) {
 /**
  * Create HTTP server.
  */
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -59,14 +52,14 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 
-var options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem')
-};
-var sslServer = https.createServer(options, app);
-sslServer.listen(`8084`);
-sslServer.on('error', onError);
-sslServer.on('listening', onListening);
+// var options = {
+//   key: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem'),
+//   cert: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem')
+// };
+// var sslServer = https.createServer(options, app);
+// sslServer.listen(`8084`);
+// sslServer.on('error', onError);
+// sslServer.on('listening', onListening);
 
 
 /**
@@ -74,7 +67,7 @@ sslServer.on('listening', onListening);
  */
 
 function normalizePort(val: string) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -98,7 +91,7 @@ function onError(error: any) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
+  let bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
 
@@ -122,9 +115,9 @@ function onError(error: any) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
+  const addr = server.address();
+  const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  //debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
 }

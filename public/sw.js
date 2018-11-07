@@ -40,8 +40,8 @@ self.__precacheManifest = [
     "revision": "b41191e6b6b8bdb793a225621356bdaa"
   },
   {
-    "url": "js/default.thm_2b6e14d5.js",
-    "revision": "6aefcfe1dec81fb6cdc4d0a48087fe91"
+    "url": "js/default.thm_c1c4f139.js",
+    "revision": "6bc941521e36419cd0b031aeacaf8ec7"
   },
   {
     "url": "js/dragonBones.min_6252b9c4.js",
@@ -72,8 +72,8 @@ self.__precacheManifest = [
     "revision": "01cab91737db40659a75ab627660da58"
   },
   {
-    "url": "js/main.min_7389ce8e.js",
-    "revision": "e0002389cb7a23132d76c4611d8338c2"
+    "url": "js/main.min_8943ba1a.js",
+    "revision": "0bbaa3ce81364fb3890869377dafb875"
   },
   {
     "url": "js/photon.min_face9e9c.js",
@@ -84,8 +84,8 @@ self.__precacheManifest = [
     "revision": "1db72e0812aeb36ffec5285a2e14959f"
   },
   {
-    "url": "js/puremvc.min_c3ffb868.js",
-    "revision": "70ca3458d11d4b28d7a0cf4dd80ecd43"
+    "url": "js/puremvc.min_15c0395c.js",
+    "revision": "d4b787e02731d8f1e018dbdd976ba053"
   },
   {
     "url": "js/socket.min_8b4cb752.js",
@@ -101,7 +101,7 @@ self.__precacheManifest = [
   },
   {
     "url": "manifest.json",
-    "revision": "fa562db482b7dc79298190607d3a790d"
+    "revision": "853e09021df6c22963ad74c56e0c72d8"
   },
   {
     "url": "manifest.pwa.json",
@@ -116,12 +116,12 @@ self.__precacheManifest = [
     "revision": "f0d99f3bc1e6d25af23c03ab01ab17a1"
   },
   {
-    "url": "miniGame/resource/assets/bg.jpg",
-    "revision": "bfbd6002c35cd2bfa99ec5333c2e28f7"
+    "url": "miniGame/resource/assets/background/three-kingdoms-bg.png",
+    "revision": "14731f83beef15bb7ba2806e4bf79e37"
   },
   {
-    "url": "miniGame/resource/assets/Button/auth3.png",
-    "revision": "39f799ded21e48f183b8c4870a6599ba"
+    "url": "miniGame/resource/assets/bg.jpg",
+    "revision": "bfbd6002c35cd2bfa99ec5333c2e28f7"
   },
   {
     "url": "miniGame/resource/assets/Button/auth4.png",
@@ -148,60 +148,16 @@ self.__precacheManifest = [
     "revision": "92692ac870251779fd12cab48543666b"
   },
   {
-    "url": "miniGame/resource/assets/Button/cancel2.png",
-    "revision": "91dcdd0c95821ef8e4dfbddfd2c2364a"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/enter_info.png",
-    "revision": "48f4819433b1b6f05bb94847ab72d75c"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/ok_2.png",
-    "revision": "92a01ba18f1b604e5b1ad82273a5b88b"
-  },
-  {
     "url": "miniGame/resource/assets/Button/ok.png",
     "revision": "f9665718654c12da77fb196d22ab57f0"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/ok2.png",
-    "revision": "02ab55968f5924a4649bc14d0f737234"
   },
   {
     "url": "miniGame/resource/assets/Button/ok3.png",
     "revision": "a9e28f827bb2f797ef15278c1f86dd7a"
   },
   {
-    "url": "miniGame/resource/assets/Button/ok4.png",
-    "revision": "e9480f43ea914d4130c727ca5d82013a"
-  },
-  {
     "url": "miniGame/resource/assets/Button/share2.png",
     "revision": "adb390f96e77668f0fa70ee97ed490dc"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/skip.png",
-    "revision": "f3fc4ea9bebe43fcc266003c293eb31c"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/skip2.png",
-    "revision": "0a515d8040cdbef7a0ceefd228afa0ea"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/start.png",
-    "revision": "31a881a2d229a2aee65fa9055bd5d421"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/talk_over.png",
-    "revision": "718486c0978c365efb4cc2e845d9da67"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/vote_over.png",
-    "revision": "aa90ab112830b298936a9acef2e9f626"
-  },
-  {
-    "url": "miniGame/resource/assets/Button/vote-clear.png",
-    "revision": "20aed74f094c873f2064d1e6fe237b45"
   },
   {
     "url": "miniGame/resource/assets/CheckBox/checkbox_select_disabled.png",
@@ -220,164 +176,28 @@ self.__precacheManifest = [
     "revision": "2ffa97740e6d6ea0b005b4465255b098"
   },
   {
-    "url": "miniGame/resource/assets/club_attr.png",
-    "revision": "1679c8e2bc8e1145a1db7cfc908c9df1"
-  },
-  {
-    "url": "miniGame/resource/assets/club_box_1.png",
-    "revision": "1600230789ff435968d9eb27f545fff2"
-  },
-  {
-    "url": "miniGame/resource/assets/club_box_2.png",
-    "revision": "52127d64dca223f8c37be0372e1ea0b6"
-  },
-  {
-    "url": "miniGame/resource/assets/club_box.png",
-    "revision": "09d7e7fb4b27f0abf2aaa678348548cc"
-  },
-  {
-    "url": "miniGame/resource/assets/club_game1_1.png",
-    "revision": "85941906b69ad6c95887f118a708b053"
-  },
-  {
-    "url": "miniGame/resource/assets/club_game1_2.png",
-    "revision": "ced269a5475b55dae96e5d73160e2784"
-  },
-  {
-    "url": "miniGame/resource/assets/club_game2_1.png",
-    "revision": "7ac4e2030c47dd172abe4447160af6c7"
-  },
-  {
-    "url": "miniGame/resource/assets/club_game2_2.png",
-    "revision": "7cbcac11aead82ae4f46487c5d30194e"
-  },
-  {
-    "url": "miniGame/resource/assets/club_game3_1.png",
-    "revision": "e0b39f1415e77973eded26fa0f5e32dd"
-  },
-  {
-    "url": "miniGame/resource/assets/club_game3_2.png",
-    "revision": "98766f9c3d2d5a58f7fd4e226cfc5fc8"
-  },
-  {
-    "url": "miniGame/resource/assets/club_game4_1.png",
-    "revision": "ef3791e591f53a313bfcc1b1ede58349"
-  },
-  {
-    "url": "miniGame/resource/assets/club_game4_2.png",
-    "revision": "69f3e033b0a08c37bb8647a70e773edb"
-  },
-  {
-    "url": "miniGame/resource/assets/club_location.png",
-    "revision": "b95fc923b0a5cd6b3c5a714ef81e8de2"
-  },
-  {
-    "url": "miniGame/resource/assets/club_lv1.png",
-    "revision": "440bbefc8b05df6ca938e0b9daeb440d"
-  },
-  {
-    "url": "miniGame/resource/assets/club_lv2.png",
-    "revision": "10d3b1b030508dd26d0ffb2122bf8f3e"
-  },
-  {
-    "url": "miniGame/resource/assets/club_lv3.png",
-    "revision": "338f2122951873f5db5ce152e18774ae"
-  },
-  {
-    "url": "miniGame/resource/assets/club_phone.png",
-    "revision": "c2d68578f239d6584158e9f1ae1e575a"
-  },
-  {
-    "url": "miniGame/resource/assets/club_results.png",
-    "revision": "2218188b45e2f062ab2ef5186fe48005"
-  },
-  {
-    "url": "miniGame/resource/assets/club_search.png",
-    "revision": "8a30eea3628235a18bb1ea017292e2bb"
-  },
-  {
-    "url": "miniGame/resource/assets/club_time.png",
-    "revision": "f4ee2cc31846e07bef697d26f39fbf3c"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_attr.png",
-    "revision": "1679c8e2bc8e1145a1db7cfc908c9df1"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_box_1.png",
-    "revision": "1600230789ff435968d9eb27f545fff2"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_box_2.png",
-    "revision": "52127d64dca223f8c37be0372e1ea0b6"
-  },
-  {
     "url": "miniGame/resource/assets/club/club_box.png",
     "revision": "09d7e7fb4b27f0abf2aaa678348548cc"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_game1_1.png",
-    "revision": "85941906b69ad6c95887f118a708b053"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_game1_2.png",
-    "revision": "ced269a5475b55dae96e5d73160e2784"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_game2_1.png",
-    "revision": "7ac4e2030c47dd172abe4447160af6c7"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_game2_2.png",
-    "revision": "7cbcac11aead82ae4f46487c5d30194e"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_game3_1.png",
-    "revision": "e0b39f1415e77973eded26fa0f5e32dd"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_game3_2.png",
-    "revision": "98766f9c3d2d5a58f7fd4e226cfc5fc8"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_game4_1.png",
-    "revision": "ef3791e591f53a313bfcc1b1ede58349"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_game4_2.png",
-    "revision": "69f3e033b0a08c37bb8647a70e773edb"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_location.png",
-    "revision": "b95fc923b0a5cd6b3c5a714ef81e8de2"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_lv1.png",
-    "revision": "440bbefc8b05df6ca938e0b9daeb440d"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_lv2.png",
-    "revision": "10d3b1b030508dd26d0ffb2122bf8f3e"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_lv3.png",
-    "revision": "338f2122951873f5db5ce152e18774ae"
-  },
-  {
-    "url": "miniGame/resource/assets/club/club_phone.png",
-    "revision": "c2d68578f239d6584158e9f1ae1e575a"
   },
   {
     "url": "miniGame/resource/assets/club/club_results.png",
     "revision": "2218188b45e2f062ab2ef5186fe48005"
   },
   {
-    "url": "miniGame/resource/assets/club/club_search.png",
-    "revision": "8a30eea3628235a18bb1ea017292e2bb"
+    "url": "miniGame/resource/assets/club/club-icon.json",
+    "revision": "ef0e70484865f1616f413ad3e3529d7b"
   },
   {
-    "url": "miniGame/resource/assets/club/club_time.png",
-    "revision": "f4ee2cc31846e07bef697d26f39fbf3c"
+    "url": "miniGame/resource/assets/club/club-icon.png",
+    "revision": "56b45de0ad6766886bf77c7a86476d93"
+  },
+  {
+    "url": "miniGame/resource/assets/club/club-icon2.json",
+    "revision": "a4e4645873311ca1a0136655013d6eae"
+  },
+  {
+    "url": "miniGame/resource/assets/club/club-icon2.png",
+    "revision": "927ecd85c3e14dd9e5e9856288989722"
   },
   {
     "url": "miniGame/resource/assets/dragonBones/fangzhen_ske.json",
@@ -404,172 +224,60 @@ self.__precacheManifest = [
     "revision": "ffd8a8276eb20d92ac860655b73a5342"
   },
   {
-    "url": "miniGame/resource/assets/egret_icon.png",
-    "revision": "d7c7550013fbcae72390f7ce17c78e19"
+    "url": "miniGame/resource/assets/game/antiques.json",
+    "revision": "e2c602d75ef201b86304482f420d54af"
   },
   {
-    "url": "miniGame/resource/assets/game/auth2.png",
-    "revision": "ade72753bd226833c3d5cc62ae0f2eb1"
+    "url": "miniGame/resource/assets/game/antiques.png",
+    "revision": "67c32693d56a7261e1c6c6e29a80adf3"
   },
   {
-    "url": "miniGame/resource/assets/game/bg2.png",
-    "revision": "5a5a314aeeae9b86211c677c4124e4bb"
+    "url": "miniGame/resource/assets/game/game-botton.json",
+    "revision": "eb2cd6a9cb5bd90d432060794527c165"
   },
   {
-    "url": "miniGame/resource/assets/game/bg3.png",
-    "revision": "6a7e6dcee2af4734751479a511b25152"
-  },
-  {
-    "url": "miniGame/resource/assets/game/enter-info.png",
-    "revision": "48f4819433b1b6f05bb94847ab72d75c"
-  },
-  {
-    "url": "miniGame/resource/assets/game/false.png",
-    "revision": "b2547662a4a05ded0ba46336e98d8699"
+    "url": "miniGame/resource/assets/game/game-botton.png",
+    "revision": "e48c549eb1b644813b8f7973cdc5769d"
   },
   {
     "url": "miniGame/resource/assets/game/game-box-border.png",
     "revision": "1c2b9a478d12f6e639a5acfcd86b17c0"
   },
   {
-    "url": "miniGame/resource/assets/game/game-record.png",
-    "revision": "b2238edfe4dc6e8789f64431b18db064"
+    "url": "miniGame/resource/assets/game/game-icon.json",
+    "revision": "436f57c04fa6a2ae26c62031063c2a84"
   },
   {
-    "url": "miniGame/resource/assets/game/hide.png",
-    "revision": "467259acd3577bf58ee7c54c4a6523fb"
+    "url": "miniGame/resource/assets/game/game-icon.png",
+    "revision": "23c99e12e910a9d158cdd31b7361d403"
   },
   {
     "url": "miniGame/resource/assets/game/number.png",
     "revision": "349cb10e4e7e04c0d13a7a79dfa59483"
   },
   {
-    "url": "miniGame/resource/assets/game/role1.png",
-    "revision": "af597bf6db55b107986730982110920c"
+    "url": "miniGame/resource/assets/game/role.json",
+    "revision": "cd70d8018506217f0131cb5e37c6a49a"
   },
   {
-    "url": "miniGame/resource/assets/game/role2.png",
-    "revision": "c2146ad42888f88027ed57bcb5d277bb"
+    "url": "miniGame/resource/assets/game/role.png",
+    "revision": "cc8fb3832774026fd37ef15820449649"
   },
   {
-    "url": "miniGame/resource/assets/game/role3.png",
-    "revision": "8f02fc0df5efea4dcaf124463e99b889"
+    "url": "miniGame/resource/assets/game/wait-status.json",
+    "revision": "6e7c124508b4159046b8f63a551aa233"
   },
   {
-    "url": "miniGame/resource/assets/game/role4-5.png",
-    "revision": "99cb09e3f8b2b2a562695392695ccdc6"
+    "url": "miniGame/resource/assets/game/wait-status.png",
+    "revision": "f5531017a90179cb3d59f759d2abf326"
   },
   {
-    "url": "miniGame/resource/assets/game/role6.png",
-    "revision": "3e4c3f7108b96c80d55d4de193d57294"
+    "url": "miniGame/resource/assets/guide/guide.json",
+    "revision": "9482f953d2d1d3b379c69b26338f1843"
   },
   {
-    "url": "miniGame/resource/assets/game/role7.png",
-    "revision": "895d6bd10aec7337deaee7983da6d22c"
-  },
-  {
-    "url": "miniGame/resource/assets/game/role8.png",
-    "revision": "db46b2c42aa8f4a7f860c368acea7310"
-  },
-  {
-    "url": "miniGame/resource/assets/game/round1.png",
-    "revision": "866ab0a48e35312db373d9adaafe2c97"
-  },
-  {
-    "url": "miniGame/resource/assets/game/round2.png",
-    "revision": "897b6b7daabd75d7ae43bf0f96880b5c"
-  },
-  {
-    "url": "miniGame/resource/assets/game/round3.png",
-    "revision": "e89de3c80ac9ece5b4975279df1e0222"
-  },
-  {
-    "url": "miniGame/resource/assets/game/self_info.png",
-    "revision": "8192dbd28cdada960794fe565e7efe42"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t1.png",
-    "revision": "475f7e7cc8121adfb4f299d67eb140a0"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t10.png",
-    "revision": "b0ff26d51b3294590975cc10934b13bd"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t11.png",
-    "revision": "0094f08f275cef494f314ef735e40b74"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t12.png",
-    "revision": "1fd0e2215621e5578aca48643501a540"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t2.png",
-    "revision": "5a9ece163e8c4b166995d83f91955307"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t3.png",
-    "revision": "b98a9adf1433726c3cc070c497439e0a"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t4.png",
-    "revision": "0600376f70e4e69e253856e06b7090d3"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t5.png",
-    "revision": "831a5baa101eecb2908ce8c95f00aeeb"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t6.png",
-    "revision": "4e13d79abeb673ca6c64a90ff30e17d7"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t7.png",
-    "revision": "062a9bba6db72674a2fdc09385cdf855"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t8.png",
-    "revision": "df216c1c2c1245a4952939c067aad2dd"
-  },
-  {
-    "url": "miniGame/resource/assets/game/t9.png",
-    "revision": "4ee9d3bc6f6e44cbc0530696338c125e"
-  },
-  {
-    "url": "miniGame/resource/assets/game/true.png",
-    "revision": "b5e3071b9ba88a9ca312b59f877c9fd9"
-  },
-  {
-    "url": "miniGame/resource/assets/game/wait-1-players-enough.png",
-    "revision": "c0129e4da3e2b237f74faa647f7d074c"
-  },
-  {
-    "url": "miniGame/resource/assets/game/wait-2-master-confirm.png",
-    "revision": "62a4984278069f28160f83ef89debfd6"
-  },
-  {
-    "url": "miniGame/resource/assets/game/wait-3-set-identity.png",
-    "revision": "d52193cdb12df28351072a216764a62c"
-  },
-  {
-    "url": "miniGame/resource/assets/game/wait-4-others-process.png",
-    "revision": "2e602a9dad7c2bb7092497e157f944a5"
-  },
-  {
-    "url": "miniGame/resource/assets/game/wait-5-vote.png",
-    "revision": "1d31e6f6317ef91770e69367841594ad"
-  },
-  {
-    "url": "miniGame/resource/assets/game/wait-6-others-vote.png",
-    "revision": "6bf555f307b06b9fa3b329398f8dee33"
-  },
-  {
-    "url": "miniGame/resource/assets/guide/manual1.png",
-    "revision": "a623a281cc8b02fecd4c92c3f0f34861"
-  },
-  {
-    "url": "miniGame/resource/assets/guide/manual2.png",
-    "revision": "b5c8582124383bfbe2156aa82fb87cf8"
+    "url": "miniGame/resource/assets/guide/guide.png",
+    "revision": "fdd4974946871b98695890e9c24a682c"
   },
   {
     "url": "miniGame/resource/assets/guide/manual21.png",
@@ -584,10 +292,6 @@ self.__precacheManifest = [
     "revision": "1017b0e483f150471b547aa83b19af20"
   },
   {
-    "url": "miniGame/resource/assets/guide/manual3.png",
-    "revision": "846c7eab884bf29637ffb918ee7237d0"
-  },
-  {
     "url": "miniGame/resource/assets/guide/manual31.png",
     "revision": "5e549bda0d03619495394d965f8f9442"
   },
@@ -600,48 +304,24 @@ self.__precacheManifest = [
     "revision": "85184c3dc781c6fb9823e3742eeab34d"
   },
   {
-    "url": "miniGame/resource/assets/guide/manual4.png",
-    "revision": "2078c4b5d0b2cbdb600dc558495aabef"
-  },
-  {
     "url": "miniGame/resource/assets/guide/manual41.png",
     "revision": "0c81b0b30bfd631463989bdfe31f4af0"
   },
   {
-    "url": "miniGame/resource/assets/guide/manual5.png",
-    "revision": "329b372fada14ac3fe6d52657473f78d"
+    "url": "miniGame/resource/assets/guide/video.json",
+    "revision": "78440ae4c6ea755eb08b42a9cb5d48c0"
   },
   {
-    "url": "miniGame/resource/assets/guide/video1.png",
-    "revision": "dafc54ca92a65a734ee9d04f0067e7a9"
+    "url": "miniGame/resource/assets/guide/video.png",
+    "revision": "658ecf85804af99346fbbbb88c987f0a"
   },
   {
-    "url": "miniGame/resource/assets/guide/video2.png",
-    "revision": "ee4cd89ef980b518de05d2a9085a9c75"
+    "url": "miniGame/resource/assets/ItemRenderer/rank/rank-icon.json",
+    "revision": "2a505f5d09e616fafb3101a00e5a7f91"
   },
   {
-    "url": "miniGame/resource/assets/guide/video3.png",
-    "revision": "9c69e414ade1ae9f71be10c65a8a61c1"
-  },
-  {
-    "url": "miniGame/resource/assets/ItemRenderer/rank/rank_bg.png",
-    "revision": "5a5a314aeeae9b86211c677c4124e4bb"
-  },
-  {
-    "url": "miniGame/resource/assets/ItemRenderer/rank/rank1.png",
-    "revision": "5a39a8365bec76a50868fae65874982e"
-  },
-  {
-    "url": "miniGame/resource/assets/ItemRenderer/rank/rank2.png",
-    "revision": "3716ae6b60a0eabd7e3b4fdd98369b48"
-  },
-  {
-    "url": "miniGame/resource/assets/ItemRenderer/rank/rank3.png",
-    "revision": "944687d6263d7e53bccdbf7e64b28dc8"
-  },
-  {
-    "url": "miniGame/resource/assets/ItemRenderer/rank/sep.png",
-    "revision": "e91f34370922f8c6718ab2dff4b09bb7"
+    "url": "miniGame/resource/assets/ItemRenderer/rank/rank-icon.png",
+    "revision": "7a255e7352c71daa758290aa08877abc"
   },
   {
     "url": "miniGame/resource/assets/ItemRenderer/selected.png",
@@ -664,28 +344,12 @@ self.__precacheManifest = [
     "revision": "d0cc8454d7159b47c51ce93ee2cd594c"
   },
   {
-    "url": "miniGame/resource/assets/myInfo/room6.png",
-    "revision": "45ced5b0e43203a75e86648b76dfecca"
+    "url": "miniGame/resource/assets/myInfo/self-info.json",
+    "revision": "b6cc1d82e94da228090a44565e0377df"
   },
   {
-    "url": "miniGame/resource/assets/myInfo/room7.png",
-    "revision": "1222f59a7990873c6195a1164918d3f9"
-  },
-  {
-    "url": "miniGame/resource/assets/myInfo/room8.png",
-    "revision": "109b843cd526160af56147f95f3a19c6"
-  },
-  {
-    "url": "miniGame/resource/assets/myInfo/score2.png",
-    "revision": "2ae679f8b8a695e2ab476df9ba750504"
-  },
-  {
-    "url": "miniGame/resource/assets/myInfo/team_lao_2.png",
-    "revision": "3cd02651174a202b1f14d6b577ae140f"
-  },
-  {
-    "url": "miniGame/resource/assets/myInfo/team_xu_2.png",
-    "revision": "0bb2c92c3100929a71f4ed495f5e78d8"
+    "url": "miniGame/resource/assets/myInfo/self-info.png",
+    "revision": "f02a18bacf0cd30e290e367d30d1d833"
   },
   {
     "url": "miniGame/resource/assets/myInfo/tu.json",
@@ -696,32 +360,16 @@ self.__precacheManifest = [
     "revision": "90f52e0bd016ac699f63ae5c18287ed5"
   },
   {
-    "url": "miniGame/resource/assets/myInfo/win_rate.png",
-    "revision": "41cb73e1bdda5ff239bedd1b42939c8e"
+    "url": "miniGame/resource/assets/numberKeyboard/number-keyboard-icon.json",
+    "revision": "03150baf62ec9059f38a42f098f4f9a5"
   },
   {
-    "url": "miniGame/resource/assets/numberKeyboard/input_cancel.png",
-    "revision": "920c440c631b8fffb0f516d0c5d2fb4e"
-  },
-  {
-    "url": "miniGame/resource/assets/numberKeyboard/input_ok.png",
-    "revision": "e606ff5cc0ef6d221a6a73cfb1daf7e3"
-  },
-  {
-    "url": "miniGame/resource/assets/numberKeyboard/input_room.png",
-    "revision": "574691c6b60e9661c20f63c8bad6b790"
-  },
-  {
-    "url": "miniGame/resource/assets/numberKeyboard/input_vote.png",
-    "revision": "19d0c42c05434f5e79f2b03b3bc9841c"
-  },
-  {
-    "url": "miniGame/resource/assets/numberKeyboard/num_del.png",
-    "revision": "2046125c99f2b15b6d1b05d1a0f9fd9c"
+    "url": "miniGame/resource/assets/numberKeyboard/number-keyboard-icon.png",
+    "revision": "ac63e5f49aaaf4b37d9127be1b7423ac"
   },
   {
     "url": "miniGame/resource/assets/numberKeyboard/numberKeyboard.png",
-    "revision": "d195cf716274ea45937c4659d4d94e53"
+    "revision": "d88e2a1c4d8f54290c4c7e7e1deb7491"
   },
   {
     "url": "miniGame/resource/assets/Panel/about.png",
@@ -780,56 +428,28 @@ self.__precacheManifest = [
     "revision": "b77324f40dd64e23897454a3b3d45aa1"
   },
   {
-    "url": "miniGame/resource/assets/result/false2.png",
-    "revision": "ebcd278b632d05165acbdae1a3585b75"
-  },
-  {
-    "url": "miniGame/resource/assets/result/jzj.png",
-    "revision": "44cc57b2e257cbd6efeebd4f187021a5"
-  },
-  {
     "url": "miniGame/resource/assets/result/lose.png",
     "revision": "82f0ab76b56b997020f2494cfe10249a"
   },
   {
-    "url": "miniGame/resource/assets/result/result1.png",
-    "revision": "65cbd8200bfb1fd710afc9ac4d1e0d7e"
+    "url": "miniGame/resource/assets/result/result.json",
+    "revision": "536cf4a1407dbd395aaeed98792fa45a"
+  },
+  {
+    "url": "miniGame/resource/assets/result/result.png",
+    "revision": "e3ebbdccde0d851de72c41de46baf3a4"
+  },
+  {
+    "url": "miniGame/resource/assets/result/result2.json",
+    "revision": "c4830092497a4f665f6c6fbc96e2a971"
   },
   {
     "url": "miniGame/resource/assets/result/result2.png",
-    "revision": "85c6cdef7f2ddcfd502711baac346854"
-  },
-  {
-    "url": "miniGame/resource/assets/result/result3.png",
-    "revision": "6b0405937be97ade7e1109b7ead24171"
-  },
-  {
-    "url": "miniGame/resource/assets/result/result4.png",
-    "revision": "62c388dd903bd349facc585599f9bccc"
-  },
-  {
-    "url": "miniGame/resource/assets/result/share_team_lao.png",
-    "revision": "8d9d19318a59126afc0374ca53e42c92"
-  },
-  {
-    "url": "miniGame/resource/assets/result/share_team_xu.png",
-    "revision": "2aa7150a800d1fff1b90f61132b22fe5"
-  },
-  {
-    "url": "miniGame/resource/assets/result/teasure12.png",
-    "revision": "19ad11a5bd03ea2ccfd38b873324a75d"
-  },
-  {
-    "url": "miniGame/resource/assets/result/true2.png",
-    "revision": "8594b818a91711054c672caae1bf6e35"
+    "revision": "cd019394803ba19ed68f5fc3e35bdce4"
   },
   {
     "url": "miniGame/resource/assets/result/victory.png",
     "revision": "a19aeab2ad149bd792ce070312ff22af"
-  },
-  {
-    "url": "miniGame/resource/assets/result/vote1.png",
-    "revision": "203b36cc5c186bdb10d9274adb78d4a5"
   },
   {
     "url": "miniGame/resource/assets/ScrollBar/roundthumb.png",
@@ -840,68 +460,20 @@ self.__precacheManifest = [
     "revision": "541048214115efe2a7a2750cde6b4e54"
   },
   {
-    "url": "miniGame/resource/assets/seat/auth.png",
-    "revision": "6038b6c7c6eb0d1582d11b8b74b71d31"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/avatar-background.png",
-    "revision": "a256e3641466f8a6a9b0b1fb546fd043"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/back_2.png",
-    "revision": "0d4b01e6ccc15c51b1579d0bb070cb67"
-  },
-  {
     "url": "miniGame/resource/assets/seat/btn-confirm.png",
     "revision": "7b8dc5016ae0f439979259a44e2b128f"
   },
   {
-    "url": "miniGame/resource/assets/seat/btn-help.png",
-    "revision": "bab7c66cdbbb7a8626c023c2f1ac20aa"
+    "url": "miniGame/resource/assets/seat/circle.json",
+    "revision": "d3c4a9f2447e487d2a404f6ca7d00d32"
   },
   {
-    "url": "miniGame/resource/assets/seat/btn-input-identity.png",
-    "revision": "d6f0f7bcb008ea569f4f24bb2bb0c8c8"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/color-black.png",
-    "revision": "cd2be19de703f80685856082818ae5f3"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/color-blue.png",
-    "revision": "08899c1b11421147cd575b28d7f416ca"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/color-green.png",
-    "revision": "171f2e647ad7135a4985a28423a0af2b"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/color-orange.png",
-    "revision": "010b7720357059f0ef56417e5abe41d4"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/color-purple.png",
-    "revision": "26782d320af055693a2784a5cb500f85"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/color-red.png",
-    "revision": "82ebb7573e70eb1e61bd5be302c42551"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/color-white.png",
-    "revision": "1a3010fa5bc040b27232f3433ff80a6c"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/color-yellow.png",
-    "revision": "2479e7cef9e46cab62ccf30d65192756"
+    "url": "miniGame/resource/assets/seat/circle.png",
+    "revision": "2604e69d6321facf005b729d73255a4d"
   },
   {
     "url": "miniGame/resource/assets/seat/game-init-background.png",
     "revision": "e0c67ebfb31cfb049f6323a30ee768df"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/master-avatar-background.png",
-    "revision": "cd30a4ed721b04fb885c9b8c7e4d5ab2"
   },
   {
     "url": "miniGame/resource/assets/seat/seat-background.png",
@@ -909,35 +481,11 @@ self.__precacheManifest = [
   },
   {
     "url": "miniGame/resource/assets/seat/seat.json",
-    "revision": "67311beeeb3de3212dda8652388616d0"
+    "revision": "621122b131848c11d23b04debe273fcc"
   },
   {
     "url": "miniGame/resource/assets/seat/seat.png",
-    "revision": "1f41d934d3af1a161d7e0487c373d726"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/self-mark.png",
-    "revision": "a8963fdddab780c34174943f28539c82"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/talk_over.png",
-    "revision": "718486c0978c365efb4cc2e845d9da67"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/talking.png",
-    "revision": "c0d1e7cf1449198ebe21213d60e8d96a"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/vote_over.png",
-    "revision": "e592af970ee9e362e1b096fa755e4924"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/waiting-for-all-ready.png",
-    "revision": "8c7cadec0ddf7389d92ee1a9254c42f0"
-  },
-  {
-    "url": "miniGame/resource/assets/seat/waiting-for-master-start.png",
-    "revision": "e1b53ed1d46c6b07c33a983da82edd00"
+    "revision": "b87b696f9c11af628de06c899d29fee4"
   },
   {
     "url": "miniGame/resource/assets/shared/close.png",
@@ -968,72 +516,36 @@ self.__precacheManifest = [
     "revision": "3c72afb44a521d333ad2ff69be3a6ad3"
   },
   {
-    "url": "miniGame/resource/assets/start/btn-board.png",
-    "revision": "d4905fae28b5136dfdf929269ec2eda3"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-create-small.png",
-    "revision": "6272db90dfd12649e4d201126f3523a6"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-create.png",
-    "revision": "f9d8ac5d123086a243c23e6c80750f54"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-game-bar.png",
-    "revision": "ac85fe1c04de997ed9d12c0257cbb987"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-game.png",
-    "revision": "afb5afd35d3d8e13d93453647afe145b"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-guide.png",
-    "revision": "39b31e9184df43aae663369e179a7dda"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-join-small.png",
-    "revision": "9e0a327037416075197d07a4ff5e9c29"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-join.png",
-    "revision": "ac52cc8312fcd7fb08e196a59119957e"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-rank.png",
-    "revision": "8127ead63ab0b87531c10613808b9edc"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-settings.png",
-    "revision": "11610d8752bf28accf9eba6bf9893dce"
-  },
-  {
-    "url": "miniGame/resource/assets/start/btn-share.png",
-    "revision": "f0cfaf1938c75bf27d385e749112a1c1"
+    "url": "miniGame/resource/assets/start/btn-view.png",
+    "revision": "c2963777d52080a1399b8ba4a1a44c46"
   },
   {
     "url": "miniGame/resource/assets/start/game-bg.png",
     "revision": "ddadf8fb69b20e6470545ae5b3e5bc3b"
   },
   {
-    "url": "miniGame/resource/assets/start/navigation-bar.png",
-    "revision": "760ecd4ae28377f46369f44fa8404015"
+    "url": "miniGame/resource/assets/start/img_down.png",
+    "revision": "12fc0ac1098ba0251ce5439402fa9042"
   },
   {
-    "url": "miniGame/resource/assets/start/search.png",
-    "revision": "d0b3c55bacff883dee058668f7476600"
+    "url": "miniGame/resource/assets/start/img_up.png",
+    "revision": "2833514f2dbf9b2cd99dad9ccae1ce37"
   },
   {
-    "url": "miniGame/resource/assets/start/title-assistant.png",
-    "revision": "a892081110e7175d162d99a4370f3e77"
+    "url": "miniGame/resource/assets/start/qrcode.png",
+    "revision": "0ab979d84625d44b82dbba4715ebbaa9"
   },
   {
-    "url": "miniGame/resource/assets/start/title-game.png",
-    "revision": "1fa1f261f36073a2e6375d884af6d61e"
+    "url": "miniGame/resource/assets/start/start.json",
+    "revision": "258016f4808ea396e6f4a67114c99c87"
   },
   {
-    "url": "miniGame/resource/assets/start/userinfo-background.png",
-    "revision": "b9b8c49526e06baf6f7febf7f8d9ca63"
+    "url": "miniGame/resource/assets/start/start.png",
+    "revision": "c0edd7c96979e40ba1581419d7d9e265"
+  },
+  {
+    "url": "miniGame/resource/assets/start/title-more.png",
+    "revision": "2b440caaa25b9b04402b315c24dd7d2c"
   },
   {
     "url": "miniGame/resource/assets/ToggleSwitch/handle.png",
@@ -1048,172 +560,24 @@ self.__precacheManifest = [
     "revision": "1dccf23d316f65d77c6497d3de987b1d"
   },
   {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/auth_player_1.png",
-    "revision": "f9bdaacf4c8e8bf0d7a4c3f2ee051e6f"
+    "url": "miniGame/resource/assets/ToggleSwitch/rank/rank-switch.json",
+    "revision": "3fb34a62a0aed739601a32c24a0a8b37"
   },
   {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/auth_player_2.png",
-    "revision": "3e9ccbf73a9ef17c0e1d705705870cec"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/auth_rate_1.png",
-    "revision": "3cbf4114bf67b6634035a65afcc737a4"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/auth_rate_2.png",
-    "revision": "4fc0c7de9e6066f6cec5510f4132f49c"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/btn-role.png",
-    "revision": "996c2920f9f51c3cbf2437d7805b4605"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/btn-role2.png",
-    "revision": "f1803b5859dbf617a143e2260a28c23d"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/fang1.png",
-    "revision": "8d806d466cbd8a01f6c14361583e6b16"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/fang2.png",
-    "revision": "05544c21bbc31fb1c3f1cb01fc4b108e"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/game6_1.png",
-    "revision": "3f10a4d372c495dee492190af0d36cb7"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/game6_2.png",
-    "revision": "c87aecfaca6faafcff4cd9216138bcf3"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/game7_1.png",
-    "revision": "c6ffcf39fa364638323e951fc83501a2"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/game7_2.png",
-    "revision": "66c8268dee8e56159a30445667e25613"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/game8_1.png",
-    "revision": "12c036690d55dd3c036d286485e41dc6"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/game8_2.png",
-    "revision": "bc9b01784e37efd933128d84e40b8864"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/huang1.png",
-    "revision": "e3088816bb9d6641db691320f0168f92"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/huang2.png",
-    "revision": "7c2d15ecee39851bbf3dba13198e7e3c"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/ji1.png",
-    "revision": "9cfe4aad0763853d19deaa40a3648f40"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/ji2.png",
-    "revision": "e6af50f4030b0ec215dec3e9f0a2576b"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/jushu1.png",
-    "revision": "ed0ac271d31b7c45c54ab4c129565d2c"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/jushu2.png",
-    "revision": "4b6d8f1f39cceb8c1741890e046de637"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/lao1.png",
-    "revision": "d2cc176fd90d3e6a3f6f0eb880f2008e"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/lao2.png",
-    "revision": "cc681196a8abc5de41a8601057a105d5"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/mu1.png",
-    "revision": "51d0c331e7a3ec7c8203ed2508702007"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/mu2.png",
-    "revision": "691d273dd507276ff61d6d44bd6483e0"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/team_lao_3.png",
-    "revision": "aa20fcf5143e7fc16d36618df3c0a2bb"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/team_lao_4.png",
-    "revision": "67a40470dcd4a2abf38bc1b91ee1d160"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/team_xu_3.png",
-    "revision": "a270fb1bc2662f28a3c1fa77829c456e"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/team_xu_4.png",
-    "revision": "dac16c89700ad34ee3850106655715b5"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/total_play_1.png",
-    "revision": "41021f8b667c68384ce44198e6c93a8f"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/total_play_2.png",
-    "revision": "7aae8d1c7073cbec73ef078b588359fa"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/total_rate_1.png",
-    "revision": "ab1e5aa223b95f86af855d86baa244a8"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/total_rate_2.png",
-    "revision": "3ef537f4b0903ba1d248222c45ce4a37"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/win_rate_1.png",
-    "revision": "957b3c217bbb99c40fc06ac261559810"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/win_rate_2.png",
-    "revision": "394f6f88ef0ea198392b38c5e47f816d"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/xu1.png",
-    "revision": "b6a1d27a2928c12566ea89d790b2e82c"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/xu2.png",
-    "revision": "aea4bde60b5167e65217b26381e25c84"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/yao1.png",
-    "revision": "d272afc711a309c973a668989286be30"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/yao2.png",
-    "revision": "ccebfb4fee8b3bb79c1c6a0fb3dd530d"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/zheng1.png",
-    "revision": "50f9036f9dd557ee951678c613337adc"
-  },
-  {
-    "url": "miniGame/resource/assets/ToggleSwitch/rank/zheng2.png",
-    "revision": "925c32962a533dc4a2c7dbbe2c5ec7ac"
+    "url": "miniGame/resource/assets/ToggleSwitch/rank/rank-switch.png",
+    "revision": "54118cecb9b3e279eea92cb764f93ec4"
   },
   {
     "url": "miniGame/resource/config/antiques.json",
     "revision": "934c91d6398d7317a88aa01276cc2b1c"
   },
   {
-    "url": "miniGame/resource/config/clubs.json",
+    "url": "miniGame/resource/config/clubs.bak.json",
     "revision": "fd38e628d9dd204639988510eb6e49df"
+  },
+  {
+    "url": "miniGame/resource/config/clubs.json",
+    "revision": "a3c5ffe6cd95cdf95806502a1150acb1"
   },
   {
     "url": "miniGame/resource/config/description.json",
@@ -1241,31 +605,39 @@ self.__precacheManifest = [
   },
   {
     "url": "miniGame/resource/default.res.json",
-    "revision": "776447d25d1dbef4e716dab7fe0a2a3b"
+    "revision": "a418503b57d36c94acbedd66ef469157"
   },
   {
     "url": "miniGame/resource/default.thm.json",
-    "revision": "2db202ac33c20dff67ee15cfe41a5749"
+    "revision": "d9974b2aaa90e1fc3065726233670c7f"
   },
   {
     "url": "miniGame/resource/gameEui.json",
     "revision": "99914b932bd37a50b983c5e7c90ae93b"
   },
   {
+    "url": "resource/assets/background/number-keyboard-bg.png",
+    "revision": "d9b67b5588f7c12be9edc6d61b375de7"
+  },
+  {
     "url": "resource/assets/background/start-background.png",
     "revision": "f0d99f3bc1e6d25af23c03ab01ab17a1"
+  },
+  {
+    "url": "resource/assets/background/three-kingdoms-bg.png",
+    "revision": "14731f83beef15bb7ba2806e4bf79e37"
   },
   {
     "url": "resource/assets/bg.jpg",
     "revision": "bfbd6002c35cd2bfa99ec5333c2e28f7"
   },
   {
-    "url": "resource/assets/Button/auth3.png",
-    "revision": "39f799ded21e48f183b8c4870a6599ba"
-  },
-  {
     "url": "resource/assets/Button/auth4.png",
     "revision": "e1b8a1a6bd3408b20bdbd5dcd2ef8a15"
+  },
+  {
+    "url": "resource/assets/Button/botton.png",
+    "revision": "88e6d6c2d45866d7011781e07d402033"
   },
   {
     "url": "resource/assets/Button/btn-back.png",
@@ -1284,52 +656,16 @@ self.__precacheManifest = [
     "revision": "92692ac870251779fd12cab48543666b"
   },
   {
-    "url": "resource/assets/Button/cancel2.png",
-    "revision": "91dcdd0c95821ef8e4dfbddfd2c2364a"
-  },
-  {
-    "url": "resource/assets/Button/enter_info.png",
-    "revision": "48f4819433b1b6f05bb94847ab72d75c"
-  },
-  {
-    "url": "resource/assets/Button/ok_2.png",
-    "revision": "92a01ba18f1b604e5b1ad82273a5b88b"
-  },
-  {
     "url": "resource/assets/Button/ok.png",
     "revision": "f9665718654c12da77fb196d22ab57f0"
-  },
-  {
-    "url": "resource/assets/Button/ok2.png",
-    "revision": "02ab55968f5924a4649bc14d0f737234"
   },
   {
     "url": "resource/assets/Button/ok3.png",
     "revision": "a9e28f827bb2f797ef15278c1f86dd7a"
   },
   {
-    "url": "resource/assets/Button/ok4.png",
-    "revision": "e9480f43ea914d4130c727ca5d82013a"
-  },
-  {
-    "url": "resource/assets/Button/skip.png",
-    "revision": "f3fc4ea9bebe43fcc266003c293eb31c"
-  },
-  {
-    "url": "resource/assets/Button/skip2.png",
-    "revision": "0a515d8040cdbef7a0ceefd228afa0ea"
-  },
-  {
-    "url": "resource/assets/Button/start.png",
-    "revision": "31a881a2d229a2aee65fa9055bd5d421"
-  },
-  {
-    "url": "resource/assets/Button/talk_over.png",
-    "revision": "718486c0978c365efb4cc2e845d9da67"
-  },
-  {
-    "url": "resource/assets/Button/vote_over.png",
-    "revision": "e592af970ee9e362e1b096fa755e4924"
+    "url": "resource/assets/Button/share2.png",
+    "revision": "adb390f96e77668f0fa70ee97ed490dc"
   },
   {
     "url": "resource/assets/CheckBox/checkbox_select_disabled.png",
@@ -1348,176 +684,152 @@ self.__precacheManifest = [
     "revision": "2ffa97740e6d6ea0b005b4465255b098"
   },
   {
-    "url": "resource/assets/config/role.json",
-    "revision": "83881fcf4a679aa1741ef206e1972ca1"
+    "url": "resource/assets/club/club_box.png",
+    "revision": "09d7e7fb4b27f0abf2aaa678348548cc"
   },
   {
-    "url": "resource/assets/egret_icon.png",
-    "revision": "d7c7550013fbcae72390f7ce17c78e19"
+    "url": "resource/assets/club/club_results.png",
+    "revision": "2218188b45e2f062ab2ef5186fe48005"
   },
   {
-    "url": "resource/assets/game/auth2.png",
-    "revision": "ade72753bd226833c3d5cc62ae0f2eb1"
+    "url": "resource/assets/club/club-icon.json",
+    "revision": "ef0e70484865f1616f413ad3e3529d7b"
   },
   {
-    "url": "resource/assets/game/bg2.png",
-    "revision": "5a5a314aeeae9b86211c677c4124e4bb"
+    "url": "resource/assets/club/club-icon.png",
+    "revision": "56b45de0ad6766886bf77c7a86476d93"
   },
   {
-    "url": "resource/assets/game/bg3.png",
-    "revision": "6a7e6dcee2af4734751479a511b25152"
+    "url": "resource/assets/club/club-icon2.json",
+    "revision": "a4e4645873311ca1a0136655013d6eae"
   },
   {
-    "url": "resource/assets/game/enter-info.png",
-    "revision": "48f4819433b1b6f05bb94847ab72d75c"
+    "url": "resource/assets/club/club-icon2.png",
+    "revision": "927ecd85c3e14dd9e5e9856288989722"
   },
   {
-    "url": "resource/assets/game/false.png",
-    "revision": "b2547662a4a05ded0ba46336e98d8699"
+    "url": "resource/assets/dragonBones/fangzhen_ske.json",
+    "revision": "9b283f03d48fcc54182bfdcea337d281"
+  },
+  {
+    "url": "resource/assets/dragonBones/fangzhen_tex.json",
+    "revision": "06fdcdad58ca45ad142980de9f8a3d82"
+  },
+  {
+    "url": "resource/assets/dragonBones/fangzhen_tex.png",
+    "revision": "630ca691d5cd6c5ca800078790e6f736"
+  },
+  {
+    "url": "resource/assets/dragonBones/skills_ske.json",
+    "revision": "0b572518b145d250705311b12c8072d5"
+  },
+  {
+    "url": "resource/assets/dragonBones/skills_tex.json",
+    "revision": "d9b093512afa8d2053738daf39fe2500"
+  },
+  {
+    "url": "resource/assets/dragonBones/skills_tex.png",
+    "revision": "ffd8a8276eb20d92ac860655b73a5342"
+  },
+  {
+    "url": "resource/assets/game/antiques.json",
+    "revision": "e2c602d75ef201b86304482f420d54af"
+  },
+  {
+    "url": "resource/assets/game/antiques.png",
+    "revision": "67c32693d56a7261e1c6c6e29a80adf3"
+  },
+  {
+    "url": "resource/assets/game/game-botton.json",
+    "revision": "eb2cd6a9cb5bd90d432060794527c165"
+  },
+  {
+    "url": "resource/assets/game/game-botton.png",
+    "revision": "e48c549eb1b644813b8f7973cdc5769d"
   },
   {
     "url": "resource/assets/game/game-box-border.png",
     "revision": "1c2b9a478d12f6e639a5acfcd86b17c0"
   },
   {
-    "url": "resource/assets/game/role1.png",
-    "revision": "af597bf6db55b107986730982110920c"
+    "url": "resource/assets/game/game-icon.json",
+    "revision": "436f57c04fa6a2ae26c62031063c2a84"
   },
   {
-    "url": "resource/assets/game/role2.png",
-    "revision": "c2146ad42888f88027ed57bcb5d277bb"
+    "url": "resource/assets/game/game-icon.png",
+    "revision": "23c99e12e910a9d158cdd31b7361d403"
   },
   {
-    "url": "resource/assets/game/role3.png",
-    "revision": "8f02fc0df5efea4dcaf124463e99b889"
+    "url": "resource/assets/game/number.png",
+    "revision": "349cb10e4e7e04c0d13a7a79dfa59483"
   },
   {
-    "url": "resource/assets/game/role4-5.png",
-    "revision": "99cb09e3f8b2b2a562695392695ccdc6"
+    "url": "resource/assets/game/role.json",
+    "revision": "cd70d8018506217f0131cb5e37c6a49a"
   },
   {
-    "url": "resource/assets/game/role6.png",
-    "revision": "3e4c3f7108b96c80d55d4de193d57294"
+    "url": "resource/assets/game/role.png",
+    "revision": "cc8fb3832774026fd37ef15820449649"
   },
   {
-    "url": "resource/assets/game/role7.png",
-    "revision": "895d6bd10aec7337deaee7983da6d22c"
+    "url": "resource/assets/game/wait-status.json",
+    "revision": "6e7c124508b4159046b8f63a551aa233"
   },
   {
-    "url": "resource/assets/game/role8.png",
-    "revision": "db46b2c42aa8f4a7f860c368acea7310"
+    "url": "resource/assets/game/wait-status.png",
+    "revision": "f5531017a90179cb3d59f759d2abf326"
   },
   {
-    "url": "resource/assets/game/round1.png",
-    "revision": "866ab0a48e35312db373d9adaafe2c97"
+    "url": "resource/assets/guide/guide.json",
+    "revision": "9482f953d2d1d3b379c69b26338f1843"
   },
   {
-    "url": "resource/assets/game/round2.png",
-    "revision": "897b6b7daabd75d7ae43bf0f96880b5c"
+    "url": "resource/assets/guide/guide.png",
+    "revision": "fdd4974946871b98695890e9c24a682c"
   },
   {
-    "url": "resource/assets/game/round3.png",
-    "revision": "e89de3c80ac9ece5b4975279df1e0222"
+    "url": "resource/assets/guide/manual21.png",
+    "revision": "20d23d42f0053dfbc4e1f8f7ec0aa2cc"
   },
   {
-    "url": "resource/assets/game/self_info.png",
-    "revision": "8192dbd28cdada960794fe565e7efe42"
+    "url": "resource/assets/guide/manual22.png",
+    "revision": "f481c63591b667c56a7d6139f117ad2c"
   },
   {
-    "url": "resource/assets/game/t1.png",
-    "revision": "475f7e7cc8121adfb4f299d67eb140a0"
+    "url": "resource/assets/guide/manual23.png",
+    "revision": "1017b0e483f150471b547aa83b19af20"
   },
   {
-    "url": "resource/assets/game/t10.png",
-    "revision": "b0ff26d51b3294590975cc10934b13bd"
+    "url": "resource/assets/guide/manual31.png",
+    "revision": "5e549bda0d03619495394d965f8f9442"
   },
   {
-    "url": "resource/assets/game/t11.png",
-    "revision": "0094f08f275cef494f314ef735e40b74"
+    "url": "resource/assets/guide/manual32.png",
+    "revision": "bdc30b1af211097d85f63938fda8b0e5"
   },
   {
-    "url": "resource/assets/game/t12.png",
-    "revision": "1fd0e2215621e5578aca48643501a540"
+    "url": "resource/assets/guide/manual33.png",
+    "revision": "85184c3dc781c6fb9823e3742eeab34d"
   },
   {
-    "url": "resource/assets/game/t2.png",
-    "revision": "5a9ece163e8c4b166995d83f91955307"
+    "url": "resource/assets/guide/manual41.png",
+    "revision": "0c81b0b30bfd631463989bdfe31f4af0"
   },
   {
-    "url": "resource/assets/game/t3.png",
-    "revision": "b98a9adf1433726c3cc070c497439e0a"
+    "url": "resource/assets/guide/video.json",
+    "revision": "78440ae4c6ea755eb08b42a9cb5d48c0"
   },
   {
-    "url": "resource/assets/game/t4.png",
-    "revision": "0600376f70e4e69e253856e06b7090d3"
+    "url": "resource/assets/guide/video.png",
+    "revision": "658ecf85804af99346fbbbb88c987f0a"
   },
   {
-    "url": "resource/assets/game/t5.png",
-    "revision": "831a5baa101eecb2908ce8c95f00aeeb"
+    "url": "resource/assets/ItemRenderer/rank/rank-icon.json",
+    "revision": "2a505f5d09e616fafb3101a00e5a7f91"
   },
   {
-    "url": "resource/assets/game/t6.png",
-    "revision": "4e13d79abeb673ca6c64a90ff30e17d7"
-  },
-  {
-    "url": "resource/assets/game/t7.png",
-    "revision": "062a9bba6db72674a2fdc09385cdf855"
-  },
-  {
-    "url": "resource/assets/game/t8.png",
-    "revision": "df216c1c2c1245a4952939c067aad2dd"
-  },
-  {
-    "url": "resource/assets/game/t9.png",
-    "revision": "4ee9d3bc6f6e44cbc0530696338c125e"
-  },
-  {
-    "url": "resource/assets/game/true.png",
-    "revision": "b5e3071b9ba88a9ca312b59f877c9fd9"
-  },
-  {
-    "url": "resource/assets/game/wait-1-players-enough.png",
-    "revision": "c0129e4da3e2b237f74faa647f7d074c"
-  },
-  {
-    "url": "resource/assets/game/wait-2-master-confirm.png",
-    "revision": "62a4984278069f28160f83ef89debfd6"
-  },
-  {
-    "url": "resource/assets/game/wait-3-set-identity.png",
-    "revision": "d52193cdb12df28351072a216764a62c"
-  },
-  {
-    "url": "resource/assets/game/wait-4-others-process.png",
-    "revision": "2e602a9dad7c2bb7092497e157f944a5"
-  },
-  {
-    "url": "resource/assets/game/wait-5-vote.png",
-    "revision": "1d31e6f6317ef91770e69367841594ad"
-  },
-  {
-    "url": "resource/assets/game/wait-6-others-vote.png",
-    "revision": "6bf555f307b06b9fa3b329398f8dee33"
-  },
-  {
-    "url": "resource/assets/ItemRenderer/rank/rank_bg.png",
-    "revision": "5a5a314aeeae9b86211c677c4124e4bb"
-  },
-  {
-    "url": "resource/assets/ItemRenderer/rank/rank1.png",
-    "revision": "5a39a8365bec76a50868fae65874982e"
-  },
-  {
-    "url": "resource/assets/ItemRenderer/rank/rank2.png",
-    "revision": "3716ae6b60a0eabd7e3b4fdd98369b48"
-  },
-  {
-    "url": "resource/assets/ItemRenderer/rank/rank3.png",
-    "revision": "944687d6263d7e53bccdbf7e64b28dc8"
-  },
-  {
-    "url": "resource/assets/ItemRenderer/rank/sep.png",
-    "revision": "e91f34370922f8c6718ab2dff4b09bb7"
+    "url": "resource/assets/ItemRenderer/rank/rank-icon.png",
+    "revision": "7a255e7352c71daa758290aa08877abc"
   },
   {
     "url": "resource/assets/ItemRenderer/selected.png",
@@ -1540,32 +852,32 @@ self.__precacheManifest = [
     "revision": "d0cc8454d7159b47c51ce93ee2cd594c"
   },
   {
-    "url": "resource/assets/myInfo/room6.png",
-    "revision": "45ced5b0e43203a75e86648b76dfecca"
+    "url": "resource/assets/myInfo/self-info.json",
+    "revision": "b6cc1d82e94da228090a44565e0377df"
   },
   {
-    "url": "resource/assets/myInfo/room7.png",
-    "revision": "1222f59a7990873c6195a1164918d3f9"
+    "url": "resource/assets/myInfo/self-info.png",
+    "revision": "f02a18bacf0cd30e290e367d30d1d833"
   },
   {
-    "url": "resource/assets/myInfo/room8.png",
-    "revision": "109b843cd526160af56147f95f3a19c6"
+    "url": "resource/assets/myInfo/tu.json",
+    "revision": "a998e916e24908406a5f29cbd7e84400"
   },
   {
-    "url": "resource/assets/myInfo/score2.png",
-    "revision": "2ae679f8b8a695e2ab476df9ba750504"
+    "url": "resource/assets/myInfo/tu.png",
+    "revision": "90f52e0bd016ac699f63ae5c18287ed5"
   },
   {
-    "url": "resource/assets/myInfo/team_lao_2.png",
-    "revision": "3cd02651174a202b1f14d6b577ae140f"
+    "url": "resource/assets/numberKeyboard/number-keyboard-icon.json",
+    "revision": "03150baf62ec9059f38a42f098f4f9a5"
   },
   {
-    "url": "resource/assets/myInfo/team_xu_2.png",
-    "revision": "0bb2c92c3100929a71f4ed495f5e78d8"
+    "url": "resource/assets/numberKeyboard/number-keyboard-icon.png",
+    "revision": "ac63e5f49aaaf4b37d9127be1b7423ac"
   },
   {
-    "url": "resource/assets/myInfo/win_rate.png",
-    "revision": "41cb73e1bdda5ff239bedd1b42939c8e"
+    "url": "resource/assets/numberKeyboard/numberKeyboard.png",
+    "revision": "d88e2a1c4d8f54290c4c7e7e1deb7491"
   },
   {
     "url": "resource/assets/Panel/about.png",
@@ -1616,6 +928,38 @@ self.__precacheManifest = [
     "revision": "63d3278082ee7a9fd4bc318e5de0755d"
   },
   {
+    "url": "resource/assets/result/border_black.png",
+    "revision": "ffcb496f6b84dc2212656c7dd399d841"
+  },
+  {
+    "url": "resource/assets/result/border_red.png",
+    "revision": "b77324f40dd64e23897454a3b3d45aa1"
+  },
+  {
+    "url": "resource/assets/result/lose.png",
+    "revision": "82f0ab76b56b997020f2494cfe10249a"
+  },
+  {
+    "url": "resource/assets/result/result.json",
+    "revision": "536cf4a1407dbd395aaeed98792fa45a"
+  },
+  {
+    "url": "resource/assets/result/result.png",
+    "revision": "e3ebbdccde0d851de72c41de46baf3a4"
+  },
+  {
+    "url": "resource/assets/result/result2.json",
+    "revision": "c4830092497a4f665f6c6fbc96e2a971"
+  },
+  {
+    "url": "resource/assets/result/result2.png",
+    "revision": "cd019394803ba19ed68f5fc3e35bdce4"
+  },
+  {
+    "url": "resource/assets/result/victory.png",
+    "revision": "a19aeab2ad149bd792ce070312ff22af"
+  },
+  {
     "url": "resource/assets/ScrollBar/roundthumb.png",
     "revision": "5f550ff68f1240501f035fdc0eda0843"
   },
@@ -1624,84 +968,40 @@ self.__precacheManifest = [
     "revision": "541048214115efe2a7a2750cde6b4e54"
   },
   {
-    "url": "resource/assets/seat/avatar-background.png",
-    "revision": "a256e3641466f8a6a9b0b1fb546fd043"
-  },
-  {
-    "url": "resource/assets/seat/back_2.png",
-    "revision": "0d4b01e6ccc15c51b1579d0bb070cb67"
-  },
-  {
     "url": "resource/assets/seat/btn-confirm.png",
     "revision": "7b8dc5016ae0f439979259a44e2b128f"
   },
   {
-    "url": "resource/assets/seat/btn-help.png",
-    "revision": "bab7c66cdbbb7a8626c023c2f1ac20aa"
+    "url": "resource/assets/seat/circle.json",
+    "revision": "d3c4a9f2447e487d2a404f6ca7d00d32"
   },
   {
-    "url": "resource/assets/seat/btn-input-identity.png",
-    "revision": "d6f0f7bcb008ea569f4f24bb2bb0c8c8"
-  },
-  {
-    "url": "resource/assets/seat/color-black.png",
-    "revision": "cd2be19de703f80685856082818ae5f3"
-  },
-  {
-    "url": "resource/assets/seat/color-blue.png",
-    "revision": "08899c1b11421147cd575b28d7f416ca"
-  },
-  {
-    "url": "resource/assets/seat/color-green.png",
-    "revision": "171f2e647ad7135a4985a28423a0af2b"
-  },
-  {
-    "url": "resource/assets/seat/color-orange.png",
-    "revision": "010b7720357059f0ef56417e5abe41d4"
-  },
-  {
-    "url": "resource/assets/seat/color-purple.png",
-    "revision": "26782d320af055693a2784a5cb500f85"
-  },
-  {
-    "url": "resource/assets/seat/color-red.png",
-    "revision": "82ebb7573e70eb1e61bd5be302c42551"
-  },
-  {
-    "url": "resource/assets/seat/color-white.png",
-    "revision": "1a3010fa5bc040b27232f3433ff80a6c"
-  },
-  {
-    "url": "resource/assets/seat/color-yellow.png",
-    "revision": "2479e7cef9e46cab62ccf30d65192756"
+    "url": "resource/assets/seat/circle.png",
+    "revision": "2604e69d6321facf005b729d73255a4d"
   },
   {
     "url": "resource/assets/seat/game-init-background.png",
     "revision": "e0c67ebfb31cfb049f6323a30ee768df"
   },
   {
-    "url": "resource/assets/seat/master-avatar-background.png",
-    "revision": "cd30a4ed721b04fb885c9b8c7e4d5ab2"
-  },
-  {
     "url": "resource/assets/seat/seat-background.png",
     "revision": "3b6b50109cd1c15c73f98ea9b09f4f8d"
   },
   {
-    "url": "resource/assets/seat/self-mark.png",
-    "revision": "a8963fdddab780c34174943f28539c82"
+    "url": "resource/assets/seat/seat.json",
+    "revision": "621122b131848c11d23b04debe273fcc"
   },
   {
-    "url": "resource/assets/seat/waiting-for-all-ready.png",
-    "revision": "8c7cadec0ddf7389d92ee1a9254c42f0"
-  },
-  {
-    "url": "resource/assets/seat/waiting-for-master-start.png",
-    "revision": "e1b53ed1d46c6b07c33a983da82edd00"
+    "url": "resource/assets/seat/seat.png",
+    "revision": "b87b696f9c11af628de06c899d29fee4"
   },
   {
     "url": "resource/assets/shared/close.png",
     "revision": "237640de87e3a894945b5c0805fd3a4a"
+  },
+  {
+    "url": "resource/assets/shared/share.png",
+    "revision": "e36c70ba779e85d69f4ed7df1a29f787"
   },
   {
     "url": "resource/assets/shared/small-dialog-background.png",
@@ -1720,44 +1020,40 @@ self.__precacheManifest = [
     "revision": "5f550ff68f1240501f035fdc0eda0843"
   },
   {
-    "url": "resource/assets/start/btn-board.png",
-    "revision": "d4905fae28b5136dfdf929269ec2eda3"
+    "url": "resource/assets/start/assistant-bg.png",
+    "revision": "3c72afb44a521d333ad2ff69be3a6ad3"
   },
   {
-    "url": "resource/assets/start/btn-create-small.png",
-    "revision": "6272db90dfd12649e4d201126f3523a6"
+    "url": "resource/assets/start/btn-view.png",
+    "revision": "c2963777d52080a1399b8ba4a1a44c46"
   },
   {
-    "url": "resource/assets/start/btn-create.png",
-    "revision": "3237d088f29e455142a141b38e6643cc"
+    "url": "resource/assets/start/game-bg.png",
+    "revision": "ddadf8fb69b20e6470545ae5b3e5bc3b"
   },
   {
-    "url": "resource/assets/start/btn-guide.png",
-    "revision": "39b31e9184df43aae663369e179a7dda"
+    "url": "resource/assets/start/img_down.png",
+    "revision": "12fc0ac1098ba0251ce5439402fa9042"
   },
   {
-    "url": "resource/assets/start/btn-join-small.png",
-    "revision": "9e0a327037416075197d07a4ff5e9c29"
+    "url": "resource/assets/start/img_up.png",
+    "revision": "2833514f2dbf9b2cd99dad9ccae1ce37"
   },
   {
-    "url": "resource/assets/start/btn-join.png",
-    "revision": "69a066270405ca1c83861e4f274f64d3"
+    "url": "resource/assets/start/qrcode.png",
+    "revision": "0ab979d84625d44b82dbba4715ebbaa9"
   },
   {
-    "url": "resource/assets/start/btn-rank.png",
-    "revision": "8127ead63ab0b87531c10613808b9edc"
+    "url": "resource/assets/start/start.json",
+    "revision": "258016f4808ea396e6f4a67114c99c87"
   },
   {
-    "url": "resource/assets/start/btn-settings.png",
-    "revision": "11610d8752bf28accf9eba6bf9893dce"
+    "url": "resource/assets/start/start.png",
+    "revision": "c0edd7c96979e40ba1581419d7d9e265"
   },
   {
-    "url": "resource/assets/start/btn-share.png",
-    "revision": "f0cfaf1938c75bf27d385e749112a1c1"
-  },
-  {
-    "url": "resource/assets/start/userinfo-background.png",
-    "revision": "b9b8c49526e06baf6f7febf7f8d9ca63"
+    "url": "resource/assets/start/title-more.png",
+    "revision": "2b440caaa25b9b04402b315c24dd7d2c"
   },
   {
     "url": "resource/assets/ToggleSwitch/handle.png",
@@ -1772,176 +1068,52 @@ self.__precacheManifest = [
     "revision": "1dccf23d316f65d77c6497d3de987b1d"
   },
   {
-    "url": "resource/assets/ToggleSwitch/rank/auth_player_1.png",
-    "revision": "f9bdaacf4c8e8bf0d7a4c3f2ee051e6f"
+    "url": "resource/assets/ToggleSwitch/rank/rank-switch.json",
+    "revision": "3fb34a62a0aed739601a32c24a0a8b37"
   },
   {
-    "url": "resource/assets/ToggleSwitch/rank/auth_player_2.png",
-    "revision": "3e9ccbf73a9ef17c0e1d705705870cec"
+    "url": "resource/assets/ToggleSwitch/rank/rank-switch.png",
+    "revision": "54118cecb9b3e279eea92cb764f93ec4"
   },
   {
-    "url": "resource/assets/ToggleSwitch/rank/auth_rate_1.png",
-    "revision": "3cbf4114bf67b6634035a65afcc737a4"
+    "url": "resource/config/antiques.json",
+    "revision": "934c91d6398d7317a88aa01276cc2b1c"
   },
   {
-    "url": "resource/assets/ToggleSwitch/rank/auth_rate_2.png",
-    "revision": "4fc0c7de9e6066f6cec5510f4132f49c"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/btn-role.png",
-    "revision": "996c2920f9f51c3cbf2437d7805b4605"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/btn-role2.png",
-    "revision": "f1803b5859dbf617a143e2260a28c23d"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/fang1.png",
-    "revision": "8d806d466cbd8a01f6c14361583e6b16"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/fang2.png",
-    "revision": "05544c21bbc31fb1c3f1cb01fc4b108e"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/game6_1.png",
-    "revision": "3f10a4d372c495dee492190af0d36cb7"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/game6_2.png",
-    "revision": "c87aecfaca6faafcff4cd9216138bcf3"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/game7_1.png",
-    "revision": "c6ffcf39fa364638323e951fc83501a2"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/game7_2.png",
-    "revision": "66c8268dee8e56159a30445667e25613"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/game8_1.png",
-    "revision": "12c036690d55dd3c036d286485e41dc6"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/game8_2.png",
-    "revision": "bc9b01784e37efd933128d84e40b8864"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/huang1.png",
-    "revision": "e3088816bb9d6641db691320f0168f92"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/huang2.png",
-    "revision": "7c2d15ecee39851bbf3dba13198e7e3c"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/ji1.png",
-    "revision": "9cfe4aad0763853d19deaa40a3648f40"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/ji2.png",
-    "revision": "e6af50f4030b0ec215dec3e9f0a2576b"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/jushu1.png",
-    "revision": "ed0ac271d31b7c45c54ab4c129565d2c"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/jushu2.png",
-    "revision": "4b6d8f1f39cceb8c1741890e046de637"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/lao1.png",
-    "revision": "d2cc176fd90d3e6a3f6f0eb880f2008e"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/lao2.png",
-    "revision": "cc681196a8abc5de41a8601057a105d5"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/mu1.png",
-    "revision": "51d0c331e7a3ec7c8203ed2508702007"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/mu2.png",
-    "revision": "691d273dd507276ff61d6d44bd6483e0"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/team_lao_3.png",
-    "revision": "aa20fcf5143e7fc16d36618df3c0a2bb"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/team_lao_4.png",
-    "revision": "67a40470dcd4a2abf38bc1b91ee1d160"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/team_xu_3.png",
-    "revision": "a270fb1bc2662f28a3c1fa77829c456e"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/team_xu_4.png",
-    "revision": "dac16c89700ad34ee3850106655715b5"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/total_play_1.png",
-    "revision": "41021f8b667c68384ce44198e6c93a8f"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/total_play_2.png",
-    "revision": "7aae8d1c7073cbec73ef078b588359fa"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/total_rate_1.png",
-    "revision": "ab1e5aa223b95f86af855d86baa244a8"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/total_rate_2.png",
-    "revision": "3ef537f4b0903ba1d248222c45ce4a37"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/win_rate_1.png",
-    "revision": "957b3c217bbb99c40fc06ac261559810"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/win_rate_2.png",
-    "revision": "394f6f88ef0ea198392b38c5e47f816d"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/xu1.png",
-    "revision": "b6a1d27a2928c12566ea89d790b2e82c"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/xu2.png",
-    "revision": "aea4bde60b5167e65217b26381e25c84"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/yao1.png",
-    "revision": "d272afc711a309c973a668989286be30"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/yao2.png",
-    "revision": "ccebfb4fee8b3bb79c1c6a0fb3dd530d"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/zheng1.png",
-    "revision": "50f9036f9dd557ee951678c613337adc"
-  },
-  {
-    "url": "resource/assets/ToggleSwitch/rank/zheng2.png",
-    "revision": "925c32962a533dc4a2c7dbbe2c5ec7ac"
+    "url": "resource/config/clubs.json",
+    "revision": "fd38e628d9dd204639988510eb6e49df"
   },
   {
     "url": "resource/config/description.json",
     "revision": "53ec3cea96670c9e36a683e0842ad67b"
   },
   {
+    "url": "resource/config/game-term.json",
+    "revision": "e7c04b454647d3368ea904004e1996af"
+  },
+  {
+    "url": "resource/config/photon.json",
+    "revision": "9ee304bbff81116b44fe85ab8cf01823"
+  },
+  {
+    "url": "resource/config/rank.json",
+    "revision": "ef7484edec56d7299e0fa66734a1e16b"
+  },
+  {
+    "url": "resource/config/role.json",
+    "revision": "f77f1b695f2c32e81df6d9fa93cd5193"
+  },
+  {
+    "url": "resource/config/seats.json",
+    "revision": "e2be56369847ad41954419ef1644f96b"
+  },
+  {
     "url": "resource/default.res.json",
-    "revision": "2edd204e39d6071554c684c214bb6514"
+    "revision": "a418503b57d36c94acbedd66ef469157"
   },
   {
     "url": "resource/default.thm.json",
-    "revision": "94bdef914cc26cee491f118610d36c6d"
+    "revision": "d9974b2aaa90e1fc3065726233670c7f"
   },
   {
     "url": "resource/gameEui.json",
