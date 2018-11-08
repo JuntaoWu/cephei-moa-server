@@ -146,7 +146,7 @@ const jwtOptions = {
 };
 
 const jwtWxLogin = new JwtStrategy(jwtOptions, (payload, done) => {
-    WxUserModel.findOne({ openId: payload.openId }).then(user => {
+    WxUserModel.findOne({ unionId: payload.unionId }).then(user => {
         done(null, user);
     }).catch(error => {
         done(null, false);

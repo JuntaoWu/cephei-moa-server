@@ -9,6 +9,8 @@ router.post('/login-wxgame', passport.authenticate("localWxGame"), wxUserCtrl.lo
 
 router.post('/login-native', passport.authenticate("localNative"), wxUserCtrl.loginNative);
 
+router.post('/authorize-wxgame', wxUserCtrl.authorizeWxGame);
+
 router.get('/photon-login', (req: Request, res: Response, next: NextFunction) => {
 
     const unionId: string = req.query.unionId;

@@ -63,6 +63,10 @@ export let loginNative = async (req, res, next) => {
     return login(req, res, next);
 };
 
+export let authorizeWxGame = async (req, res, next) => {
+    console.log("authorizeWxGame");
+};
+
 let login = (req, res, next) => {
     if (req.user) {
         const token = jwt.sign({
@@ -79,6 +83,7 @@ let login = (req, res, next) => {
                 wxgameOpenId: req.user.wxgameOpenId,
                 nativeOpenId: req.user.nativeOpenId,
                 unionId: req.user.unionId,
+                session_key: req.user.session_key,
             }
         });
     }
@@ -87,4 +92,4 @@ let login = (req, res, next) => {
     return next(err);
 };
 
-export default { loginWxGame, loginNative, load };
+export default { loginWxGame, loginNative, authorizeWxGame, load };
