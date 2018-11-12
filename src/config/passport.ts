@@ -51,7 +51,7 @@ const localWxGameLogin = new LocalStrategy(localWxGameOptions, (username, passwo
 
                 let user = await WxUserModel.findOne({ wxgameOpenId: openid });
 
-                if (!user) {
+                if (!user || user.session_key != session_key) {
                     //note this is a temporary user model, do not save it now. Instead, we should save it later when get user info(for unionId).
                     user = new WxUserModel({
                         wxgameOpenId: openid,
@@ -146,6 +146,11 @@ const jwtOptions = {
 };
 
 const jwtWxLogin = new JwtStrategy(jwtOptions, (payload, done) => {
+
+    if(!payload.unionId) {
+        return done(null, false);
+    }
+
     WxUserModel.findOne({ unionId: payload.unionId }).then(user => {
         done(null, user);
     }).catch(error => {

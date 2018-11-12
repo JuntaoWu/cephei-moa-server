@@ -1,15 +1,16 @@
-import WxUserModel, { WxUser } from '../models/wxuser.model';
-import { Request, Response } from "express";
-import { IncomingMessage } from 'http';
 
+import { Request, Response, NextFunction } from "express";
+import { IncomingMessage } from 'http';
 import * as jwt from 'jsonwebtoken';
 import httpStatus from 'http-status';
+import CryptoJS, { AES, CipherOption } from 'crypto-js';
 
 import { config } from '../config/config';
 import { APIError } from '../helpers/APIError';
+import WxUserModel, { WxUser } from '../models/wxuser.model';
 
 export let load = async (params: any) => {
-    return WxUserModel.findOne({ openId: params.openId });
+    return WxUserModel.findOne({ unionId: params.unionId });
 }
 
 export let list = async (params: { limit?: number, skip?: number }) => {
@@ -63,8 +64,40 @@ export let loginNative = async (req, res, next) => {
     return login(req, res, next);
 };
 
-export let authorizeWxGame = async (req, res, next) => {
+export let authorizeWxGame = async (req: Request, res: Response, next: NextFunction) => {
     console.log("authorizeWxGame");
+    console.log(req.body);
+
+    let user = await WxUserModel.findOne({ wxgameOpenId: req.body.wxgameOpenId }).catch((error) => {
+        console.error(error); return undefined;
+    });
+
+    if (!user) {
+        user = new WxUserModel(req.body);
+    }
+
+    if (!user.unionId) {
+        let encryptedData = req.body.encryptedData;  //new Buffer(req.body.encryptedData, "base64");
+        let sessionKey = CryptoJS.enc.Base64.parse(req.body.session_key.toString());  //new Buffer(user.session_key.toString(), "base64");
+        let iv = CryptoJS.enc.Base64.parse(req.body.iv);  //new Buffer(req.body.iv, "base64");
+        let result = AES.decrypt(encryptedData as any, sessionKey as any, {
+            iv: iv as any,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        }).toString(CryptoJS.enc.Utf8);
+
+        let decryptedData = JSON.parse(result);
+
+        user.unionId = decryptedData.unionId;
+    }
+
+    await user.save().catch((error) => {
+        console.error(error);
+        return undefined;
+    });
+
+    req.user = user;
+    return login(req, res, next);
 };
 
 let login = (req, res, next) => {
