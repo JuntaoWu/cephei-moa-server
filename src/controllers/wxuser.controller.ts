@@ -68,8 +68,10 @@ export let authorizeWxGame = async (req: Request, res: Response, next: NextFunct
     console.log("authorizeWxGame");
     console.log(req.body);
 
+    // Check if user had been logged in WxGame.
     let user = await WxUserModel.findOne({ wxgameOpenId: req.body.wxgameOpenId }).catch((error) => {
-        console.error(error); return undefined;
+        console.error(error);
+        return undefined;
     });
 
     if (!user) {
@@ -91,12 +93,37 @@ export let authorizeWxGame = async (req: Request, res: Response, next: NextFunct
         user.unionId = decryptedData.unionId;
     }
 
-    await user.save().catch((error) => {
+    // existing user from db.
+    let existingUser = await WxUserModel.findOne({ unionId: user.unionId }).catch((error) => {
         console.error(error);
         return undefined;
     });
 
-    req.user = user;
+    // if user had been logged in 
+    if (existingUser) {
+        existingUser.wxgameOpenId = user.wxgameOpenId;
+        existingUser.nickName = user.nickName;
+        existingUser.gender = user.gender;
+        existingUser.province = user.province;
+        existingUser.city = user.city;
+        existingUser.country = user.country;
+        existingUser.avatarUrl = user.avatarUrl;
+        await existingUser.save().catch((error) => {
+            console.error(error);
+            return undefined;
+        });
+
+        req.user = existingUser;
+    }
+    else {
+        // create/update user now.
+        await user.save().catch((error) => {
+            console.error(error);
+            return undefined;
+        });
+        req.user = user;
+    }
+
     return login(req, res, next);
 };
 
