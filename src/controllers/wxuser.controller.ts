@@ -8,6 +8,7 @@ import CryptoJS, { AES, CipherOption } from 'crypto-js';
 import { config } from '../config/config';
 import { APIError } from '../helpers/APIError';
 import WxUserModel, { WxUser } from '../models/wxuser.model';
+import { DocumentQuery } from "mongoose";
 
 export let load = async (params: any) => {
     return WxUserModel.findOne({ unionId: params.unionId });
@@ -15,6 +16,7 @@ export let load = async (params: any) => {
 
 export let list = async (params: { limit?: number, skip?: number }) => {
     const { limit = 50, skip = 0 } = params;
+    
     return await WxUserModel.find()
         .skip(+skip)
         .limit(+limit)
@@ -94,10 +96,11 @@ export let authorizeWxGame = async (req: Request, res: Response, next: NextFunct
     }
 
     // existing user from db.
-    let existingUser = await WxUserModel.findOne({ unionId: user.unionId }).catch((error) => {
-        console.error(error);
-        return undefined;
-    });
+    let existingUser = await WxUserModel.findOne({ unionId: user.unionId })
+        // .catch((error) => {
+        //     console.error(error);
+        //     return undefined;
+        // });
 
     // if user had been logged in 
     if (existingUser) {
@@ -108,10 +111,16 @@ export let authorizeWxGame = async (req: Request, res: Response, next: NextFunct
         existingUser.city = user.city;
         existingUser.country = user.country;
         existingUser.avatarUrl = user.avatarUrl;
-        await existingUser.save().catch((error) => {
-            console.error(error);
-            return undefined;
-        });
+
+        if (!existingUser.migrated)
+
+            //todo:
+            existingUser.migrated = true;
+
+            await existingUser.save().catch((error) => {
+                console.error(error);
+                return undefined;
+            });
 
         req.user = existingUser;
     }
