@@ -148,11 +148,11 @@ const getNativeUserInfoAsync = async (accessToken: string, openId: string): Prom
                     let result = JSON.parse(userInfoData);
 
                     let { openid, unionid, nickname, sex, province, city, country, headimgurl } = result;
-
-                    let user = await WxUserModel.findOne({ unionId: unionid });
-
-                    if (!user) {
-                        user = new WxUserModel({
+                    if (!openid) {
+                        return reject(result);
+                    }
+                    else {
+                        let user = {
                             nativeOpenId: openid,
                             unionId: unionid,
                             nickName: nickname,
@@ -161,28 +161,10 @@ const getNativeUserInfoAsync = async (accessToken: string, openId: string): Prom
                             city: city,
                             country: country,
                             avatarUrl: headimgurl,
-                            migrated: false,
-                        });
+                        };
+
+                        return resolve(user);
                     }
-                    else {
-                        user.nativeOpenId = openid;
-                        user.nickName = nickname;
-                        user.gender = sex;
-                        user.province = province;
-                        user.city = city;
-                        user.country = country;
-                        user.avatarUrl = headimgurl;
-
-                        //todo: check if this user's data had been migrated
-                        if(!user.migrated) {
-
-                            //user.migrated = true;
-                        }
-                    }
-
-                    user = await user.save();
-
-                    return resolve(user);
                 }
                 catch (ex) {
                     return reject(ex);
@@ -196,7 +178,7 @@ const getNativeUserInfoAsync = async (accessToken: string, openId: string): Prom
 
 // Setting up local NativeLogin (via App) strategy
 const localNativeLogin = new LocalStrategy(localWxGameOptions, async (username, password, done) => {
-    console.log("localWxGameLoginMobile");
+    console.log("localNativeLogin");
 
     if (!username) {
         return done(null, false, {

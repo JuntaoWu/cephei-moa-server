@@ -1,61 +1,55 @@
 import RankModel, { Rank } from '../models/rank.model';
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { IncomingMessage } from 'http';
-import UserInfoModel from '../models/wxuser.model';
+import WxUserModel, { WxUser } from '../models/wxuser.model';
 
-export let load = async (params: any) => {
-    return RankModel.findOne({ openId: params.openId });
-}
+export let leaderBoard = async (req: Request, res: Response, next: NextFunction) => {
+    console.log("leaderBoard");
 
-export let list = async (params: { limit?: number, skip?: number, condition?: string, order?: string }) => {
-    const { limit = 10, skip = 0, condition = "collectScore", order = "desc" } = params;
-    let existsCondition = {};
-    existsCondition[condition] = { $ne: null };
-    return await RankModel.find(existsCondition).sort(`${order == "desc" ? "-" : ""}${condition}`)
-        .skip(+skip)
-        .limit(+limit)
-        .exec();
-}
+    let { skip, limit, mode, role, orderType } = req.query;
 
-export let get = (req: Request, res: Response) => {
-    return res.json(req.params.rank);
-}
+    skip = Math.max(0, (+skip || 0));
+    limit = Math.max(0, (+limit || 100));
+    mode = +mode || 0;
+    role = +role || 0;
+    orderType = orderType || "winRate";
 
-export let create = async (body: any) => {
-    if (!body || !body.openId) {
-        return;
-    }
-    let existsItem = await RankModel.findOne({ openId: body.openId });
-    if (existsItem) {
-        return existsItem;
-    }
-    const rank = new RankModel(body);
-    await rank.save();
-    return RankModel.findOne();
-}
+    let sortBy = {};
+    sortBy[orderType] = -1;
+    sortBy[sortBy["winRate"] ? "countTotal" : "winRate"] = -1;
+    let dbResult = await RankModel.aggregate([
+        {
+            $match: { $and: [{ mode: mode }, { role: role }] }
+        },
+        { $sort: sortBy },
+        { $skip: 0 },
+        { $limit: limit },
+        {
+            $lookup: {
+                from: "wxusers",
+                localField: "userId",
+                foreignField: "userId",
+                as: "fromUsers"
+            }
+        },
+        {
+            $replaceRoot: { newRoot: { $mergeObjects: [{ $arrayElemAt: ["$fromUsers", 0] }, "$$ROOT"] } }
+        },
+        { $project: { fromUsers: 0 } }
+    ]);
 
-export let update = (openId, body: Rank) => {
-    return load({ openId: openId }).then(async (rank) => {
-        if (!rank.nickName || !rank.avatarUrl) {
-            let userInfo = await UserInfoModel.findOne({ openId: openId });
-            rank.nickName = userInfo.nickName;
-            rank.avatarUrl = userInfo.avatarUrl;
-        }
-        const tmp = rank;
-        if (body.collectScore && body.collectScore > (rank.collectScore || 0)) {
-            rank.collectScore = body.collectScore;
-        }
-        if (body.points > (rank.points || 0)) {
-            rank.points = body.points;
-        }
-        if (body.speed && (body.speed < rank.speed || !rank.speed)) {
-            rank.speed = body.speed;
-        }
-        return rank.save();
+    return res.json({
+        error: false,
+        message: "OK",
+        data: dbResult.map((rank, index) => {
+            return {
+                userId: rank.userId,
+                nickName: rank.nickName || "",
+                avatarUrl: rank.avatarUrl || "",
+                countTotal: rank.countTotal || 0,
+                winRate: rank.winRate || 0
+            };
+        })
     });
-}
-
-export let remove = (params: any) => {
-    return load(params).then((rank) => rank.remove());
-}
+};
 

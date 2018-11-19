@@ -1,7 +1,4 @@
-import Promise from 'bluebird';
-import mongoose, { mongo, Mongoose, MongooseDocument } from 'mongoose';
-import httpStatus from 'http-status';
-import APIError from '../helpers/APIError';
+import Promise, { resolve } from 'bluebird';
 import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
 import { required } from 'joi';
 
@@ -10,17 +7,17 @@ import { required } from 'joi';
  */
 export class Rank extends Typegoose {
     @prop()
-    openId: String;
+    userId: String;
     @prop()
-    nickName?: String;
+    mode?: Number;
     @prop()
-    avatarUrl?: String;
+    role?: Number;
     @prop()
-    collectScore?: Number;
+    countWin?: Number;
     @prop()
-    points?: Number;
+    countTotal?: Number;
     @prop()
-    speed?: Number;
+    winRate?: Number;
 }
 
 const RankModel = new Rank().getModelForClass(Rank);

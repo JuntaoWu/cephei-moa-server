@@ -1,13 +1,12 @@
 
-import Promise from "bluebird";
-import mongoose, { mongo, Mongoose, MongooseDocument } from "mongoose";
-
 import { prop, Typegoose, ModelType, InstanceType } from "typegoose";
 
 /**
  * WxUser Schema
  */
 export class WxUser extends Typegoose {
+    @prop()
+    userId: Number;
     @prop()
     wxgameOpenId: String;
     @prop()
@@ -31,7 +30,7 @@ export class WxUser extends Typegoose {
     @prop()
     province?: String;
     @prop()
-    score?: Number;
+    registeredAt?: Date;
     @prop()
     migrated?: Boolean;
 }
