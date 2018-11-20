@@ -26,10 +26,10 @@ export let list = async (req: Request, res: Response, next: NextFunction) => {
     let count8Total = total8 && total8.countTotal || 0;
     let count8Win = total8 && total8.countWin || 0;
 
-    let countXuyuanTotal = _(myRank.filter(rank => rank.mode == 0 && rank.role > 0 && rank.role <= 4)).sumBy("countTotal");
-    let countLaoChaofengTotal = _(myRank.filter(rank => rank.mode == 0 && rank.role > 4 && rank.role <= 8)).sumBy("countTotal");
-    let countXuYuanWin = _(myRank.filter(rank => rank.mode == 0 && rank.role > 0 && rank.role <= 4)).sumBy("countWin");
-    let countLaoChaofengWin = _(myRank.filter(rank => rank.mode == 0 && rank.role > 0 && rank.role <= 4)).sumBy("countWin");
+    let countXuyuanTotal = _(myRank.filter(rank => rank.mode == 0 && rank.role > 0 && rank.role <= 5)).sumBy("countTotal");
+    let countLaoChaofengTotal = _(myRank.filter(rank => rank.mode == 0 && rank.role > 5 && rank.role <= 8)).sumBy("countTotal");
+    let countXuYuanWin = _(myRank.filter(rank => rank.mode == 0 && rank.role > 0 && rank.role <= 5)).sumBy("countWin");
+    let countLaoChaofengWin = _(myRank.filter(rank => rank.mode == 0 && rank.role > 5 && rank.role <= 8)).sumBy("countWin");
 
     return res.json({
         error: false,
@@ -44,18 +44,21 @@ export let load = (recordId: string) => {
     return RecordModel.findOne({ recordId: recordId });
 }
 
-export let create = async (body: any) => {
-    let existingRecord = await RecordModel.findOne({ roomName: body.roomName, openId: body.openId });
+export let create = async (req, res, next) => {
+
+    let existingRecord = await RecordModel.findOne({ roomName: req.body.roomName, userId: req.user.userId });
     if (existingRecord) {
         return;
     }
 
-    const record = new RecordModel(body);
+    const record = new RecordModel(req.body);
+    await record.save();
 
-    return record.save();
+    return list(req, res, next);
 }
 
 export let remove = (params: any) => {
     return load(params).then((record) => record.remove());
 }
 
+export default { list, create };

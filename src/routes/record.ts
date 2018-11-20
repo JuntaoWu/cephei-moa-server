@@ -9,18 +9,6 @@ import { Request, Response, NextFunction } from 'express';
 
 router.post('/', passport.authenticate("jwtWx"), recordCtrl.list);
 
-router.post('/create', (req, res, next) => {
-    console.log("create:", req.body);
-
-    return recordCtrl.create(req.body)
-        .then(savedRecord => {
-            return recordCtrl.list(req, res, next);
-        }).catch(e => {
-            return res.json({
-                error: true,
-                message: "saving records failed",
-            });
-        });
-});
+router.post('/create', passport.authenticate("jwtWx"), recordCtrl.create);
 
 export default router;
