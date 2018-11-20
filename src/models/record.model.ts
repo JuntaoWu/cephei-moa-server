@@ -10,7 +10,8 @@ import RankModel from './rank.model';
 /**
  * Record Schema
  */
-@pre<Record>('save', async function (next) { // or @pre(this: Record, 'save', ...
+//todo: Note: we should not use async function here. Instead, use callback-style calls.
+@pre<Record>('save', function (next) { // or @pre(this: Record, 'save', ...
 
     if (!this.isNew) {
         return next();
