@@ -13,7 +13,7 @@ import { DocumentQuery } from "mongoose";
 import RankModel from "../models/rank.model";
 
 export let load = async (params: any) => {
-    return WxUserModel.findOne({ unionId: params.unionId });
+    return WxUserModel.findOne({ userId: params.userId });
 }
 
 export let loginWxGame = async (req, res, next) => {
@@ -32,6 +32,7 @@ export let loginNative = async (req, res, next) => {
         });
     if (!user) {
         user = new WxUserModel(req.user);
+        user.registeredAt = new Date();
         await user.save();
     }
     else {
@@ -77,6 +78,7 @@ export let authorizeWxGame = async (req: Request, res: Response, next: NextFunct
         });
     if (!user) {
         user = new WxUserModel(req.body);
+        user.registeredAt = new Date();
         await user.save();
     }
     else {

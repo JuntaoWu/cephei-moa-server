@@ -220,11 +220,11 @@ const jwtOptions = {
 
 const jwtWxLogin = new JwtStrategy(jwtOptions, (payload, done) => {
 
-    if (!payload.unionId) {
+    if (!payload.userId) {
         return done(null, false);
     }
 
-    WxUserModel.findOne({ unionId: payload.unionId }).then(user => {
+    WxUserModel.findOne({ userId: payload.userId }).then(user => {
         done(null, user);
     }).catch(error => {
         done(null, false);

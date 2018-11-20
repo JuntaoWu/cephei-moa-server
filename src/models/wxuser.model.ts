@@ -19,6 +19,11 @@ const CounterModel = new CounterSchema().getModelForClass(CounterSchema);
  * WxUser Schema
  */
 @pre<WxUser>('save', function (next) { // or @pre(this: WxUser, 'save', ...
+
+    if (!this.isNew) {
+        return next();
+    }
+
     CounterModel.findOneAndUpdate(
         { seqName: "WxUser" },
         { $inc: { seq: 1 } },
@@ -27,7 +32,7 @@ const CounterModel = new CounterSchema().getModelForClass(CounterSchema);
             if (error) {
                 return next(error);
             }
-            this.userId = counter.seq;
+            this.userId = 200000 + (+counter.seq);
             next();
         });
 })
