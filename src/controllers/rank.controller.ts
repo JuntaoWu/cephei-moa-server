@@ -6,23 +6,30 @@ import WxUserModel, { WxUser } from '../models/wxuser.model';
 export let leaderBoard = async (req: Request, res: Response, next: NextFunction) => {
     console.log("leaderBoard");
 
-    let { skip, limit, mode, role, orderType } = req.query;
+    let { skip, limit, mode, role, orderType, minimumCount } = req.query;
 
     skip = Math.max(0, (+skip || 0));
     limit = Math.max(0, (+limit || 100));
     mode = +mode || 0;
     role = +role || 0;
     orderType = orderType || "winRate";
+    minimumCount = +minimumCount || 0;
 
     let sortBy = {};
     sortBy[orderType] = -1;
     sortBy[sortBy["winRate"] ? "countTotal" : "winRate"] = -1;
     let dbResult = await RankModel.aggregate([
         {
-            $match: { $and: [{ mode: mode }, { role: role }] }
+            $match: {
+                $and: [
+                    { mode: mode },
+                    { role: role },
+                    { countTotal: { $gte: minimumCount } }
+                ]
+            }
         },
         { $sort: sortBy },
-        { $skip: 0 },
+        { $skip: skip },
         { $limit: limit },
         {
             $lookup: {
@@ -44,9 +51,12 @@ export let leaderBoard = async (req: Request, res: Response, next: NextFunction)
         data: dbResult.map((rank, index) => {
             return {
                 userId: rank.userId,
-                nickName: rank.nickName || "",
+                nickName: rank.nickName || (rank.registeredAt ? "" : "游客"),
                 avatarUrl: rank.avatarUrl || "",
+                mode: rank.mode || 0,
+                role: rank.role || 0,
                 countTotal: rank.countTotal || 0,
+                countWin: rank.countWin || 0,
                 winRate: rank.winRate || 0
             };
         })

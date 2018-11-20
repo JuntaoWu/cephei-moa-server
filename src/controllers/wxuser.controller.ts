@@ -32,8 +32,7 @@ export let loginNative = async (req, res, next) => {
         });
     if (!user) {
         user = new WxUserModel(req.user);
-        let maxUserId = await WxUserModel.findOne({ $max: "userId" });
-        user.userId = +maxUserId + 1;
+        await user.save();
     }
     else {
         user.nativeOpenId = req.user.nativeOpenId;
@@ -78,8 +77,7 @@ export let authorizeWxGame = async (req: Request, res: Response, next: NextFunct
         });
     if (!user) {
         user = new WxUserModel(req.body);
-        let maxUserId = await WxUserModel.findOne({ $max: "userId" });
-        user.userId = +maxUserId + 1;
+        await user.save();
     }
     else {
         user.wxgameOpenId = req.body.wxgameOpenId;
@@ -175,9 +173,9 @@ async function migrate(newUser: InstanceType<WxUser>, existingUserCondition: str
             existingUser.migrated = true;
 
             await existingUser.save();
-            if (!newUser.isNew) {
-                await newUser.remove();
-            }
+
+            //todo: check if we need to remove the newly created user.
+            await newUser.remove();
         }
 
         return existingUser;
