@@ -5,13 +5,8 @@ import { required } from 'joi';
 /**
  * Rank Schema
  */
-@pre<Rank>('findOneAndUpdate', async function (next) { // or @pre(this: Rank, 'save', ...
-    this.winRate = +this.countWin / +this.countTotal;
-    console.log("pre findOneAndUpdate Rank", this.winRate, this.countWin, this.countTotal);
-    next();
-})
 export class Rank extends Typegoose {
-    @prop()
+    @prop({ index: true })
     userId: Number;
     @prop()
     mode?: Number;

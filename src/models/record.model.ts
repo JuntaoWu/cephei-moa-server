@@ -19,59 +19,81 @@ import RankModel from './rank.model';
     let result;
 
     // mode: 0, role: 0
-    result = await RankModel.findOneAndUpdate(
-        { mode: 0, role: 0, userId: this.userId },
-        { $inc: { countTotal: 1, countWin: this.isWin ? 1 : 0 } },
-        { upsert: true, new: true, setDefaultsOnInsert: true }
+    RankModel.findOneAndUpdate(
+        { $and: [{ mode: 0 }, { role: 0 }, { userId: this.userId }] },
+        { $inc: { countTotal: 1, countWin: this.isWin ? 1 : 0 }, $setOnInsert: { mode: 0, role: 0 } },
+        { upsert: true, new: true },
+        (error, doc) => {
+            if (error) {
+                return next(error);
+            }
+            doc.winRate = +doc.countWin / +doc.countTotal;
+            doc.save();
+        }
     );
 
-    if (!result) {
-        return next(new Error(`update rank error, mode: 0, role: 0`));
-    }
+    // if (!result) {
+    //     return next(new Error(`update rank error, mode: 0, role: 0`));
+    // }
 
     // mode: ${this.gameType}, role: 0
-    result = await RankModel.findOneAndUpdate(
-        { mode: this.gameType, role: 0, userId: this.userId },
-        { $inc: { countTotal: 1, countWin: this.isWin ? 1 : 0 } },
-        { upsert: true, new: true, setDefaultsOnInsert: true }
-    ).catch((error) => {
-        console.error(error);
-    });
+    RankModel.findOneAndUpdate(
+        { $and: [{ mode: this.gameType }, { role: 0 }, { userId: this.userId }] },
+        { $inc: { countTotal: 1, countWin: this.isWin ? 1 : 0 }, $setOnInsert: { mode: this.gameType, role: 0 } },
+        { upsert: true, new: true },
+        (error, doc) => {
+            if (error) {
+                return next(error);
+            }
+            doc.winRate = +doc.countWin / +doc.countTotal;
+            doc.save();
+        }
+    );
 
-    if (!result) {
-        return next(new Error(`update rank error, mode: ${this.gameType}, role: 0`));
-    }
+    // if (!result) {
+    //     return next(new Error(`update rank error, mode: ${this.gameType}, role: 0`));
+    // }
 
     // mode: 0, role: ${this.roleId}
-    result = await RankModel.findOneAndUpdate(
-        { mode: 0, role: this.roleId, userId: this.userId },
-        { $inc: { countTotal: 1, countWin: this.isWin ? 1 : 0 } },
-        { upsert: true, new: true, setDefaultsOnInsert: true }
-    ).catch((error) => {
-        console.error(error);
-    });
+    RankModel.findOneAndUpdate(
+        { $and: [{ mode: 0 }, { role: this.roleId }, { userId: this.userId }] },
+        { $inc: { countTotal: 1, countWin: this.isWin ? 1 : 0 }, $setOnInsert: { mode: 0, role: this.roleId } },
+        { upsert: true, new: true },
+        (error, doc) => {
+            if (error) {
+                return next(error);
+            }
+            doc.winRate = +doc.countWin / +doc.countTotal;
+            doc.save();
+        }
+    );
 
-    if (!result) {
-        return next(new Error(`update rank error, mode: 0, role: ${this.roleId}`));
-    }
+    // if (!result) {
+    //     return next(new Error(`update rank error, mode: 0, role: ${this.roleId}`));
+    // }
 
     // mode: ${this.gameType}, role: ${this.roleId}
-    result = await RankModel.findOneAndUpdate(
-        { mode: this.gameType, role: this.roleId, userId: this.userId },
-        { $inc: { countTotal: 1, countWin: this.isWin ? 1 : 0 } },
-        { upsert: true, new: true, setDefaultsOnInsert: true }
-    ).catch((error) => {
-        console.error(error);
-    });
+    RankModel.findOneAndUpdate(
+        { $and: [{ mode: this.gameType }, { role: this.roleId }, { userId: this.userId }] },
+        { $inc: { countTotal: 1, countWin: this.isWin ? 1 : 0 }, $setOnInsert: { mode: this.gameType, role: this.roleId } },
+        { upsert: true, new: true },
+        (error, doc) => {
+            if (error) {
+                return next(error);
+            }
+            doc.winRate = +doc.countWin / +doc.countTotal;
+            doc.save();
+        }
+    );
 
-    if (!result) {
-        return next(new Error(`update rank error, mode: ${this.gameType}, role: ${this.roleId}`));
-    }
+    // if (!result) {
+    //     return next(new Error(`update rank error, mode: ${this.gameType}, role: ${this.roleId}`));
+    // }
 
     return next();
 })
 export class Record extends Typegoose {
-    @prop()
+    @prop({ index: true })
     userId: Number;
     @prop()
     roomName: String;

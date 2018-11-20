@@ -34,7 +34,7 @@ const CounterModel = new CounterSchema().getModelForClass(CounterSchema);
         });
 })
 export class WxUser extends Typegoose {
-    @prop()
+    @prop({ index: true })
     userId: Number;
     @prop()
     wxgameOpenId: String;
