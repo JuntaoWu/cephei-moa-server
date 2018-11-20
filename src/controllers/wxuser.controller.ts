@@ -124,7 +124,7 @@ export let authorizeWxGame = async (req: Request, res: Response, next: NextFunct
 async function migrate(newUser: InstanceType<WxUser>, existingUserCondition: string) {
     // existing user from db.
     let condition = { unionId: newUser.unionId };
-    condition[existingUserCondition] = { $existing: true };
+    condition[existingUserCondition] = { $exists: true };
 
     let existingUser = await WxUserModel.findOne(condition)
         .catch((error) => {

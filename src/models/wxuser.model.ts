@@ -3,8 +3,14 @@ import { prop, Typegoose, ModelType, InstanceType, pre } from "typegoose";
 import mongoose, { Schema } from "mongoose";
 
 class CounterSchema extends Typegoose {
-    @prop({ default: 200000 })
-    seq: Number;
+    @prop({ required: true })
+    public seqName: String;
+
+    @prop({ default: 200000, unique: true })
+    public seq: Number;
+
+    @prop({ default: "Hello" })
+    public test: String;
 }
 
 const CounterModel = new CounterSchema().getModelForClass(CounterSchema);
@@ -13,13 +19,17 @@ const CounterModel = new CounterSchema().getModelForClass(CounterSchema);
  * WxUser Schema
  */
 @pre<WxUser>('save', function (next) { // or @pre(this: WxUser, 'save', ...
-    CounterModel.findOneAndUpdate({}, { $inc: { seq: 1 } }, (error, counter) => {
-        if (error) {
-            return next(error);
-        }
-        this.userId = counter.seq;
-        next();
-    });
+    CounterModel.findOneAndUpdate(
+        { seqName: "WxUser" },
+        { $inc: { seq: 1 } },
+        { upsert: true, new: true, setDefaultsOnInsert: true },
+        (error, counter) => {
+            if (error) {
+                return next(error);
+            }
+            this.userId = counter.seq;
+            next();
+        });
 })
 export class WxUser extends Typegoose {
     @prop()
