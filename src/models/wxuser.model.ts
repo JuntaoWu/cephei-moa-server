@@ -8,9 +8,6 @@ class CounterSchema extends Typegoose {
 
     @prop({ default: 200000, unique: true })
     public seq: Number;
-
-    @prop({ default: "Hello" })
-    public test: String;
 }
 
 const CounterModel = new CounterSchema().getModelForClass(CounterSchema);

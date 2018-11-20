@@ -219,12 +219,14 @@ const jwtOptions = {
 };
 
 const jwtWxLogin = new JwtStrategy(jwtOptions, (payload, done) => {
+    console.log("jwt payload", payload);
 
     if (!payload.userId) {
         return done(null, false);
     }
 
     WxUserModel.findOne({ userId: payload.userId }).then(user => {
+        console.log("userId, type" + (typeof user.userId));
         done(null, user);
     }).catch(error => {
         done(null, false);

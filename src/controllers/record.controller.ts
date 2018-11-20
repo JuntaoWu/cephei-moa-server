@@ -6,8 +6,8 @@ import _ from "lodash";
 
 export let list = async (req: Request, res: Response, next: NextFunction) => {
 
-    console.log("Finding records:", req.user.userId);
-    let myRank = await RankModel.find({ userId: req.user.userId });
+    console.log("Finding records, type:", typeof req.user.userId, req.user.userId);
+    let myRank = await RankModel.find({ userId: +req.user.userId });
     console.log(myRank);
 
     let total = myRank.find(rank => rank.mode == 0 && rank.role == 0);
