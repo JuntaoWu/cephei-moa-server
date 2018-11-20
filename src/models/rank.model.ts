@@ -1,10 +1,14 @@
-import Promise, { resolve } from 'bluebird';
-import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
+
+import { prop, Typegoose, ModelType, InstanceType, pre } from 'typegoose';
 import { required } from 'joi';
 
 /**
  * Rank Schema
  */
+@pre<Rank>('save', async function (next) { // or @pre(this: Rank, 'save', ...
+    this.winRate = +this.countWin / +this.countTotal;
+    next();
+})
 export class Rank extends Typegoose {
     @prop()
     userId: Number;
