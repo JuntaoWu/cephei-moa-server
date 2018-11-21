@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/login-wxgame', passport.authenticate("localWxGame"), wxUserCtrl.loginWxGame);
 
-router.post('/login-native', passport.authenticate("localNative"), wxUserCtrl.loginNative);
+router.post('/login-native', passport.authenticate(["jwtWx", "localNative"]), wxUserCtrl.loginNative);
 
 router.post('/authorize-wxgame', wxUserCtrl.authorizeWxGame);
 

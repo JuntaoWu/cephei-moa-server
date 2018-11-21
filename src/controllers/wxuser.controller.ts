@@ -212,6 +212,8 @@ function login(req, res, next) {
                 nativeOpenId: req.user.nativeOpenId,
                 unionId: req.user.unionId,
                 session_key: req.user.session_key,
+                nickName: req.user.nickName,
+                avatarUrl: req.user.avatarUrl,
             }
         });
     }
