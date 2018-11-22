@@ -205,6 +205,10 @@ const localNativeLogin = new LocalStrategy(localWxGameOptions, async (username, 
         return null;
     });
 
+    if(!accessToken) {
+        return done(null, false);
+    }
+
     const { openid, access_token, refresh_token } = accessToken;
 
     if (!openid) {
