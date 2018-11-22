@@ -25,7 +25,14 @@ export let loginNative = async (req, res, next) => {
     console.log(req.user, req.body);
 
     // Step 1. Check if user had been logged in Native app.
-    let user = await WxUserModel.findOne({ nativeOpenId: req.user.nativeOpenId })
+    let condition = {};
+    if (req.user.userId) {  // for anonymous-login & jwt-token login.
+        condition["userId"] = req.user.userId;
+    }
+    else if (req.user.nativeOpenId) {  // for wx-authorize login.
+        condition["nativeOpenId"] = req.user.nativeOpenId;
+    }
+    let user = await WxUserModel.findOne(condition)
         .catch((error) => {
             console.error(error);
             return undefined;
@@ -214,6 +221,7 @@ function login(req, res, next) {
                 session_key: req.user.session_key,
                 nickName: req.user.nickName,
                 avatarUrl: req.user.avatarUrl,
+                anonymous: req.user.anonymous,
             }
         });
     }

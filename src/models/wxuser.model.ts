@@ -30,6 +30,9 @@ const CounterModel = new CounterSchema().getModelForClass(CounterSchema);
                 return next(error);
             }
             this.userId = 200000 + (+counter.seq);
+            if (this.anonymous) {
+                this.nickName = `游客-${this.userId}`;
+            }
             next();
         });
 })
@@ -62,6 +65,8 @@ export class WxUser extends Typegoose {
     registeredAt?: Date;
     @prop()
     migrated?: Boolean;
+    @prop()
+    anonymous?: Boolean;
 }
 
 const WxUserModel = new WxUser().getModelForClass(WxUser, {

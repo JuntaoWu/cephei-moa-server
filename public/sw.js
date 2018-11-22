@@ -136,6 +136,10 @@ self.__precacheManifest = [
     "revision": "ce5b26d945087e58aa6a1bee2d1348c0"
   },
   {
+    "url": "miniGame/resource/assets/Button/btn-wxlogin.png",
+    "revision": "538805a3cc1776e45457a806c391837d"
+  },
+  {
     "url": "miniGame/resource/assets/Button/button_down.png",
     "revision": "878334d13048afd6b6b061e8b156dadb"
   },
@@ -524,16 +528,12 @@ self.__precacheManifest = [
     "revision": "ddadf8fb69b20e6470545ae5b3e5bc3b"
   },
   {
-    "url": "miniGame/resource/assets/start/img_down.png",
-    "revision": "12fc0ac1098ba0251ce5439402fa9042"
+    "url": "miniGame/resource/assets/start/qrcode-img.jpg",
+    "revision": "9ae6b961a595c03f41086ed35d45eabe"
   },
   {
-    "url": "miniGame/resource/assets/start/img_up.png",
-    "revision": "2833514f2dbf9b2cd99dad9ccae1ce37"
-  },
-  {
-    "url": "miniGame/resource/assets/start/qrcode.png",
-    "revision": "0ab979d84625d44b82dbba4715ebbaa9"
+    "url": "miniGame/resource/assets/start/qrcode-tk2048.jpg",
+    "revision": "9ae6b961a595c03f41086ed35d45eabe"
   },
   {
     "url": "miniGame/resource/assets/start/start.json",
@@ -546,6 +546,10 @@ self.__precacheManifest = [
   {
     "url": "miniGame/resource/assets/start/title-more.png",
     "revision": "2b440caaa25b9b04402b315c24dd7d2c"
+  },
+  {
+    "url": "miniGame/resource/assets/start/title-tanbao.png",
+    "revision": "078dac6d068fa29615f7f491c655c45d"
   },
   {
     "url": "miniGame/resource/assets/ToggleSwitch/handle.png",
@@ -572,12 +576,8 @@ self.__precacheManifest = [
     "revision": "934c91d6398d7317a88aa01276cc2b1c"
   },
   {
-    "url": "miniGame/resource/config/clubs.bak.json",
-    "revision": "fd38e628d9dd204639988510eb6e49df"
-  },
-  {
     "url": "miniGame/resource/config/clubs.json",
-    "revision": "a3c5ffe6cd95cdf95806502a1150acb1"
+    "revision": "a7d92fbce8212346d7ce2bdd3ed48ae0"
   },
   {
     "url": "miniGame/resource/config/description.json",
@@ -592,10 +592,6 @@ self.__precacheManifest = [
     "revision": "9ee304bbff81116b44fe85ab8cf01823"
   },
   {
-    "url": "miniGame/resource/config/rank.json",
-    "revision": "ef7484edec56d7299e0fa66734a1e16b"
-  },
-  {
     "url": "miniGame/resource/config/role.json",
     "revision": "f77f1b695f2c32e81df6d9fa93cd5193"
   },
@@ -605,11 +601,11 @@ self.__precacheManifest = [
   },
   {
     "url": "miniGame/resource/default.res.json",
-    "revision": "a418503b57d36c94acbedd66ef469157"
+    "revision": "060f51a4de061b8e9a3e910d0b99d52d"
   },
   {
     "url": "miniGame/resource/default.thm.json",
-    "revision": "d9974b2aaa90e1fc3065726233670c7f"
+    "revision": "2db202ac33c20dff67ee15cfe41a5749"
   },
   {
     "url": "miniGame/resource/gameEui.json",
