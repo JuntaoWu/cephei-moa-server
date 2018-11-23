@@ -11,4 +11,6 @@ router.post('/', passport.authenticate("jwtWx"), recordCtrl.list);
 
 router.post('/create', passport.authenticate("jwtWx"), recordCtrl.create);
 
+// router.post('/insertManyTest', recordCtrl.insertManyTest);
+
 export default router;

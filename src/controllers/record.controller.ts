@@ -55,13 +55,46 @@ export let create = async (req, res, next) => {
     RecordModel.insertMany(records)
         .catch(error => {
             console.error(error);
+            return res.json({
+                error: true,
+                message: error
+            });
         });
 
-    return list(req, res, next);
+    return res.json({
+        error: false,
+        message: "OK",
+    });
+}
+
+export let insertManyTest = async (req, res, next) => {
+    let records = [
+        { userId: 200051, roomName: "200051", camp: 1, gameType: 8, roleId: 1, isWin: true },
+        { userId: 200052, roomName: "200051", camp: 1, gameType: 8, roleId: 2, isWin: true },
+        { userId: 200053, roomName: "200051", camp: 1, gameType: 8, roleId: 3, isWin: true },
+        { userId: 200054, roomName: "200051", camp: 1, gameType: 8, roleId: 4, isWin: true },
+        { userId: 200055, roomName: "200051", camp: 1, gameType: 8, roleId: 5, isWin: true },
+        { userId: 200056, roomName: "200051", camp: 2, gameType: 8, roleId: 6, isWin: false },
+        { userId: 200057, roomName: "200051", camp: 2, gameType: 8, roleId: 7, isWin: false },
+        { userId: 200058, roomName: "200051", camp: 2, gameType: 8, roleId: 8, isWin: false },
+    ];
+    await RecordModel.insertMany(records.map(record => new RecordModel(record)))
+        .catch(error => {
+            console.error(error);
+            return res.json({
+                error: true,
+                message: error
+            });
+        });
+
+    return res.json({
+        error: false,
+        message: "OK",
+    });
 }
 
 export let remove = (params: any) => {
     return load(params).then((record) => record.remove());
 }
 
-export default { list, create };
+export default { list, create, insertManyTest };

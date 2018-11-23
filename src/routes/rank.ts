@@ -14,4 +14,7 @@ router.route('/')
 /** Load post when API with openId route parameter is hit */
 //router.param('openId', rankCtrl.load);
 
+// router.route('/updateManyTest')
+//     .get(rankCtrl.updateManyTest);
+
 export default router;
