@@ -51,8 +51,11 @@ export let create = async (req, res, next) => {
         return;
     }
 
-    const record = new RecordModel(req.body);
-    await record.save();
+    const records = req.body.map(m => new RecordModel(m));
+    RecordModel.insertMany(records)
+        .catch(error => {
+            console.error(error);
+        });
 
     return list(req, res, next);
 }
