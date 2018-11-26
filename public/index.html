@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>Egret</title>
-    <link rel="manifest" href="/manifest.pwa.json" />
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="full-screen" content="true" />
@@ -12,10 +11,9 @@
     <meta name="x5-fullscreen" content="true" />
     <meta name="360-fullscreen" content="true" />
     <style>
-        html,
-        body {
+        html, body {
             -ms-touch-action: none;
-            background: transparent;
+            background: #888888;
             padding: 0;
             border: 0;
             margin: 0;
@@ -25,117 +23,74 @@
 </head>
 
 <body>
-    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player" data-entry-class="Main" data-orientation="auto"
-        data-scale-mode="fixedWidth" data-frame-rate="30" data-content-width="1080" data-content-height="2338" data-show-paint-rect="false"
-        data-multi-fingered="2" data-show-fps="false" data-show-log="false" data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="portrait"
+         data-scale-mode="showAll"
+         data-frame-rate="30"
+         data-content-width="640"
+         data-content-height="1386"
+         data-show-paint-rect="false"
+         data-multi-fingered="1"
+         data-show-fps="false" data-show-log="false"
+         data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
     </div>
-    <script>
-        window.addEventListener('load', function () {
-            (function init() {
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', './manifest.json', true);
-                xhr.addEventListener("load", function () {
-                    var manifest = JSON.parse(xhr.response);
-                    var list = manifest.initial.concat(manifest.game);
-                    loadScript(list, function () {
-                        //This is different
-                        /**
-                         * {
-                         * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
-                         * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
-                         * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
-                         * "calculateCanvasScaleFactor": //a function return canvas scale factor
-                         * }
-                         **/
-                        run();
-                        registerServiceWorker();
-                    });
-                });
-                xhr.send(null);
-            })();
-        });
-
-        function registerServiceWorker() {
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('sw.js', {
-                    scope: './'
-                }).then(function (registration) {
-                    var serviceWorker;
-                    if (registration.active) {
-                        serviceWorker = registration.active;
-                        console.log("service worker active.");
-                        //document.querySelector('#kind').textContent = 'active';
-                    }
-                    else if (registration.installing) {
-                        serviceWorker = registration.installing;
-                        console.log("service worker installing.");
-                        //document.querySelector('#kind').textContent = 'installing';
-                    }
-                    else if (registration.waiting) {
-                        serviceWorker = registration.waiting;
-                        console.log("service worker waiting.");
-                        //document.querySelector('#kind').textContent = 'waiting';
-                    }
-                    if (serviceWorker) {
-                        // logState(serviceWorker.state);
-                        serviceWorker.onstatechange = function (e) {
-                            console.log(e.target.state);
-                        };
-                    }
-                }).catch(function (error) {
-                    console.error(error);
-                    // Something went wrong during registration. The service-worker.js file
-                    // might be unavailable or contain a syntax error.
-                });
-            }
-            else {
-                // The current browser doesn't support service workers.
-            }
-        }
-
-        var loadScript = function (list, callback) {
-            var loaded = 0;
-            var loadNext = function () {
-                loadSingleScript(list[loaded], function () {
-                    loaded++;
-                    if (loaded >= list.length) {
-                        callback();
-                    }
-                    else {
-                        loadNext();
-                    }
-                })
-            };
-            loadNext();
-        };
-
-        var loadSingleScript = function (src, callback) {
-            var s = document.createElement('script');
-            s.async = false;
-            s.src = src;
-            s.addEventListener('load', function () {
-                s.parentNode.removeChild(s);
-                s.removeEventListener('load', arguments.callee, false);
-                callback();
-            }, false);
-            document.body.appendChild(s);
-        };
-
-        var run = function () {
-            egret.runEgret({
-                renderMode: "webgl", audioType: 0, calculateCanvasScaleFactor: function (context) {
-                    var backingStore = context.backingStorePixelRatio ||
-                        context.webkitBackingStorePixelRatio ||
-                        context.mozBackingStorePixelRatio ||
-                        context.msBackingStorePixelRatio ||
-                        context.oBackingStorePixelRatio ||
-                        context.backingStorePixelRatio || 1;
-                    return (window.devicePixelRatio || 1) / backingStore;
+<script>
+    var loadScript = function (list, callback) {
+        var loaded = 0;
+        var loadNext = function () {
+            loadSingleScript(list[loaded], function () {
+                loaded++;
+                if (loaded >= list.length) {
+                    callback();
                 }
-            });
+                else {
+                    loadNext();
+                }
+            })
         };
+        loadNext();
+    };
 
-    </script>
+    var loadSingleScript = function (src, callback) {
+        var s = document.createElement('script');
+        s.async = false;
+        s.src = src;
+        s.addEventListener('load', function () {
+            s.parentNode.removeChild(s);
+            s.removeEventListener('load', arguments.callee, false);
+            callback();
+        }, false);
+        document.body.appendChild(s);
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './manifest.json?v=' + Math.random(), true);
+    xhr.addEventListener("load", function () {
+        var manifest = JSON.parse(xhr.response);
+        var list = manifest.initial.concat(manifest.game);
+        loadScript(list, function () {
+            /**
+             * {
+             * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
+             * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
+             * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
+             * "calculateCanvasScaleFactor": //a function return canvas scale factor
+             * }
+             **/
+            egret.runEgret({ renderMode: "webgl", audioType: 0, calculateCanvasScaleFactor:function(context) {
+                var backingStore = context.backingStorePixelRatio ||
+                    context.webkitBackingStorePixelRatio ||
+                    context.mozBackingStorePixelRatio ||
+                    context.msBackingStorePixelRatio ||
+                    context.oBackingStorePixelRatio ||
+                    context.backingStorePixelRatio || 1;
+                return (window.devicePixelRatio || 1) / backingStore;
+            }});
+        });
+    });
+    xhr.send(null);
+</script>
 </body>
 
 </html>
