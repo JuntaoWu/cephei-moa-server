@@ -23,6 +23,20 @@ const localWxGameLogin = new LocalStrategy(localWxGameOptions, async (username, 
         });
     }
 
+    if (username == "anonymous") {
+        let user = new WxUserModel({
+            registeredAt: new Date(),
+            migrated: true,
+            anonymous: true,
+        });
+        await user.save();
+        // Anonymous login now.
+        return done(null, user);
+        // return done(null, false, {
+        //     message: "Your login details could not be verified. Please try again."
+        // });
+    }
+
     let user = await getWxGameOpenIdAsync(username).catch(error => {
         console.error(error);
         return undefined;

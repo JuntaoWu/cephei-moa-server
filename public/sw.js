@@ -33,31 +33,31 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "8ee7fd6dbddf7a978c5a36dfaea0a1a0"
+    "revision": "8132b4003375423e0b7d7c19b4a3e529"
   },
   {
-    "url": "js/assetsmanager.min_49f5417f.js",
-    "revision": "b41191e6b6b8bdb793a225621356bdaa"
+    "url": "js/assetsmanager.min_f2e50bd1.js",
+    "revision": "32c46b4358677ba7de8fba699f0ad532"
   },
   {
-    "url": "js/default.thm_c1c4f139.js",
-    "revision": "6bc941521e36419cd0b031aeacaf8ec7"
+    "url": "js/default.thm_883c831e.js",
+    "revision": "e4dd939f62def6f9732a11c1c5d7634d"
   },
   {
     "url": "js/dragonBones.min_6252b9c4.js",
     "revision": "8e2f39e62dbea0106e177ec0748aaca7"
   },
   {
-    "url": "js/egret.min_ffc81eea.js",
-    "revision": "6b841df9b4d580131a9ab09b418b4fcb"
+    "url": "js/egret.min_f3705262.js",
+    "revision": "cbbea65a5544b27269ee705ac42be808"
   },
   {
-    "url": "js/egret.web.min_3e311c0e.js",
-    "revision": "8f46ab2f04c344203c57e720978ad536"
+    "url": "js/egret.web.min_2dd0bd72.js",
+    "revision": "04d8bab21eb74a90557a0971b23efb7d"
   },
   {
-    "url": "js/eui.min_22447123.js",
-    "revision": "c33fa31924cd623aa93e453ad260c0c1"
+    "url": "js/eui.min_4f767512.js",
+    "revision": "469a4606349244c1ce301fae0892a2cf"
   },
   {
     "url": "js/experimental.min_31954293.js",
@@ -72,8 +72,8 @@ self.__precacheManifest = [
     "revision": "01cab91737db40659a75ab627660da58"
   },
   {
-    "url": "js/main.min_8943ba1a.js",
-    "revision": "0bbaa3ce81364fb3890869377dafb875"
+    "url": "js/main.min_7c16591a.js",
+    "revision": "e232ab04476671a0383db768953b7aff"
   },
   {
     "url": "js/photon.min_face9e9c.js",
@@ -101,7 +101,7 @@ self.__precacheManifest = [
   },
   {
     "url": "manifest.json",
-    "revision": "853e09021df6c22963ad74c56e0c72d8"
+    "revision": "a5e9c647dc93a14a9958eacf1a586c85"
   },
   {
     "url": "manifest.pwa.json",
@@ -636,8 +636,16 @@ self.__precacheManifest = [
     "revision": "88e6d6c2d45866d7011781e07d402033"
   },
   {
+    "url": "resource/assets/Button/btn-anonymouslogin.png",
+    "revision": "e7c14b598077428daeb67f5a674e95e1"
+  },
+  {
     "url": "resource/assets/Button/btn-back.png",
     "revision": "ce5b26d945087e58aa6a1bee2d1348c0"
+  },
+  {
+    "url": "resource/assets/Button/btn-wxlogin.png",
+    "revision": "538805a3cc1776e45457a806c391837d"
   },
   {
     "url": "resource/assets/Button/button_down.png",
@@ -1028,16 +1036,20 @@ self.__precacheManifest = [
     "revision": "ddadf8fb69b20e6470545ae5b3e5bc3b"
   },
   {
-    "url": "resource/assets/start/img_down.png",
-    "revision": "12fc0ac1098ba0251ce5439402fa9042"
+    "url": "resource/assets/start/more-item1.png",
+    "revision": "19428ba9dc7718c0452729ce81227259"
   },
   {
-    "url": "resource/assets/start/img_up.png",
-    "revision": "2833514f2dbf9b2cd99dad9ccae1ce37"
+    "url": "resource/assets/start/more-item2.png",
+    "revision": "9cfd4ce7e8315fb8dccf903730c2b92a"
   },
   {
-    "url": "resource/assets/start/qrcode.png",
-    "revision": "0ab979d84625d44b82dbba4715ebbaa9"
+    "url": "resource/assets/start/qrcode-img.jpg",
+    "revision": "71c326a50c85eb21dbec3a072863cb57"
+  },
+  {
+    "url": "resource/assets/start/qrcode-tk2048.jpg",
+    "revision": "9ae6b961a595c03f41086ed35d45eabe"
   },
   {
     "url": "resource/assets/start/start.json",
@@ -1050,6 +1062,10 @@ self.__precacheManifest = [
   {
     "url": "resource/assets/start/title-more.png",
     "revision": "2b440caaa25b9b04402b315c24dd7d2c"
+  },
+  {
+    "url": "resource/assets/start/title-tanbao.png",
+    "revision": "078dac6d068fa29615f7f491c655c45d"
   },
   {
     "url": "resource/assets/ToggleSwitch/handle.png",
@@ -1077,7 +1093,7 @@ self.__precacheManifest = [
   },
   {
     "url": "resource/config/clubs.json",
-    "revision": "fd38e628d9dd204639988510eb6e49df"
+    "revision": "a7d92fbce8212346d7ce2bdd3ed48ae0"
   },
   {
     "url": "resource/config/description.json",
@@ -1092,10 +1108,6 @@ self.__precacheManifest = [
     "revision": "9ee304bbff81116b44fe85ab8cf01823"
   },
   {
-    "url": "resource/config/rank.json",
-    "revision": "ef7484edec56d7299e0fa66734a1e16b"
-  },
-  {
     "url": "resource/config/role.json",
     "revision": "f77f1b695f2c32e81df6d9fa93cd5193"
   },
@@ -1105,19 +1117,15 @@ self.__precacheManifest = [
   },
   {
     "url": "resource/default.res.json",
-    "revision": "a418503b57d36c94acbedd66ef469157"
+    "revision": "3ceeb1683da7324b512448b76334a776"
   },
   {
     "url": "resource/default.thm.json",
-    "revision": "d9974b2aaa90e1fc3065726233670c7f"
+    "revision": "0f8bdfbae519a26c13acc1bf71f1f826"
   },
   {
     "url": "resource/gameEui.json",
     "revision": "99914b932bd37a50b983c5e7c90ae93b"
-  },
-  {
-    "url": "stylesheets/style.css",
-    "revision": "d88b6fc51036cea4ea659b304568e088"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

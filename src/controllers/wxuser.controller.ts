@@ -13,6 +13,7 @@ import { DocumentQuery } from "mongoose";
 import RankModel from "../models/rank.model";
 
 export let load = async (params: any) => {
+    console.log("load userId:", params.userId);
     return WxUserModel.findOne({ userId: params.userId });
 }
 

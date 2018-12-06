@@ -5,7 +5,7 @@ import wxUserCtrl from '../controllers/wxuser.controller';
 
 const router = express.Router();
 
-router.post('/login-wxgame', passport.authenticate("localWxGame"), wxUserCtrl.loginWxGame);
+router.post('/login-wxgame', passport.authenticate(["jwtWx", "localWxGame"]), wxUserCtrl.loginWxGame);
 
 router.post('/login-native', passport.authenticate(["jwtWx", "localNative"]), wxUserCtrl.loginNative);
 
@@ -16,6 +16,7 @@ router.get('/photon-login', (req: Request, res: Response, next: NextFunction) =>
     const userId: string = req.query.userId;
 
     if (!userId || userId == "undefined") {
+        console.log("No userId provided");
         //Anonymous user login via photon custom auth.
         //Return a new random userId.
         return res.json({
