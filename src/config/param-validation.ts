@@ -17,5 +17,11 @@ export default {
         params: {
             openId: Joi.string().required()
         }
+    },
+    // GET /shared/:unionId
+    getShared: {
+        params: {
+            unionId: Joi.string().required()
+        }
     }
 };

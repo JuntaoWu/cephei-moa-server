@@ -18,7 +18,7 @@ export let load = async (params: any) => {
 }
 
 export let loginWxGame = async (req, res, next) => {
-    return login(req, res, next);
+    return login(req, res, next, "wxgame");
 };
 
 export let loginNative = async (req, res, next) => {
@@ -71,7 +71,7 @@ export let loginNative = async (req, res, next) => {
         req.user = user;
     }
 
-    return login(req, res, next);
+    return login(req, res, next, "native");
 };
 
 export let authorizeWxGame = async (req: Request, res: Response, next: NextFunction) => {
@@ -128,7 +128,7 @@ export let authorizeWxGame = async (req: Request, res: Response, next: NextFunct
         req.user = user;
     }
 
-    return login(req, res, next);
+    return login(req, res, next, "wxgame");
 };
 
 async function migrate(newUser: InstanceType<WxUser>, existingUserCondition: string) {
@@ -201,13 +201,14 @@ async function migrate(newUser: InstanceType<WxUser>, existingUserCondition: str
     }
 }
 
-function login(req, res, next) {
+function login(req, res, next, type: string) {
     if (req.user) {
         const token = jwt.sign({
             userId: req.user.userId,
             wxgameOpenId: req.user.wxgameOpenId,
             nativeOpenId: req.user.nativeOpenId,
-            unionId: req.user.unionId  // if we do not have unionId here, the token will not be any use.
+            unionId: req.user.unionId,  // if we do not have unionId here, the token will not be any use.
+            type: type
         }, config.jwtSecret);
 
         return res.json({

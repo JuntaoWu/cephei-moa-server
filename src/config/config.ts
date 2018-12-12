@@ -8,6 +8,8 @@ dotenv.config();
 
 // define validation for all the env vars
 const envVarsSchema = Joi.object({
+  SERVICE_NAME: Joi.string().required(),
+  SERVICE_JWT_SECRET: Joi.string().required(),
   NODE_ENV: Joi.string()
     .allow(['development', 'production', 'test', 'provision'])
     .default('development'),
@@ -62,6 +64,10 @@ if (error) {
 }
 
 export const config = {
+  service: {
+    name: envVars.SERVICE_NAME,
+    jwtSecret: envVars.SERVICE_JWT_SECRET,
+  },
   env: envVars.NODE_ENV,
   port: envVars.SERVER_PORT,
   mongooseDebug: envVars.MONGOOSE_DEBUG,

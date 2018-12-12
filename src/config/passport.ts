@@ -219,7 +219,7 @@ const localNativeLogin = new LocalStrategy(localWxGameOptions, async (username, 
         return null;
     });
 
-    if(!accessToken) {
+    if (!accessToken) {
         return done(null, false);
     }
 
@@ -258,10 +258,29 @@ const jwtWxLogin = new JwtStrategy(jwtOptions, (payload, done) => {
     }
 
     WxUserModel.findOne({ userId: payload.userId }).then(user => {
-        console.log("userId, type" + (typeof user.userId));
         done(null, user);
     }).catch(error => {
         done(null, false);
+    });
+});
+
+// Setting JWT strategy options
+const jwtServiceOptions = {
+    // Telling Passport to check authorization headers for JWT
+    jwtFromRequest: ExtractJwt.fromUrlQueryParameter("token"),
+    // Telling Passport where to find the secret
+    secretOrKey: config.service.jwtSecret
+    // TO-DO: Add issuer and audience checks
+};
+
+const jwtServiceLogin = new JwtStrategy(jwtServiceOptions, (payload, done) => {
+    console.log("jwt service payload ", payload);
+    if (!payload.service || payload.peerName != config.service.name) {
+        return done(null, false);
+    }
+
+    return done(null, {
+        service: payload.service,
     });
 });
 
@@ -276,5 +295,6 @@ const jwtWxLogin = new JwtStrategy(jwtOptions, (payload, done) => {
 (passport as any).default.use("jwtWx", jwtWxLogin);
 (passport as any).default.use("localWxGame", localWxGameLogin);
 (passport as any).default.use("localNative", localNativeLogin);
+(passport as any).default.use("jwtService", jwtServiceLogin);  // for internal api use only, protected by pre-shared service jwt secret.
 
 export default passport;
