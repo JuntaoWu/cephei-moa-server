@@ -3,6 +3,9 @@ import { Request, Response, NextFunction } from "express";
 import { IncomingMessage } from 'http';
 import RankModel from '../models/rank.model';
 import _ from "lodash";
+import config from '../config/config';
+import jwt from 'jsonwebtoken';
+import http from 'http';
 
 export let list = async (req: Request, res: Response, next: NextFunction) => {
 
@@ -31,14 +34,70 @@ export let list = async (req: Request, res: Response, next: NextFunction) => {
     let countXuYuanWin = _(myRank.filter(rank => rank.mode == 0 && rank.role > 0 && rank.role <= 5)).sumBy("countWin");
     let countLaoChaofengWin = _(myRank.filter(rank => rank.mode == 0 && rank.role > 5 && rank.role <= 8)).sumBy("countWin");
 
+    let isAntiquesPassed: boolean = false;
+    let antiquesGameTime: number = 0;
+    if (req.user.unionId) {
+        let otherGamePlayerInfo: any = await getPlayerInfoViaPublicServiceAsync(req.user.unionId);
+        isAntiquesPassed = otherGamePlayerInfo && otherGamePlayerInfo.ending && otherGamePlayerInfo.ending.length;
+        antiquesGameTime = otherGamePlayerInfo && otherGamePlayerInfo.gameTime || 0;
+    }
+
     return res.json({
         error: false,
         message: "OK",
         data: {
-            countTotal, countWin, count6Total, count7Total, count8Total, count6Win, count7Win, count8Win, countXuyuanTotal, countLaoChaofengTotal, countXuYuanWin, countLaoChaofengWin
+            countTotal, countWin,
+            count6Total, count7Total, count8Total, count6Win, count7Win, count8Win,
+            countXuyuanTotal, countLaoChaofengTotal, countXuYuanWin, countLaoChaofengWin,
+            isAntiquesPassed, antiquesGameTime
         }
     });
 };
+
+async function getPlayerInfoViaPublicServiceAsync(unionId: string) {
+    const serviceJwtToken = jwt.sign({
+        service: config.service.name,
+        peerName: config.service.peerName,
+    }, config.service.jwtSecret);
+
+    const hostname = config.service.peerHost;
+    const port = config.service.peerPort;
+    const userInfoPath = `/shared/${unionId}?token=${serviceJwtToken}`;
+    console.log(hostname, userInfoPath);
+
+    return new Promise((resolve, reject) => {
+        let request = http.request({
+            hostname: hostname,
+            port: port,
+            path: userInfoPath,
+            method: "GET",
+        }, (wxRes) => {
+            console.log("response from service api /shared/:unionId");
+            let userInfoData = "";
+            wxRes.on("data", (chunk) => {
+                userInfoData += chunk;
+            });
+            wxRes.on("end", async () => {
+
+                try {
+                    let result = JSON.parse(userInfoData);
+                    let { code, message, data } = result;
+                    if (code !== 0) {
+                        return reject(message);
+                    }
+                    else {
+                        return resolve(data);
+                    }
+                }
+                catch (ex) {
+                    return reject(ex);
+                }
+            });
+        });
+
+        request.end();
+    });
+}
 
 export let load = (recordId: string) => {
     return RecordModel.findOne({ recordId: recordId });

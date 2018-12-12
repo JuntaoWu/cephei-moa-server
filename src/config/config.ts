@@ -9,6 +9,9 @@ dotenv.config();
 // define validation for all the env vars
 const envVarsSchema = Joi.object({
   SERVICE_NAME: Joi.string().required(),
+  SERVICE_PEER_NAME: Joi.string().required(),
+  SERVICE_PEER_HOST: Joi.string().required(),
+  SERVICE_PEER_PORT: Joi.number().required(),
   SERVICE_JWT_SECRET: Joi.string().required(),
   NODE_ENV: Joi.string()
     .allow(['development', 'production', 'test', 'provision'])
@@ -68,6 +71,9 @@ if (error) {
 export const config = {
   service: {
     name: envVars.SERVICE_NAME,
+    peerName: envVars.SERVICE_PEER_NAME,
+    peerHost: envVars.SERVICE_PEER_HOST,
+    peerPort: envVars.SERVICE_PEER_PORT,
     jwtSecret: envVars.SERVICE_JWT_SECRET,
   },
   env: envVars.NODE_ENV,
