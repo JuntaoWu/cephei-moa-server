@@ -7,9 +7,10 @@
 import config from '../config/config';
 
 import app from '../app';
-import * as http from 'http';
-//import https from 'https';
+import http from 'http';
+import https from 'https';
 import mongoose from 'mongoose';
+import fs from 'fs';
 
 // // make bluebird default Promise
 // Promise = require('bluebird'); // eslint-disable-line no-global-assign
@@ -20,8 +21,6 @@ import mongoose from 'mongoose';
 /**
  * Get port from environment and store in Express.
  */
-
-const port = normalizePort(config.port || '4040');
 
 // connect to mongo db
 const mongoUri = config.mongo.host;
@@ -47,20 +46,25 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+const port = normalizePort(config.port);
+
 server.listen(port);
 server.on('error', onError);
-server.on('listening', onListening);
+server.on('listening', () => {
+  onListening(server);
+});
 
 
-// var options = {
-//   key: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem'),
-//   cert: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem')
-// };
-// var sslServer = https.createServer(options, app);
-// sslServer.listen(`8084`);
-// sslServer.on('error', onError);
-// sslServer.on('listening', onListening);
-
+var options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem')
+};
+var sslServer = https.createServer(options, app);
+sslServer.listen(config.sslPort);
+sslServer.on('error', onError);
+sslServer.on('listening', () => {
+  onListening(sslServer);
+});
 
 /**
  * Normalize a port into a number, string, or false.
@@ -114,7 +118,7 @@ function onError(error: any) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
+function onListening(server) {
   const addr = server.address();
   const bind = typeof addr === 'string'
     ? 'pipe ' + addr
