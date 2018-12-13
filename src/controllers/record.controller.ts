@@ -37,7 +37,9 @@ export let list = async (req: Request, res: Response, next: NextFunction) => {
     let isAntiquesPassed: boolean = false;
     let antiquesGameTime: number = 0;
     if (req.user.unionId) {
-        let otherGamePlayerInfo: any = await getPlayerInfoViaPublicServiceAsync(req.user.unionId);
+        let otherGamePlayerInfo: any = await getPlayerInfoViaPublicServiceAsync(req.user.unionId).catch(error => {
+            console.error(error);
+        });
         isAntiquesPassed = otherGamePlayerInfo && otherGamePlayerInfo.ending && otherGamePlayerInfo.ending.length;
         antiquesGameTime = otherGamePlayerInfo && otherGamePlayerInfo.gameTime || 0;
     }
@@ -73,6 +75,12 @@ async function getPlayerInfoViaPublicServiceAsync(unionId: string) {
             method: "GET",
         }, (wxRes) => {
             console.log("response from service api /shared/:unionId");
+
+            if (wxRes.statusCode != 200) {
+                console.error(wxRes.statusCode, wxRes.statusMessage);
+                return reject(wxRes.statusMessage);
+            }
+
             let userInfoData = "";
             wxRes.on("data", (chunk) => {
                 userInfoData += chunk;

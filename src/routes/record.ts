@@ -7,7 +7,7 @@ import passport from 'passport';
 import * as recordCtrl from '../controllers/record.controller';
 import { Request, Response, NextFunction } from 'express';
 
-router.post('/', passport.authenticate("jwtWx"), recordCtrl.list);
+router.get('/', passport.authenticate("jwtWx"), recordCtrl.list);
 
 router.post('/create', passport.authenticate("jwtWx"), recordCtrl.create);
 

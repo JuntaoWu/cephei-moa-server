@@ -54,17 +54,18 @@ server.on('listening', () => {
   onListening(server);
 });
 
-
-var options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem')
-};
-var sslServer = https.createServer(options, app);
-sslServer.listen(config.sslPort);
-sslServer.on('error', onError);
-sslServer.on('listening', () => {
-  onListening(sslServer);
-});
+if (config.env == "production") {
+  var options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem')
+  };
+  var sslServer = https.createServer(options, app);
+  sslServer.listen(config.sslPort);
+  sslServer.on('error', onError);
+  sslServer.on('listening', () => {
+    onListening(sslServer);
+  });
+}
 
 /**
  * Normalize a port into a number, string, or false.
