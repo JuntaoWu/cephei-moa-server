@@ -6,6 +6,7 @@ import versionRouter from './version';
 import gameRouter from './game';
 import recordRouter from './record';
 import clubRouter from './club';
+import preferenceRouter from './preference';
 
 const router = express.Router();
 
@@ -20,5 +21,6 @@ router.use('/version', versionRouter);
 router.use('/games/:gameId', gameRouter);
 router.use('/records', recordRouter);
 router.use('/clubs', clubRouter);
+router.use('/preferences', preferenceRouter);
 
 export default router;

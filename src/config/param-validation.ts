@@ -23,5 +23,11 @@ export default {
         params: {
             unionId: Joi.string().required()
         }
+    },
+    // GET /shared/:unionId
+    loadPreference: {
+        params: {
+            platform: Joi.string().required()
+        }
     }
 };
