@@ -7,13 +7,9 @@ import gameRouter from './game';
 import recordRouter from './record';
 import clubRouter from './club';
 import preferenceRouter from './preference';
+import noticeRouter from './notice';
 
 const router = express.Router();
-
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
 
 router.use('/users', userRouter);
 router.use('/ranks', rankRouter);
@@ -22,5 +18,6 @@ router.use('/games/:gameId', gameRouter);
 router.use('/records', recordRouter);
 router.use('/clubs', clubRouter);
 router.use('/preferences', preferenceRouter);
+router.use('/notice', noticeRouter);
 
 export default router;
