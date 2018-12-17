@@ -8,6 +8,8 @@ export class Preference extends Typegoose {
     @prop()
     platform: String;
     @prop()
+    showGuide: Boolean;
+    @prop()
     showClub?: Boolean;
     @prop()
     showMore?: Boolean;
