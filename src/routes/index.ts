@@ -8,6 +8,7 @@ import recordRouter from './record';
 import clubRouter from './club';
 import preferenceRouter from './preference';
 import noticeRouter from './notice';
+import adRouter from './ad';
 
 const router = express.Router();
 
@@ -19,5 +20,6 @@ router.use('/records', recordRouter);
 router.use('/clubs', clubRouter);
 router.use('/preferences', preferenceRouter);
 router.use('/notice', noticeRouter);
+router.use('/ads', adRouter);
 
 export default router;
