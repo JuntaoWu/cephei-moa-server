@@ -2,7 +2,6 @@ import * as Joi from 'joi';
 
 // require and configure dotenv, will load vars in .env in PROCESS.ENV
 import * as dotenv from 'dotenv';
-import { join } from 'path';
 
 dotenv.config();
 

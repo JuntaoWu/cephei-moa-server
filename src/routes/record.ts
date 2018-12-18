@@ -1,11 +1,14 @@
-import express from 'express';
-var router = express.Router();
-var http = require("http");
-var https = require("https");
-import passport from 'passport';
+import * as express from 'express';
+import { Request, Response, NextFunction } from 'express';
+import * as passport from 'passport';
+import * as http from 'http';
+import * as https from 'https';
+import * as validate from 'express-validation';
+import paramValidation from '../config/param-validation';
+
+const router = express.Router();
 
 import * as recordCtrl from '../controllers/record.controller';
-import { Request, Response, NextFunction } from 'express';
 
 router.get('/', passport.authenticate("jwtWx"), recordCtrl.list);
 

@@ -4,13 +4,13 @@
  * Module dependencies.
  */
 // config should be imported before importing any other file
-import config from '../config/config';
+import config from "../config/config";
 
-import app from '../app';
-import http from 'http';
-import https from 'https';
-import mongoose from 'mongoose';
-import fs from 'fs';
+import * as fs from "fs";
+import * as http from "http";
+import * as https from "https";
+import * as mongoose from "mongoose";
+import app from "../app";
 
 // // make bluebird default Promise
 // Promise = require('bluebird'); // eslint-disable-line no-global-assign
@@ -25,17 +25,17 @@ import fs from 'fs';
 // connect to mongo db
 const mongoUri = config.mongo.host;
 mongoose.connect(mongoUri, { server: { socketOptions: { keepAlive: 1 } } });
-mongoose.connection.on('error', () => {
-  throw new Error(`unable to connect to database: ${mongoUri}`);
-}).on('connected', () => {
-  console.log('Mongodb connected');
+mongoose.connection.on("error", () => {
+    throw new Error(`unable to connect to database: ${mongoUri}`);
+}).on("connected", () => {
+    console.log("Mongodb connected");
 });
 
 // print mongoose logs in dev env
 if (process.env.MONGOOSE_DEBUG) {
-  mongoose.set('debug', (collectionName: any, method: any, query: any, doc: any) => {
-    //debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc);
-  });
+    mongoose.set("debug", (collectionName: any, method: any, query: any, doc: any) => {
+        // debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc);
+    });
 }
 
 /**
@@ -49,22 +49,22 @@ const server = http.createServer(app);
 const port = normalizePort(config.port);
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', () => {
-  onListening(server);
+server.on("error", onError);
+server.on("listening", () => {
+    onListening(server);
 });
 
 if (config.env == "production") {
-  var options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem')
-  };
-  var sslServer = https.createServer(options, app);
-  sslServer.listen(config.sslPort);
-  sslServer.on('error', onError);
-  sslServer.on('listening', () => {
-    onListening(sslServer);
-  });
+    let options = {
+        key: fs.readFileSync("/etc/letsencrypt/live/gdjzj.hzsdgames.com/privkey.pem"),
+        cert: fs.readFileSync("/etc/letsencrypt/live/gdjzj.hzsdgames.com/fullchain.pem"),
+    };
+    let sslServer = https.createServer(options, app);
+    sslServer.listen(config.sslPort);
+    sslServer.on("error", onError);
+    sslServer.on("listening", () => {
+        onListening(sslServer);
+    });
 }
 
 /**
@@ -72,19 +72,19 @@ if (config.env == "production") {
  */
 
 function normalizePort(val: string) {
-  const port = parseInt(val, 10);
+    const port = parseInt(val, 10);
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
 
-  return false;
+    return false;
 }
 
 /**
@@ -92,27 +92,27 @@ function normalizePort(val: string) {
  */
 
 function onError(error: any) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
+    if (error.syscall !== "listen") {
+        throw error;
+    }
 
-  let bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+    const bind = typeof port === "string"
+        ? "Pipe " + port
+        : "Port " + port;
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case "EACCES":
+            console.error(bind + " requires elevated privileges");
+            process.exit(1);
+            break;
+        case "EADDRINUSE":
+            console.error(bind + " is already in use");
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
 }
 
 /**
@@ -120,9 +120,9 @@ function onError(error: any) {
  */
 
 function onListening(server) {
-  const addr = server.address();
-  const bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  console.log('Listening on ' + bind);
+    const addr = server.address();
+    const bind = typeof addr === "string"
+        ? "pipe " + addr
+        : "port " + addr.port;
+    console.log("Listening on " + bind);
 }

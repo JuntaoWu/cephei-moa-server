@@ -1,4 +1,12 @@
-import express from 'express';
+import * as express from 'express';
+import { Request, Response, NextFunction } from 'express';
+import * as passport from 'passport';
+import * as http from 'http';
+import * as https from 'https';
+import * as validate from 'express-validation';
+import paramValidation from '../config/param-validation';
+
+const router = express.Router();
 
 import userRouter from './user';
 import rankRouter from './rank';
@@ -9,8 +17,6 @@ import clubRouter from './club';
 import preferenceRouter from './preference';
 import noticeRouter from './notice';
 import adRouter from './ad';
-
-const router = express.Router();
 
 router.use('/users', userRouter);
 router.use('/ranks', rankRouter);

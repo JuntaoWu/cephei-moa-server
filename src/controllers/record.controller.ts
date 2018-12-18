@@ -2,10 +2,10 @@ import RecordModel, { Record } from '../models/record.model';
 import { Request, Response, NextFunction } from "express";
 import { IncomingMessage } from 'http';
 import RankModel from '../models/rank.model';
-import _ from "lodash";
+import * as _ from "lodash";
 import config from '../config/config';
-import jwt from 'jsonwebtoken';
-import http from 'http';
+import * as jwt from 'jsonwebtoken';
+import * as http from 'http';
 
 export let list = async (req: Request, res: Response, next: NextFunction) => {
 

@@ -1,6 +1,5 @@
 
 import { prop, Typegoose, ModelType, InstanceType, pre } from "typegoose";
-import mongoose, { Schema } from "mongoose";
 
 class CounterSchema extends Typegoose {
     @prop({ required: true })

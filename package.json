@@ -8,7 +8,8 @@
     "build-ts": "tsc",
     "serve": "node dist/bin/www.js",
     "start": "npm run build && npm run serve",
-    "debug": "node inspect ./dist/bin/www"
+    "debug": "node inspect ./dist/bin/www",
+    "lint": "tslint --project tsconfig.json"
   },
   "dependencies": {
     "async": "^2.6.0",
@@ -81,7 +82,9 @@
     "@types/shelljs": "^0.7.8",
     "@types/supertest": "^2.0.4",
     "@types/winston": "^2.3.7",
+    "codelyzer": "^4.5.0",
     "typescript": "^2.9.2",
-    "workbox-build": "^3.2.0"
+    "workbox-build": "^3.2.0",
+    "tslint": "~5.11.0"
   }
 }

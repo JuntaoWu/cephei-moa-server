@@ -1,3 +1,6 @@
+
+import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
+
 /**
     ActorCount: Number,
     AppVersion: String,
@@ -34,14 +37,6 @@
     UserId: String,
     NickName: String
  */
-import Promise from 'bluebird';
-import mongoose, { mongo, Mongoose, MongooseDocument } from 'mongoose';
-import httpStatus from 'http-status';
-import APIError from '../helpers/APIError';
-import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
-
-import { required } from 'joi';
-
 class GameState {
     public ActorCounter: Number;
     public Binary: Object;

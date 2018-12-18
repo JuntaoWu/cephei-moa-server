@@ -284,17 +284,17 @@ const jwtServiceLogin = new JwtStrategy(jwtServiceOptions, (payload, done) => {
     });
 });
 
-(passport as any).default.serializeUser(function (user, done) {
+(passport).serializeUser(function (user, done) {
     done(null, user);
 });
 
-(passport as any).default.deserializeUser(function (user, done) {
+(passport).deserializeUser(function (user, done) {
     done(null, user);
 });
 
-(passport as any).default.use("jwtWx", jwtWxLogin);
-(passport as any).default.use("localWxGame", localWxGameLogin);
-(passport as any).default.use("localNative", localNativeLogin);
-(passport as any).default.use("jwtService", jwtServiceLogin);  // for internal api use only, protected by pre-shared service jwt secret.
+(passport).use("jwtWx", jwtWxLogin);
+(passport).use("localWxGame", localWxGameLogin);
+(passport).use("localNative", localNativeLogin);
+(passport).use("jwtService", jwtServiceLogin);  // for internal api use only, protected by pre-shared service jwt secret.
 
 export default passport;

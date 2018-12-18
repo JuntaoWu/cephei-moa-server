@@ -68,3 +68,4 @@ typings/
 .serverless
 
 dist/
+uploads/

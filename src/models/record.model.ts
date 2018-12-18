@@ -1,13 +1,9 @@
 
-import mongoose, { mongo, Mongoose, MongooseDocument } from 'mongoose';
-import httpStatus from 'http-status';
-import APIError from '../helpers/APIError';
 import { prop, Typegoose, ModelType, InstanceType, pre } from 'typegoose';
 
-import { required, func } from 'joi';
 import RankModel from './rank.model';
 
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 /**
  * Record Schema

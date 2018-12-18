@@ -1,6 +1,5 @@
 
 import { prop, Typegoose, ModelType, InstanceType, pre } from 'typegoose';
-import { required } from 'joi';
 
 /**
  * Notice Schema

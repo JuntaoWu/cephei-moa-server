@@ -1,9 +1,14 @@
-import express, { Request, Response, NextFunction } from 'express';
-import passport from 'passport';
-
-import wxUserCtrl from '../controllers/wxuser.controller';
+import * as express from 'express';
+import { Request, Response, NextFunction } from 'express';
+import * as passport from 'passport';
+import * as http from 'http';
+import * as https from 'https';
+import * as validate from 'express-validation';
+import paramValidation from '../config/param-validation';
 
 const router = express.Router();
+
+import wxUserCtrl from '../controllers/wxuser.controller';
 
 router.post('/login-wxgame', passport.authenticate(["jwtWx", "localWxGame"]), wxUserCtrl.loginWxGame);
 

@@ -1,10 +1,10 @@
-import createError from 'http-errors';
-import express, { NextFunction } from 'express';
-import path from 'path';
+import * as createError from 'http-errors';
+import * as express from 'express';
+import * as path from 'path';
 import * as bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import logger from 'morgan';
-import cors from 'cors';
+import * as cookieParser from 'cookie-parser';
+import * as logger from 'morgan';
+import * as cors from 'cors';
 
 import indexRouter from './routes';
 import passport from './config/passport';
@@ -39,8 +39,8 @@ app.use(express.static(path.join(__dirname, '../public/sw.js'), {
 }), cors());
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')), cors());
 
-app.use((passport as any).default.initialize());
-app.use((passport as any).default.session());
+app.use((passport).initialize());
+app.use((passport).session());
 
 app.use('/', indexRouter);
 
