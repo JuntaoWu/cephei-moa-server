@@ -8,14 +8,20 @@ import paramValidation from '../config/param-validation';
 
 const router = express.Router();
 
+import config from "../config/config";
+
 router.route('/check')
     /** GET /version/check - Get latest version */
     .get((req: Request, res: Response, next: NextFunction) => {
         // todo: check version.
+
+        const hostname = config.service.dashboardHost;
+        const port = config.service.dashboardPort;
+        
         var request = https.request({
-            hostname: "dashboard.hzsdgames.com",
-            port: 8088,
-            path: `/version/check?appName=cephei-moa&version=${req.query.version || 0}`,
+            hostname: hostname,
+            port: port,
+            path: `/version/check?appName=${config.service.name}&version=${req.query.version || 0}`,
             method: "GET",
         }, (cepheiRes) => {
             console.log("response from dashboard api.");
