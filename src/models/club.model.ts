@@ -24,13 +24,7 @@ export class Club extends Typegoose {
     @prop()
     attr?: String;
     @prop()
-    game_1?: Number;
-    @prop()
-    game_2?: Number;
-    @prop()
-    game_3?: Number;
-    @prop()
-    game_4?: Number;
+    games?: Array<Number>;
 }
 
 const ClubModel = new Club().getModelForClass(Club, {

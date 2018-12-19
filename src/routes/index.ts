@@ -17,6 +17,7 @@ import clubRouter from './club';
 import preferenceRouter from './preference';
 import noticeRouter from './notice';
 import adRouter from './ad';
+import gameIconRouter from './gameicon';
 
 router.use('/users', userRouter);
 router.use('/ranks', rankRouter);
@@ -27,5 +28,6 @@ router.use('/clubs', clubRouter);
 router.use('/preferences', preferenceRouter);
 router.use('/notice', noticeRouter);
 router.use('/ads', adRouter);
+router.use('/gameIcons', gameIconRouter);
 
 export default router;
