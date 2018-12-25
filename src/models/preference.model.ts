@@ -13,6 +13,10 @@ export class Preference extends Typegoose {
     showClub?: Boolean;
     @prop()
     showMore?: Boolean;
+    @prop()
+    showWeChatLogin?: Boolean;
+    @prop()
+    showAnonymousLogin?: Boolean;
 }
 
 const PreferenceModel = new Preference().getModelForClass(Preference, {
