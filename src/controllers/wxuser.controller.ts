@@ -146,13 +146,16 @@ async function migrate(newUser: InstanceType<WxUser>, existingUserCondition: str
     // Step 1. Check if user had been logged in via another way.
     if (existingUser) {
         // Step 1.1 Update existingUser's basic info.
-        existingUser.wxgameOpenId = newUser.wxgameOpenId;
+        existingUser.wxgameOpenId = existingUser.wxgameOpenId || newUser.wxgameOpenId;
+        existingUser.nativeOpenId = existingUser.nativeOpenId || newUser.nativeOpenId;
         existingUser.nickName = newUser.nickName;
         existingUser.gender = newUser.gender;
         existingUser.province = newUser.province;
         existingUser.city = newUser.city;
         existingUser.country = newUser.country;
         existingUser.avatarUrl = newUser.avatarUrl;
+
+        existingUser.registeredAt = existingUser.userId < newUser.userId ? existingUser.registeredAt : newUser.registeredAt;
 
         // Step 1.2 Migrate newUser's rank to existingUser's.
         var ranks = await RankModel.find({ userId: newUser.userId })
