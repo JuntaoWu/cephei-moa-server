@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "preLaunchTask": "npm:build",
-            "program": "${workspaceFolder}/dist/bin/www"
+            "program": "${workspaceFolder}/dist/server/bin/www"
         }
     ]
 }

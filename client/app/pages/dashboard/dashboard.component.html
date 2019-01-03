@@ -1,0 +1,55 @@
+<div class="row">
+
+  <div class="col-xxxl-3 col-md-6">
+    <nb-card>
+      <nb-card-header>
+        近期新增玩家
+      </nb-card-header>
+
+      <nb-card-body>
+        <table>
+          <thead>
+            <th>注册日期</th>
+            <th>注册人数</th>
+            <th>星期</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of recentNewUsers$ | async">
+              <td>{{item.registeredAt | date: 'yyyy-MM-dd' }}</td>
+              <td>{{item.count }}</td>
+              <td>{{item.dayOfWeek | dayOfWeek }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-xxxl-3 col-md-6">
+    <nb-card>
+      <nb-card-header>
+        近期新增开局
+      </nb-card-header>
+
+      <nb-card-body>
+        <table>
+          <thead>
+            <th>开局日期</th>
+            <th>新开局数</th>
+            <th>星期</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of recentNewUsers$ | async">
+              <td>{{item.registeredAt | date: 'yyyy-MM-dd' }}</td>
+              <td>{{item.count }}</td>
+              <td>{{item.dayOfWeek | dayOfWeek }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+<div class="row">
+
+</div>
