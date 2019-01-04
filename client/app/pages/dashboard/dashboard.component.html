@@ -1,55 +1,61 @@
 <div class="row">
 
-  <div class="col-xxxl-3 col-md-6">
+  <div class="col-md-6">
     <nb-card>
       <nb-card-header>
-        近期新增玩家
+        最近7日新增玩家
       </nb-card-header>
 
       <nb-card-body>
-        <table>
-          <thead>
-            <th>注册日期</th>
-            <th>注册人数</th>
-            <th>星期</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of recentNewUsers$ | async">
-              <td>{{item.registeredAt | date: 'yyyy-MM-dd' }}</td>
-              <td>{{item.count }}</td>
-              <td>{{item.dayOfWeek | dayOfWeek }}</td>
-            </tr>
-          </tbody>
+        <table mat-table [dataSource]="recentNewUsers$ | async">
+          <ng-container matColumnDef="registeredAt">
+            <th mat-header-cell *matHeaderCellDef>注册日期</th>
+            <td mat-cell *matCellDef="let item">{{item.registeredAt | date: 'yyyy-MM-dd' }}</td>
+          </ng-container>
+          <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef>新增人数</th>
+            <td mat-cell *matCellDef="let item">{{item.count }}</td>
+          </ng-container>
+          <ng-container matColumnDef="dayOfWeek">
+            <th mat-header-cell *matHeaderCellDef>星期</th>
+            <td mat-cell *matCellDef="let item">{{item.dayOfWeek | dayOfWeek }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
       </nb-card-body>
     </nb-card>
   </div>
 
-  <div class="col-xxxl-3 col-md-6">
+  <div class="col-md-6">
     <nb-card>
       <nb-card-header>
-        近期新增开局
+        最近7日新增开局
       </nb-card-header>
 
       <nb-card-body>
-        <table>
-          <thead>
-            <th>开局日期</th>
-            <th>新开局数</th>
-            <th>星期</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of recentNewUsers$ | async">
-              <td>{{item.registeredAt | date: 'yyyy-MM-dd' }}</td>
-              <td>{{item.count }}</td>
-              <td>{{item.dayOfWeek | dayOfWeek }}</td>
-            </tr>
-          </tbody>
+        <table mat-table [dataSource]="recentNewUsers$ | async">
+          <ng-container matColumnDef="registeredAt">
+            <th mat-header-cell *matHeaderCellDef>注册日期</th>
+            <td mat-cell *matCellDef="let item">{{item.registeredAt | date: 'yyyy-MM-dd' }}</td>
+          </ng-container>
+          <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef>新增人数</th>
+            <td mat-cell *matCellDef="let item">{{item.count }}</td>
+          </ng-container>
+          <ng-container matColumnDef="dayOfWeek">
+            <th mat-header-cell *matHeaderCellDef>星期</th>
+            <td mat-cell *matCellDef="let item">{{item.dayOfWeek | dayOfWeek }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
       </nb-card-body>
     </nb-card>
   </div>
 </div>
 <div class="row">
-
+  
 </div>

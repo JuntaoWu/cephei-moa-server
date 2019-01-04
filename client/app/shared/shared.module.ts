@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DayOfWeekPipe } from 'app/pipes/day-of-week.pipe';
 import { NbCardModule } from '@nebular/theme';
+import { MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -12,10 +13,12 @@ import { NbCardModule } from '@nebular/theme';
     CommonModule,
     FormsModule,
     NbCardModule,
+    MatTableModule,
   ],
   exports: [
     CommonModule,
     FormsModule,
+    MatTableModule,
     NbCardModule,
     DayOfWeekPipe,
   ]

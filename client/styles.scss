@@ -9,6 +9,8 @@
 @import '~angular-tree-component/dist/angular-tree-component.css';
 @import '~pace-js/templates/pace-theme-flash.tmpl.css';
 @import '~leaflet/dist/leaflet.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 app-root {
   height: 100%;
+  // font-family: 'Microsoft YaHei' !important;
 }

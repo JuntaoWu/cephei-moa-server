@@ -9,12 +9,14 @@ import { DashboardService } from './dashboard.service';
 })
 export class DashboardComponent implements OnInit {
 
+  public displayedColumns: string[] = ['registeredAt', 'count', 'dayOfWeek'];
   public recentNewUsers$: Observable<any>;
 
   constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
     this.recentNewUsers$ = this.dashboardService.list();
+
   }
 
 }
