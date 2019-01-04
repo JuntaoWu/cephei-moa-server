@@ -12,4 +12,7 @@ const router = express.Router();
 
 router.get('/', passport.authenticate('jwtAdmin'), dashboardCtrl.list);
 
+router.get('/userList', passport.authenticate('jwtAdmin'), dashboardCtrl.userList);
+router.get('/userDayStatistic', passport.authenticate('jwtAdmin'), dashboardCtrl.userDayStatistic);
+
 export default router;

@@ -57,4 +57,38 @@ export async function list(req: Request, res: Response, next: NextFunction) {
     });
 }
 
-export default { list };
+export async function userList(req: Request, res: Response, next: NextFunction) {
+    const { limit = 10, skip = 0 } = req.query;
+    const data = await WxUserModel.find().limit(+limit).skip(+skip).exec();
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: data
+    });
+}
+
+export async function userDayStatistic(req: Request, res: Response, next: NextFunction) {
+    
+    const dbResult = await WxUserModel.aggregate([
+        { $project: { registeredAt: { '$substr': ['$registeredAt', 0, 10] } } },
+        { $group: { _id: '$registeredAt', count: { $sum: 1 } } },
+        { $sort: { _id: -1 } }
+    ]);
+
+    const data = dbResult.map(item => {
+        const registeredAt = new Date(item._id);
+        return {
+            registeredAt: registeredAt,
+            count: item.count,
+            dayOfWeek: moment(registeredAt).weekday()
+        };
+    });
+
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: data
+    });
+}
+
+export default { list, userList, userDayStatistic };
