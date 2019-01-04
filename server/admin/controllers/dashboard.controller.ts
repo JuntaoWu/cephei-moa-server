@@ -10,15 +10,21 @@ import AdminUserModel, { AdminUser } from '../models/admin-user.model';
 import { hashSync } from 'bcrypt-nodejs';
 import WxUserModel from '../../models/wxuser.model';
 import * as moment from 'moment';
+import GameModel from '../../models/game.model';
 
 export async function list(req: Request, res: Response, next: NextFunction) {
 
-    const dateBeforeOneWeek = moment().subtract(1, 'week').toDate();
+    const totalUser = await WxUserModel.count({});
+    const totalRooms = await GameModel.count({});
+    const totalAnonymousUser = await WxUserModel.count({ anonymous: true });
+    const totalWxUser = +totalUser - (+totalAnonymousUser);
+
+    const theDayBeforeOneWeek = moment().subtract(1, 'week').subtract(1, 'day').toDate();
 
     // const data = WxUserModel.aggregate([
     //     {
     //         $match: {
-    //             registeredAt: { $gt: dateBeforeOneWeek }
+    //             registeredAt: { $gte: theDayBeforeOneWeek }
     //         }
     //     },
     //     {
@@ -30,30 +36,57 @@ export async function list(req: Request, res: Response, next: NextFunction) {
     //     { $sort: { '_id.year': -1, '_id.month': -1, '_id.day': -1 } },
     // ]);
 
-    const dbResult = await WxUserModel.aggregate([
+    const dbCountNewUserResult = await WxUserModel.aggregate([
         {
             $match: {
-                registeredAt: { $gt: dateBeforeOneWeek }
+                registeredAt: { $gte: theDayBeforeOneWeek }
             }
         },
         { $project: { registeredAt: { '$substr': ['$registeredAt', 0, 10] } } },
         { $group: { _id: '$registeredAt', count: { $sum: 1 } } },
-        { $sort: { _id: -1 } }
+        { $sort: { _id: 1 } }
     ]);
 
-    const data = dbResult.map(item => {
+    const countNewUserData = dbCountNewUserResult.map(item => {
         const registeredAt = new Date(item._id);
         return {
-            registeredAt: registeredAt,
+            date: registeredAt,
             count: item.count,
             dayOfWeek: moment(registeredAt).weekday()
+        };
+    });
+
+    const dbCountNewRoomResult = await GameModel.aggregate([
+        {
+            $match: {
+                createdAt: { $gte: theDayBeforeOneWeek }
+            }
+        },
+        { $project: { createdAt: { '$substr': ['$createdAt', 0, 10] } } },
+        { $group: { _id: '$createdAt', count: { $sum: 1 } } },
+        { $sort: { _id: 1 } }
+    ]);
+
+    const countNewRoomData = dbCountNewRoomResult.map(item => {
+        const createdAt = new Date(item._id);
+        return {
+            date: createdAt,
+            count: item.count,
+            dayOfWeek: moment(createdAt).weekday()
         };
     });
 
     return res.json({
         code: 0,
         message: 'OK',
-        data: data
+        data: {
+            totalUser: totalUser,
+            totalRooms: totalRooms,
+            totalWxUser: totalWxUser,
+            totalAnonymousUser: totalAnonymousUser,
+            countNewUserData: countNewUserData,
+            countNewRoomData: countNewRoomData,
+        }
     });
 }
 

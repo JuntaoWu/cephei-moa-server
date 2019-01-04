@@ -76,6 +76,10 @@ export class Game extends Typegoose {
     NickName: String;
 }
 
-const GameModel = new Game().getModelForClass(Game);
+const GameModel = new Game().getModelForClass(Game, {
+    schemaOptions: {
+        timestamps: true,
+    },
+});
 
 export default GameModel;
