@@ -16,7 +16,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-star',
     children: [
       {
-        title: '用户详细列表',
+        title: '用户详细',
         link: '/user',
       },
       {
@@ -31,6 +31,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: '用户局数',
         link: '/user/games',
       },
+      {
+        title: '地理统计',
+        link: '/user/map'
+      }
     ],
   },
   {

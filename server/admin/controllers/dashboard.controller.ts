@@ -95,6 +95,9 @@ export async function userList(req: Request, res: Response, next: NextFunction) 
     const totalUser = await WxUserModel.count({});
     const totalAnonymousUser = await WxUserModel.count({ anonymous: true });
     const totalWxUser = +totalUser - (+totalAnonymousUser);
+    const totalWxUserMen = await WxUserModel.count({ gender: 1 });
+    const totalWxUserWomen = +totalWxUser - (+totalWxUserMen);
+
     const { limit = 10, skip = 0 } = req.query;
     const data = await WxUserModel.find().limit(+limit).skip(+skip).exec();
     return res.json({
@@ -105,6 +108,8 @@ export async function userList(req: Request, res: Response, next: NextFunction) 
             totalUser: totalUser,
             totalWxUser: totalWxUser,
             totalAnonymousUser: totalAnonymousUser,
+            totalWxUserMen: totalWxUserMen,
+            totalWxUserWomen: totalWxUserWomen,
         }
     });
 }
@@ -133,4 +138,109 @@ export async function userDayStatistic(req: Request, res: Response, next: NextFu
     });
 }
 
-export default { list, userList, userDayStatistic };
+export async function userGames(req: Request, res: Response, next: NextFunction) {
+    
+    const totalUser = await WxUserModel.count({});
+    const dbCountNewRoomResult = await GameModel.aggregate([
+        { $project: { UserId: 1 } },
+        { $group: { _id: '$UserId', count: { $sum: 1 } } }
+    ]);
+    let countRoomData = [];
+    for (let i = 0; i < 10; i++) {
+        countRoomData[i] = {
+            games: i,
+            count: 0
+        }
+    }
+    dbCountNewRoomResult.forEach(item => {
+        if (item.count < 10) {
+            countRoomData[item.count].count += 1;
+        }
+        else if (item.count < 20) {
+            if (!countRoomData[10]) {
+                countRoomData[10] = {
+                    games: '10-19',
+                    count: 0
+                }
+            }
+            countRoomData[10].count += 1;
+        }
+        else if (item.count < 30) {
+            if (!countRoomData[11]) {
+                countRoomData[11] = {
+                    games: '20-29',
+                    count: 0
+                }
+            }
+            countRoomData[11].count += 1;
+        }
+        else {
+            if (!countRoomData[12]) {
+                countRoomData[12] = {
+                    games: '30+',
+                    count: 0
+                }
+            }
+            countRoomData[12].count += 1;
+        }
+    });
+    let count = 0;
+    countRoomData.forEach(item => {
+        count += +item.count;
+    });
+    countRoomData[0].count = +totalUser - count;
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: countRoomData
+    });
+}
+
+export async function userMaps(req: Request, res: Response, next: NextFunction) {
+
+    let id: string = '$province';
+    if (req.query.type == 'city') {
+        id = '$city';
+    }
+    const dbResult = await WxUserModel.aggregate([
+        {
+            $project: {
+                province: 1,
+                city: 1,
+                men: {
+                    $cond: {
+                        if: {$eq: [1, "$gender"]},
+                        then: 1,
+                        else: 0
+                    }
+                },
+                women: {
+                    $cond: {
+                        if: {$eq: [2, "$gender"]},
+                        then: 1,
+                        else: 0
+                    }
+                }
+            }
+        },
+        { $group: { _id: id, count: { $sum: 1 }, men: { $sum: '$men' }, women: { $sum: '$women' } } },
+    ]);
+    const data = dbResult.map(item => {
+        return {
+            name: item._id,
+            count: item.count,
+            men: item.men,
+            women: item.women
+        };
+    });
+
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: data
+    });
+}
+
+
+
+export default { list, userList, userDayStatistic, userGames, userMaps };

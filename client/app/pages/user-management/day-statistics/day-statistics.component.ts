@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserManagementService } from '../user-management.service'
-import * as echarts from 'echarts';
+import { UserManagementService } from '../user-management.service';
 
 @Component({
   selector: 'app-day-statistics',
@@ -12,29 +11,33 @@ export class DayStatisticsComponent implements OnInit {
 
   constructor(private UMService: UserManagementService) { }
 
-  displayedColumns: string[] = ['registeredAt', 'registeredWeek', 'count'];
-  statistics$: Observable<any>;
+  displayedColumns: string[] = ['registeredAt', 'registeredWeek', 'count', 'total'];
+  
+  allList: Array<any> = [];
+  showList: Array<any> = [];
 
   ngOnInit() {
     
-    this.statistics$ = this.UMService.listDayStatistic();
-    this.statistics$.subscribe(val => {
+    this.UMService.listDayStatistic().subscribe(val => {
       let xList = [],
           newUsers = [],
           totalUsers = [];
-      val.reverse().forEach(item => {
+      val.reverse().forEach((item, index) => {
         xList.push(item.registeredAt.substr(0, 10))
         newUsers.push(item.count);
-      })
-
-      for (let i = 0; i < newUsers.length; i++) {
-        totalUsers.push(+newUsers[i] + (+totalUsers[i - 1] || 0));
-      }
-
+        let total = +item.count + (+totalUsers[index - 1] || 0);
+        totalUsers.push(total);
+        this.allList.push({ ...item, total: total });
+      });
+      this.allList = this.allList.reverse();
+      this.pages = Math.ceil((this.allList.length) / this.limit);
+      this.showList = this.allList.slice(this.pageIndex * this.limit, this.pageIndex * this.limit + this.limit);
+      
       this.drawChart(xList, newUsers, totalUsers);
     });
   }
 
+  showChart: boolean = false;
   pages: number;
   pageIndex: number = 0;
   limit: number = 10;
@@ -44,11 +47,10 @@ export class DayStatisticsComponent implements OnInit {
     // 绘制图表
     this.chartOption = {
         title: {
-            text: 'ECharts 入门示例'
+            text: '日增用户视图'
         },
         legend: {
-            data: ["新增用户", "总用户"],
-            align: 'center'
+            data: ["新增用户", "总用户"]
         },
         tooltip: {},
         toolbox: {
@@ -88,4 +90,25 @@ export class DayStatisticsComponent implements OnInit {
     };
   }
 
+  prePage(isFirst: boolean = false) {
+    if (!this.pageIndex) return;
+    if (isFirst) {
+      this.pageIndex = 0;
+    }
+    else {
+      this.pageIndex -= 1;
+    }
+    this.showList = this.allList.slice(this.pageIndex * this.limit, this.pageIndex * this.limit + this.limit);
+  }
+
+  nextPage(isLast: boolean = false) {
+    if (this.pageIndex == this.pages - 1) return;
+    if (isLast) {
+      this.pageIndex = this.pages - 1;
+    }
+    else {
+      this.pageIndex += 1;
+    }
+    this.showList = this.allList.slice(this.pageIndex * this.limit, this.pageIndex * this.limit + this.limit);
+  }
 }

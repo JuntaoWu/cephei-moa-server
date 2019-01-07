@@ -1,7 +1,9 @@
 <div class="row">
 
   <div class="col-md-12">
-    <nb-card>
+    <button type="button" class="btn btn-primary " (click)="showChart = false">用户列表</button>
+    <button type="button" class="btn btn-primary " (click)="showChart = true">用户性别饼图</button>
+    <nb-card *ngIf="!showChart">
       <nb-card-header>
         用户详细列表
       </nb-card-header>
@@ -47,17 +49,28 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
       </nb-card-body>
+
+      <nb-card-footer>
+        <div>
+            总用户数：<span> {{ totalUser }} </span>
+            微信用户：<span>{{ totalWxUser }} </span>
+            游客：<span> {{ totalAnonymousUser }} </span>
+          <button type="button" class="btn btn-primary " (click)="prePage(true)">首页</button>
+          <button type="button" class="btn btn-primary " (click)="prePage()">上一页</button>
+          <button type="button" class="btn btn-primary " (click)="nextPage()">下一页</button>
+          <button type="button" class="btn btn-primary " (click)="nextPage(true)">末页</button>
+            第<span>{{ pageIndex + 1 }}</span>页/共<span>{{ pages }}</span>页
+        </div>
+      </nb-card-footer>
     </nb-card>
-    
-    <div>
-        总用户数：<span> {{ totalUser }} </span>
-        微信用户：<span>{{ totalWxUser }} </span>
-        游客：<span> {{ totalAnonymousUser }} </span>
-      <button type="button" class="btn btn-primary " (click)="prePage(true)">首页</button>
-      <button type="button" class="btn btn-primary " (click)="prePage()">上一页</button>
-      <button type="button" class="btn btn-primary " (click)="nextPage()">下一页</button>
-      <button type="button" class="btn btn-primary " (click)="nextPage(true)">末页</button>
-        第<span>{{ pageIndex + 1 }}</span>页/共<span>{{ pages }}</span>页
-    </div>
+    <nb-card *ngIf="showChart">
+      <nb-card-header>
+        用户性别饼图
+      </nb-card-header>
+
+      <nb-card-body>
+        <div echarts [options]="chartOption" class="chart-box"></div>
+      </nb-card-body>
+    </nb-card>
   </div>
 </div>
