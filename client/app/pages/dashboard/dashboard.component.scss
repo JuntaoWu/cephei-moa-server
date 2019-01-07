@@ -1,13 +1,4 @@
 
 table {
     width: 100%;
-    background: transparent;
-}
-
-:host-context(.nb-theme-cosmic) table {
-    color: #d1d1ff !important;
-
-    .mat-header-cell, .mat-cell {
-        color: #d1d1ff !important;
-    }
 }

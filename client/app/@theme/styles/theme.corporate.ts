@@ -34,6 +34,7 @@ export const CORPORATE_THEME = {
       shadowLineShadow: 'rgba(0, 0, 0, 0)',
       gradFrom: '#ffffff',
       gradTo: '#ffffff',
+      shadowLineVisible: 'rgba(0, 0, 0, 0.8)',
     },
 
     electricity: {

@@ -1,0 +1,31 @@
+:host-context(.nb-theme-cosmic) ::ng-deep table {
+  background: transparent;
+
+  color: #d1d1ff !important;
+
+  .mat-header-cell,
+  .mat-footer-cell,
+  .mat-cell {
+    color: #d1d1ff !important;
+  }
+}
+
+:host-context(.nb-theme-cosmic) ::ng-deep .mat-paginator {
+  background: transparent;
+
+  color: #a1a1e5;
+
+  .mat-paginator,
+  .mat-paginator-page-size .mat-select-trigger {
+    color: #a1a1e5;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: #d1d1ff;
+  }
+
+  .mat-select-value,
+  .mat-select-arrow {
+    color: white;
+  }
+}

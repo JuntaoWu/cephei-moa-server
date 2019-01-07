@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { DayOfWeekPipe } from 'app/pipes/day-of-week.pipe';
 import { GenderPipe } from 'app/pipes/gender.pipe';
 import { NbCardModule } from '@nebular/theme';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule } from '@angular/material';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 import { TrafficBarComponent } from './traffic-bar/traffic-bar.component';
@@ -23,12 +23,14 @@ import { StatsAreaChartComponent } from './stats-area-chart/stats-area-chart.com
     FormsModule,
     NbCardModule,
     MatTableModule,
+    MatPaginatorModule,
     NgxEchartsModule,
   ],
   exports: [
     CommonModule,
     FormsModule,
     MatTableModule,
+    MatPaginatorModule,
     NbCardModule,
     NgxEchartsModule,
     DayOfWeekPipe,

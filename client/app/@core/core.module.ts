@@ -9,6 +9,8 @@ import { DataModule } from './data/data.module';
 import { AnalyticsService } from './utils/analytics.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyHttpInterceptor } from './interceptors/my-http-interceptor';
+import { MatPaginatorIntl } from '@angular/material';
+import { MyPaginatorIntl } from './utils/my-paginator-intl';
 
 const socialLinks = [
   // {
@@ -101,6 +103,7 @@ export class CoreModule {
       providers: [
         ...NB_CORE_PROVIDERS,
         { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true },
+        { provide: MatPaginatorIntl, useClass: MyPaginatorIntl },
       ],
     };
   }

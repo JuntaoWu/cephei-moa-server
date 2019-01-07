@@ -36,6 +36,7 @@ export const DEFAULT_THEME = {
       shadowLineShadow: 'rgba(0, 0, 0, 0)',
       gradFrom: '#ebeef2',
       gradTo: '#ebeef2',
+      shadowLineVisible: 'rgba(0, 0, 0, 0.8)',
     },
 
     electricity: {
