@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-12">
-    <nb-card>
+    <button type="button" class="btn btn-primary " (click)="showChart = false">用户列表</button>
+    <button type="button" class="btn btn-primary " (click)="showChart = true">用户性别饼图</button>
+    <nb-card *ngIf="!showChart">
       <nb-card-header>
         用户详细列表
       </nb-card-header>
@@ -57,6 +59,15 @@
         <mat-paginator showFirstLastButtons="true" [length]="totalUser" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
           (page)="refreshPage($event)">
         </mat-paginator>
+      </nb-card-body>
+    </nb-card>
+    <nb-card *ngIf="showChart">
+      <nb-card-header>
+        用户性别饼图
+      </nb-card-header>
+
+      <nb-card-body>
+        <div echarts [options]="chartOption" class="chart-box"></div>
       </nb-card-body>
     </nb-card>
   </div>

@@ -14,5 +14,7 @@ router.get('/', passport.authenticate('jwtAdmin'), dashboardCtrl.list);
 
 router.get('/userList', passport.authenticate('jwtAdmin'), dashboardCtrl.userList);
 router.get('/userDayStatistic', passport.authenticate('jwtAdmin'), dashboardCtrl.userDayStatistic);
+router.get('/userGames', passport.authenticate('jwtAdmin'), dashboardCtrl.userGames);
+router.get('/userMaps', passport.authenticate('jwtAdmin'), dashboardCtrl.userMaps);
 
 export default router;

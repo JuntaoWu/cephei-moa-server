@@ -15,26 +15,29 @@ export class DayStatisticsComponent implements OnInit {
   constructor(private theme: NbThemeService,
     private UMService: UserManagementService) { }
 
-  displayedColumns: string[] = ['registeredAt', 'registeredWeek', 'count'];
-  statistics$: Observable<any>;
+  displayedColumns: string[] = ['registeredAt', 'registeredWeek', 'count', 'total'];
+
+  allList: Array<any> = [];
+  showList: Array<any> = [];
 
   chartOption: echarts.EChartOption;
 
   ngOnInit() {
 
-    this.statistics$ = this.UMService.listDayStatistic();
-    this.statistics$.subscribe(val => {
-      const xList = [],
+    this.UMService.listDayStatistic().subscribe(val => {
+      let xList = [],
         newUsers = [],
         totalUsers = [];
-      val.reverse().forEach(item => {
+      val.reverse().forEach((item, index) => {
         xList.push(item.registeredAt.substr(0, 10))
         newUsers.push(item.count);
+        let total = +item.count + (+totalUsers[index - 1] || 0);
+        totalUsers.push(total);
+        this.allList.push({ ...item, total: total });
       });
-
-      for (let i = 0; i < newUsers.length; i++) {
-        totalUsers.push(+newUsers[i] + (+totalUsers[i - 1] || 0));
-      }
+      this.allList = this.allList.reverse();
+      this.pages = Math.ceil((this.allList.length) / this.limit);
+      this.showList = this.allList.slice(this.pageIndex * this.limit, this.pageIndex * this.limit + this.limit);
 
       this.theme.getJsTheme()
         .pipe(
@@ -47,12 +50,17 @@ export class DayStatisticsComponent implements OnInit {
     });
   }
 
+  showChart: boolean = false;
+  pages: number;
+  pageIndex: number = 0;
+  limit: number = 10;
+
   drawChart(xList, newUsers, totalUsers, trafficTheme) {
     // 绘制图表
 
     this.chartOption = {
       title: {
-        text: 'ECharts 入门示例',
+        text: '日增用户视图',
         textStyle: {
           color: trafficTheme.tooltipTextColor,
         }
@@ -183,4 +191,25 @@ export class DayStatisticsComponent implements OnInit {
     };
   }
 
+  prePage(isFirst: boolean = false) {
+    if (!this.pageIndex) return;
+    if (isFirst) {
+      this.pageIndex = 0;
+    }
+    else {
+      this.pageIndex -= 1;
+    }
+    this.showList = this.allList.slice(this.pageIndex * this.limit, this.pageIndex * this.limit + this.limit);
+  }
+
+  nextPage(isLast: boolean = false) {
+    if (this.pageIndex == this.pages - 1) return;
+    if (isLast) {
+      this.pageIndex = this.pages - 1;
+    }
+    else {
+      this.pageIndex += 1;
+    }
+    this.showList = this.allList.slice(this.pageIndex * this.limit, this.pageIndex * this.limit + this.limit);
+  }
 }

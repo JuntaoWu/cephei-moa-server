@@ -1,0 +1,73 @@
+<div class="row">
+
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary " (click)="showView(0)">用户地理列表</button>
+      <button type="button" class="btn btn-primary " (click)="showView(1)">省级地理视图</button>
+      <button type="button" class="btn btn-primary " (click)="showView(2)">城市地理视图</button>
+      <nb-card *ngIf="view == 0">
+        <nb-card-header>
+          用户地理列表
+        </nb-card-header>
+  
+        <nb-card-body>
+          <table style="width: 100%" mat-table [dataSource]="users">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>id</th>
+              <td mat-cell *matCellDef="let item">{{ item.userId }}</td>
+            </ng-container>
+            <ng-container matColumnDef="nickname">
+              <th mat-header-cell *matHeaderCellDef>姓名</th>
+              <td mat-cell *matCellDef="let item">{{ item.nickName }}</td>
+            </ng-container>
+            <ng-container matColumnDef="gender">
+              <th mat-header-cell *matHeaderCellDef>性别</th>
+              <td mat-cell *matCellDef="let item">{{ item.gender | gender }}</td>
+            </ng-container>
+            <ng-container matColumnDef="registeredAddr">
+              <th mat-header-cell *matHeaderCellDef>注册IP</th>
+              <td mat-cell *matCellDef="let item">{{ item.registeredAddr }}</td>
+            </ng-container>
+            <ng-container matColumnDef="province">
+              <th mat-header-cell *matHeaderCellDef>省</th>
+              <td mat-cell *matCellDef="let item">{{ item.province }}</td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+              <th mat-header-cell *matHeaderCellDef>市</th>
+              <td mat-cell *matCellDef="let item">{{ item.city }}</td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </nb-card-body>
+        <nb-card-footer>
+          <div class="page-footer">
+            <button type="button" class="btn btn-primary " (click)="prePage(true)">首页</button>
+            <button type="button" class="btn btn-primary " (click)="prePage()">上一页</button>
+            <button type="button" class="btn btn-primary " (click)="nextPage()">下一页</button>
+            <button type="button" class="btn btn-primary " (click)="nextPage(true)">末页</button>
+              第<span>{{ pageIndex + 1 }}</span>页/共<span>{{ pages }}</span>页
+          </div>
+        </nb-card-footer>
+      </nb-card>
+      <nb-card *ngIf="view == 1">
+        <nb-card-header>
+          用户省级地理视图
+        </nb-card-header>
+  
+        <nb-card-body>
+          <div echarts [loading]="showloading" [options]="chartOption1" class="chart-box"></div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card *ngIf="view == 2">
+        <nb-card-header>
+          用户城市地理视图
+        </nb-card-header>
+  
+        <nb-card-body>
+          <div echarts [loading]="showloading" [options]="chartOption2" class="chart-box"></div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  
