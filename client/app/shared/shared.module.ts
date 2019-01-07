@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DayOfWeekPipe } from 'app/pipes/day-of-week.pipe';
+import { GenderPipe } from 'app/pipes/gender.pipe';
 import { NbCardModule } from '@nebular/theme';
 import { MatTableModule } from '@angular/material';
 import { NgxEchartsModule } from 'ngx-echarts';
@@ -13,6 +14,7 @@ import { StatsAreaChartComponent } from './stats-area-chart/stats-area-chart.com
 @NgModule({
   declarations: [
     DayOfWeekPipe,
+    GenderPipe,
     TrafficBarComponent,
     StatsAreaChartComponent,
   ],
@@ -30,6 +32,7 @@ import { StatsAreaChartComponent } from './stats-area-chart/stats-area-chart.com
     NbCardModule,
     NgxEchartsModule,
     DayOfWeekPipe,
+    GenderPipe,
     TrafficBarComponent,
     StatsAreaChartComponent
   ]

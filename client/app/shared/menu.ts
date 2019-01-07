@@ -16,102 +16,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-star',
     children: [
       {
-        title: 'Calendar',
-        link: '/extra-components/calendar',
+        title: '用户详细列表',
+        link: '/user',
       },
       {
-        title: 'Stepper',
-        link: '/extra-components/stepper',
+        title: '日增用户',
+        link: '/user/day',
       },
       {
-        title: 'List',
-        link: '/extra-components/list',
+        title: '周增用户',
+        link: '/user/week',
       },
       {
-        title: 'Infinite List',
-        link: '/extra-components/infinite-list',
-      },
-      {
-        title: 'Accordion',
-        link: '/extra-components/accordion',
-      },
-      {
-        title: 'Progress Bar',
-        link: '/extra-components/progress-bar',
-      },
-      {
-        title: 'Spinner',
-        link: '/extra-components/spinner',
-      },
-      {
-        title: 'Alert',
-        link: '/extra-components/alert',
-      },
-      {
-        title: 'Tree',
-        link: '/extra-components/tree',
-      },
-      {
-        title: 'Tabs',
-        link: '/extra-components/tabs',
-      },
-      {
-        title: 'Calendar Kit',
-        link: '/extra-components/calendar-kit',
-      },
-      {
-        title: 'Chat',
-        link: '/extra-components/chat',
+        title: '用户局数',
+        link: '/user/games',
       },
     ],
   },
   {
-    title: 'Forms',
-    icon: 'nb-compose',
-    children: [
-      {
-        title: 'Form Inputs',
-        link: '/forms/inputs',
-      },
-      {
-        title: 'Form Layouts',
-        link: '/forms/layouts',
-      },
-      {
-        title: 'Buttons',
-        link: '/forms/buttons',
-      },
-      {
-        title: 'Datepicker',
-        link: '/forms/datepicker',
-      },
-    ],
-  },
-  {
-    title: 'UI Features',
-    icon: 'nb-keypad',
-    link: '/ui-features',
-    children: [
-      {
-        title: 'Grid',
-        link: '/ui-features/grid',
-      },
-      {
-        title: 'Icons',
-        link: '/ui-features/icons',
-      },
-      {
-        title: 'Typography',
-        link: '/ui-features/typography',
-      },
-      {
-        title: 'Animated Searches',
-        link: '/ui-features/search-fields',
-      },
-    ],
-  },
-  {
-    title: 'Modal & Overlays',
+    title: '开局管理',
     icon: 'nb-layout-default',
     children: [
       {
@@ -137,8 +60,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Bootstrap',
-    icon: 'nb-gear',
+    title: '周期统计',
+    icon: 'nb-bar-chart',
     children: [
       {
         title: 'Form Inputs',
@@ -155,77 +78,21 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Maps',
+    title: '地理统计',
     icon: 'nb-location',
     children: [
       {
-        title: 'Google Maps',
-        link: '/maps/gmaps',
+        title: '地理用户列表',
+        link: '/maps/list',
       },
       {
-        title: 'Leaflet Maps',
-        link: '/maps/leaflet',
+        title: '省级地理视图',
+        link: '/maps/province',
       },
       {
-        title: 'Bubble Maps',
-        link: '/maps/bubble',
-      },
-      {
-        title: 'Search Maps',
-        link: '/maps/searchmap',
-      },
-    ],
-  },
-  {
-    title: 'Charts',
-    icon: 'nb-bar-chart',
-    children: [
-      {
-        title: 'Echarts',
-        link: '/charts/echarts',
-      },
-      {
-        title: 'Charts.js',
-        link: '/charts/chartjs',
-      },
-      {
-        title: 'D3',
-        link: '/charts/d3',
-      },
-    ],
-  },
-  {
-    title: 'Editors',
-    icon: 'nb-title',
-    children: [
-      {
-        title: 'TinyMCE',
-        link: '/editors/tinymce',
-      },
-      {
-        title: 'CKEditor',
-        link: '/editors/ckeditor',
-      },
-    ],
-  },
-  {
-    title: 'Tables',
-    icon: 'nb-tables',
-    children: [
-      {
-        title: 'Smart Table',
-        link: '/tables/smart-table',
-      },
-    ],
-  },
-  {
-    title: 'Miscellaneous',
-    icon: 'nb-shuffle',
-    children: [
-      {
-        title: '404',
-        link: '/miscellaneous/404',
-      },
+        title: '城市地理视图',
+        link: '/maps/city',
+      }
     ],
   },
   {
