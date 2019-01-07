@@ -14,23 +14,28 @@ export class UserManagementComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nickname', 'avatar', 'gender', 'registeredAt', 'registeredWeek'];
   users$: Observable<any>;
   ngOnInit() {
-    this.getTotal();
     this.getPage();
   }
 
-  wxUserTotal: number = 43385;
-  otherUserTotal: number = 49075;
+  users: Array<any>;
   pages: number;
   pageIndex: number = 0;
   limit: number = 10;
+  totalUser: number;
+  totalWxUser: number;
+  totalAnonymousUser: number;
 
-  getTotal() {
-
-    this.pages = Math.floor((this.wxUserTotal + this.otherUserTotal) / this.limit) + 1;
-  }
 
   getPage() {
-    this.users$ = this.UMService.list(this.pageIndex * this.limit, this.limit);
+    this.UMService.list(this.pageIndex * this.limit, this.limit).subscribe(res => {
+      console.log(res);
+      this.users = res.list;
+      this.totalUser = res.totalUser;
+      this.totalWxUser = res.totalWxUser;
+      this.totalAnonymousUser = res.totalAnonymousUser;
+      this.pages = Math.floor((this.totalUser) / this.limit) + 1;
+    });
+
   }
   
   prePage(isFirst: boolean = false) {

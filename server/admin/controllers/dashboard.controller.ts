@@ -91,12 +91,21 @@ export async function list(req: Request, res: Response, next: NextFunction) {
 }
 
 export async function userList(req: Request, res: Response, next: NextFunction) {
+
+    const totalUser = await WxUserModel.count({});
+    const totalAnonymousUser = await WxUserModel.count({ anonymous: true });
+    const totalWxUser = +totalUser - (+totalAnonymousUser);
     const { limit = 10, skip = 0 } = req.query;
     const data = await WxUserModel.find().limit(+limit).skip(+skip).exec();
     return res.json({
         code: 0,
         message: 'OK',
-        data: data
+        data: {
+            list: data,
+            totalUser: totalUser,
+            totalWxUser: totalWxUser,
+            totalAnonymousUser: totalAnonymousUser,
+        }
     });
 }
 

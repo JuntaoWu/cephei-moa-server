@@ -16,7 +16,7 @@ export class UserManagementService {
         if (res.code !== 0) {
           return throwError(res && res.message || '获取数据失败');
         }
-        res.data.forEach(item => {
+        res.data.list.forEach(item => {
           item.dayOfWeek = new Date(item.registeredAt).getDay()
         });
         return res.data;

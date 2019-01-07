@@ -19,14 +19,18 @@ export class DayStatisticsComponent implements OnInit {
     
     this.statistics$ = this.UMService.listDayStatistic();
     this.statistics$.subscribe(val => {
-      console.log(val);
       let xList = [],
           newUsers = [],
           totalUsers = [];
-      val.forEach(item => {
+      val.reverse().forEach(item => {
         xList.push(item.registeredAt.substr(0, 10))
         newUsers.push(item.count);
       })
+
+      for (let i = 0; i < newUsers.length; i++) {
+        totalUsers.push(+newUsers[i] + (+totalUsers[i - 1] || 0));
+      }
+
       this.drawChart(xList, newUsers, totalUsers);
     });
   }
@@ -34,15 +38,11 @@ export class DayStatisticsComponent implements OnInit {
   pages: number;
   pageIndex: number = 0;
   limit: number = 10;
-  chart: any;
+  chartOption: any;
 
   drawChart(xList, newUsers, totalUsers) {
-    // 初始化echarts实例
-    if (!this.chart) {
-      this.chart = echarts.init(document.getElementById('chart') as HTMLDivElement);
-    }
     // 绘制图表
-    this.chart.setOption({
+    this.chartOption = {
         title: {
             text: 'ECharts 入门示例'
         },
@@ -85,10 +85,7 @@ export class DayStatisticsComponent implements OnInit {
             data: totalUsers
           }
         ]
-    });
+    };
   }
 
-  onResize(event) {
-    this.chart.resize();
-  }
 }
