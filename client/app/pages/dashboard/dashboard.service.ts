@@ -20,7 +20,7 @@ export class DashboardService {
       }),
       catchError((error) => {
         console.error(error);
-        return of([]);
+        return of({});
       })
     );
   }

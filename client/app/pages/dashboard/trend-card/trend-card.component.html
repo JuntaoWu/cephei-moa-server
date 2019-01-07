@@ -1,0 +1,21 @@
+<nb-card size="xsmall">
+  <nb-card-header>
+    <div class="header-container">
+      <div class="icon">
+        <i class="ion-podium"></i>
+      </div>
+      <span class="title">{{label}}</span>
+    </div>
+  </nb-card-header>
+  <nb-card-body class="p-0">
+    <div class="info">
+      <div class="period">
+        <div class="value">
+          <span>Total:</span>
+          {{value}}
+        </div>
+      </div>
+    </div>
+    <ngx-stats-area-chart [points]="trend"></ngx-stats-area-chart>
+  </nb-card-body>
+</nb-card>

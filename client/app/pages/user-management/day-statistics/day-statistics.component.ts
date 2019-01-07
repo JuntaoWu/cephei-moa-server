@@ -34,7 +34,7 @@ export class DayStatisticsComponent implements OnInit {
   pages: number;
   pageIndex: number = 0;
   limit: number = 10;
-  chart: echarts.ECharts;
+  chart: any;
 
   drawChart(xList, newUsers, totalUsers) {
     // 初始化echarts实例
