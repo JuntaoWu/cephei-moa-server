@@ -42,24 +42,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-layout-default',
     children: [
       {
-        title: 'Dialog',
-        link: '/modal-overlays/dialog',
+        title: '开局详情',
+        link: '/room',
       },
       {
-        title: 'Window',
-        link: '/modal-overlays/window',
+        title: '日增开局',
+        link: '/room/day',
       },
       {
-        title: 'Popover',
-        link: '/modal-overlays/popover',
-      },
-      {
-        title: 'Toastr',
-        link: '/modal-overlays/toastr',
-      },
-      {
-        title: 'Tooltip',
-        link: '/modal-overlays/tooltip',
+        title: '周增开局',
+        link: '/room/week',
       },
     ],
   },
@@ -68,35 +60,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-bar-chart',
     children: [
       {
-        title: 'Form Inputs',
-        link: '/bootstrap/inputs',
+        title: '单日同比数据',
+        link: '/cycle/days',
       },
       {
-        title: 'Buttons',
-        link: '/bootstrap/buttons',
+        title: '单周同比数据',
+        link: '/cycle/weeks',
       },
-      {
-        title: 'Modal',
-        link: '/bootstrap/modal',
-      },
-    ],
-  },
-  {
-    title: '地理统计',
-    icon: 'nb-location',
-    children: [
-      {
-        title: '地理用户列表',
-        link: '/maps/list',
-      },
-      {
-        title: '省级地理视图',
-        link: '/maps/province',
-      },
-      {
-        title: '城市地理视图',
-        link: '/maps/city',
-      }
     ],
   },
   {

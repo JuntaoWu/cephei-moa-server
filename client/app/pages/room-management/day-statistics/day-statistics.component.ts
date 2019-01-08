@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UserManagementService } from '../user-management.service';
+import { RoomManagementService } from '../room-management.service';
 import { PageEvent } from '@angular/material';
 
 @Component({
-  selector: 'user-day-statistics',
+  selector: 'room-day-statistics',
   templateUrl: './day-statistics.component.html',
   styleUrls: ['./day-statistics.component.scss']
 })
 export class DayStatisticsComponent implements OnInit {
 
-  constructor(private UMService: UserManagementService) { }
+  constructor(private RMService: RoomManagementService) { }
 
-  displayedColumns: string[] = ['registeredAt', 'registeredWeek', 'count', 'total'];
+  displayedColumns: string[] = ['createdAt', 'dayOfWeek', 'count', 'total'];
 
   allList: Array<any> = [];
   showList: Array<any> = [];
@@ -20,15 +19,16 @@ export class DayStatisticsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.UMService.listDayStatistic().subscribe(val => {
+    this.RMService.listDayStatistic().subscribe(res => {
       let xList = [],
-        newUsers = [],
-        totalUsers = [];
-      val.reverse().forEach((item, index) => {
-        xList.push(item.registeredAt.substr(0, 10))
-        newUsers.push(item.count);
-        let total = +item.count + (+totalUsers[index - 1] || 0);
-        totalUsers.push(total);
+        _new = [],
+        _total = [];
+      console.log(res)
+      res.reverse().forEach((item, index) => {
+        xList.push(item.createdAt && item.createdAt.substr(0, 10))
+        _new.push(item.count);
+        let total = +item.count + (+_total[index - 1] || 0);
+        _total.push(total);
         this.allList.push({ ...item, total: total });
       });
       this.allList = this.allList.reverse();
@@ -37,8 +37,8 @@ export class DayStatisticsComponent implements OnInit {
       this.chartData = {
         xAxis: xList,
         series: {
-          '新增用户': newUsers,
-          '总用户': totalUsers
+          '新增开局': _new,
+          '总开局': _total
         }
       }
     });
@@ -54,5 +54,4 @@ export class DayStatisticsComponent implements OnInit {
 
     this.showList = this.allList.slice(this.pageIndex * this.pageSize, this.pageIndex * this.pageSize + this.pageSize);
   }
-
 }

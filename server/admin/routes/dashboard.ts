@@ -17,4 +17,9 @@ router.get('/userDayStatistic', passport.authenticate('jwtAdmin'), dashboardCtrl
 router.get('/userGames', passport.authenticate('jwtAdmin'), dashboardCtrl.userGames);
 router.get('/userMaps', passport.authenticate('jwtAdmin'), dashboardCtrl.userMaps);
 
+router.get('/roomList', passport.authenticate('jwtAdmin'), dashboardCtrl.roomList);
+router.get('/roomDayStatistic', passport.authenticate('jwtAdmin'), dashboardCtrl.roomDayStatistic);
+
+router.get('/cycleStatistic', passport.authenticate('jwtAdmin'), dashboardCtrl.cycleStatistic);
+
 export default router;

@@ -2,6 +2,7 @@ import { delay, takeWhile } from 'rxjs/operators';
 import { AfterViewInit, Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../@core/data/layout.service';
+import * as echarts from 'echarts';
 
 @Component({
   selector: 'ngx-stats-area-chart',

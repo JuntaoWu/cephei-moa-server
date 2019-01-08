@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserManagementService } from './user-management.service'
+import { UserManagementService } from './user-management.service';
 import { PageEvent } from '@angular/material';
 
 @Component({
@@ -24,8 +24,7 @@ export class UserManagementComponent implements OnInit {
   public totalAnonymousUser: number;
   totalWxUserMen: number;
   totalWxUserWomen: number;
-  chartOption: any;
-  showChart: boolean = false;
+  chartData: Array<any>;
 
   ngOnInit() {
     this.getPage();
@@ -39,7 +38,12 @@ export class UserManagementComponent implements OnInit {
       this.totalAnonymousUser = res.totalAnonymousUser;
       this.totalWxUserMen = res.totalWxUserMen;
       this.totalWxUserWomen = res.totalWxUserWomen;
-      this.serChartsOption();
+      
+      this.chartData = [
+        { value: this.totalWxUserMen, name: '男' },
+        { value: this.totalWxUserWomen, name: '女' },
+        { value: this.totalAnonymousUser, name: '游客' }
+      ];
     });
   }
 
@@ -48,42 +52,5 @@ export class UserManagementComponent implements OnInit {
     this.pageSize = $event.pageSize;
 
     this.getPage();
-  }
-
-  serChartsOption() {
-    this.chartOption = {
-      title: {
-        text: '用户性别统计',
-        left: 'center'
-      },
-      tooltip: {
-        trigger: 'item',
-        formatter: '{b} : {c} ({d}%)'
-      },
-      legend: {
-        bottom: 10,
-        data: ['男', '女', '游客']
-      },
-      series: [
-        {
-          type: 'pie',
-          radius: '65%',
-          center: ['50%', '50%'],
-          selectedMode: 'single',
-          data: [
-            { value: this.totalWxUserMen, name: '男' },
-            { value: this.totalWxUserWomen, name: '女' },
-            { value: this.totalAnonymousUser, name: '游客' }
-          ],
-          itemStyle: {
-            emphasis: {
-              shadowBlur: 10,
-              shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
-          }
-        }
-      ]
-    };
   }
 }

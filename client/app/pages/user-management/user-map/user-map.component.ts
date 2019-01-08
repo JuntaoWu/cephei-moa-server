@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserManagementService } from '../user-management.service';
 import { bool } from 'joi';
+import { NbThemeService } from '@nebular/theme';
+import { delay, takeWhile } from 'rxjs/operators';
 import * as echarts from 'echarts';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-user-map',
@@ -10,15 +13,15 @@ import * as echarts from 'echarts';
 })
 export class UserMapComponent implements OnInit {
 
-  constructor(private UMService: UserManagementService) { }
+  constructor(private theme: NbThemeService, private UMService: UserManagementService) { }
 
   displayedColumns: string[] = ['id', 'nickname', 'gender', 'province', 'city'];
-  view: number = 0;
   users: Array<any>;
   totalUser: number;
   pages: number;
   pageIndex: number = 0;
-  limit: number = 10;
+  pageSize: number = 10;
+  pageSizeOptions = [5, 10, 25, 50];
   chartOption1: any;
   chartOption2: any;
   showloading: boolean;
@@ -28,39 +31,16 @@ export class UserMapComponent implements OnInit {
   }
 
   getPage() {
-    this.UMService.list(this.pageIndex * this.limit, this.limit).subscribe(res => {
+    this.UMService.list(this.pageIndex * this.pageSize, this.pageSize).subscribe(res => {
       console.log(res);
       this.users = res.list;
       this.totalUser = res.totalUser;
-      this.pages = Math.ceil((this.totalUser) / this.limit);
+      this.pages = Math.ceil((this.totalUser) / this.pageSize);
     });
   }
   
-  prePage(isFirst: boolean = false) {
-    if (!this.pageIndex) return;
-    if (isFirst) {
-      this.pageIndex = 0;
-    }
-    else {
-      this.pageIndex -= 1;
-    }
-    this.getPage();
-  }
-
-  nextPage(isLast: boolean = false) {
-    if (this.pageIndex == this.pages - 1) return;
-    if (isLast) {
-      this.pageIndex = this.pages - 1;
-    }
-    else {
-      this.pageIndex += 1;
-    }
-    this.getPage();
-  }
-
-  showView(n: number) {
-    this.view = n;
-    if (n == 1 && !this.chartOption1) {
+  onTabChange(tabIndex: Number) {
+    if (tabIndex == 1 && !this.chartOption1) {
       this.showloading = true;
       this.UMService.chinaJson().subscribe(res => {
         echarts.registerMap('china', res);
@@ -165,7 +145,7 @@ export class UserMapComponent implements OnInit {
       });
       
     }
-    else if (n == 2 && !this.chartOption2) {
+    if (tabIndex == 2 && !this.chartOption2) {
       this.showloading = true;
       this.UMService.chinaCitiesJson().subscribe(res => {
         echarts.registerMap('chinaCities', res);
@@ -271,6 +251,12 @@ export class UserMapComponent implements OnInit {
         }
       });
     }
+  }
+
+  refreshPage($event: PageEvent) {
+    this.pageIndex = $event.pageIndex;
+    this.pageSize = $event.pageSize;
+    this.getPage();
   }
 
   /**

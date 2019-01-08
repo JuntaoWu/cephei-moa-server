@@ -29,3 +29,12 @@
     color: white;
   }
 }
+
+:host-context(.nb-theme-cosmic) ::ng-deep .mat-tab-group {
+  background: transparent;
+
+  color: #a1a1e5;
+  .mat-tab-label {
+    color: white;
+  }
+}

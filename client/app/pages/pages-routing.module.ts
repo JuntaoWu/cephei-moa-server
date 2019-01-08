@@ -19,6 +19,14 @@ const routes: Routes = [
       {
         path: 'user',
         loadChildren: './user-management/user-management.module#UserManagementModule'
+      },
+      {
+        path: 'room',
+        loadChildren: './room-management/room-management.module#RoomManagementModule'
+      },
+      {
+        path: 'cycle',
+        loadChildren: './cycle-statistics/cycle-statistics.module#CycleStatisticsModule'
       }
     ]
   }

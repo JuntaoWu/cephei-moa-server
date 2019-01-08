@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { DayOfWeekPipe } from 'app/pipes/day-of-week.pipe';
 import { GenderPipe } from 'app/pipes/gender.pipe';
 import { NbCardModule } from '@nebular/theme';
-import { MatTableModule, MatPaginatorModule } from '@angular/material';
+import { MatTableModule, MatTabsModule, MatPaginatorModule } from '@angular/material';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 import { TrafficBarComponent } from './traffic-bar/traffic-bar.component';
 import { StatsAreaChartComponent } from './stats-area-chart/stats-area-chart.component';
+import { LineBarChartComponent } from './line-bar-chart/line-bar-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 
 @NgModule({
@@ -17,12 +19,15 @@ import { StatsAreaChartComponent } from './stats-area-chart/stats-area-chart.com
     GenderPipe,
     TrafficBarComponent,
     StatsAreaChartComponent,
+    LineBarChartComponent,
+    PieChartComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     NbCardModule,
     MatTableModule,
+    MatTabsModule,
     MatPaginatorModule,
     NgxEchartsModule,
   ],
@@ -30,13 +35,16 @@ import { StatsAreaChartComponent } from './stats-area-chart/stats-area-chart.com
     CommonModule,
     FormsModule,
     MatTableModule,
+    MatTabsModule,
     MatPaginatorModule,
     NbCardModule,
     NgxEchartsModule,
     DayOfWeekPipe,
     GenderPipe,
     TrafficBarComponent,
-    StatsAreaChartComponent
+    StatsAreaChartComponent,
+    LineBarChartComponent,
+    PieChartComponent,
   ]
 })
 export class SharedModule { }

@@ -1,38 +1,42 @@
 <div class="row">
 
     <div class="col-md-12">
-      <button type="button" class="btn btn-primary " (click)="showChart = false">用户局数列表</button>
-      <button type="button" class="btn btn-primary " (click)="showChart = true">用户局数饼图</button>
-      <nb-card *ngIf="!showChart">
-        <nb-card-header>
-          用户局数列表
-        </nb-card-header>
-  
-        <nb-card-body>
-          <table style="width: 100%" mat-table [dataSource]="usergames">
-            <ng-container matColumnDef="games">
-              <th mat-header-cell *matHeaderCellDef>用户局数</th>
-              <td mat-cell *matCellDef="let item">{{ item.games }}</td>
-            </ng-container>
-            <ng-container matColumnDef="count">
-              <th mat-header-cell *matHeaderCellDef>用户数量</th>
-              <td mat-cell *matCellDef="let item">{{ item.count }}</td>
-            </ng-container>
-  
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-        </nb-card-body>
-      </nb-card>
-      <nb-card *ngIf="showChart">
-        <nb-card-header>
-          用户局数饼图
-        </nb-card-header>
-  
-        <nb-card-body>
-          <div echarts [options]="chartOption" class="chart-box"></div>
-        </nb-card-body>
-      </nb-card>
+      <mat-tab-group>
+        <mat-tab label="用户局数列表">
+          <nb-card>
+            <nb-card-header>
+              用户局数列表
+            </nb-card-header>
+      
+            <nb-card-body>
+              <table style="width: 100%" mat-table [dataSource]="usergames">
+                <ng-container matColumnDef="games">
+                  <th mat-header-cell *matHeaderCellDef>用户局数</th>
+                  <td mat-cell *matCellDef="let item">{{ item.games }}</td>
+                </ng-container>
+                <ng-container matColumnDef="count">
+                  <th mat-header-cell *matHeaderCellDef>用户数量</th>
+                  <td mat-cell *matCellDef="let item">{{ item.count }}</td>
+                </ng-container>
+      
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </nb-card-body>
+          </nb-card>
+        </mat-tab>
+        <mat-tab label="用户局数饼图">
+          <nb-card>
+            <nb-card-header>
+              用户局数饼图
+            </nb-card-header>
+      
+            <nb-card-body>
+              <ngx-pie-chart *ngIf="chartData" [data]="chartData"></ngx-pie-chart>
+            </nb-card-body>
+          </nb-card>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
   

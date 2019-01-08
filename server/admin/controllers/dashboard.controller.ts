@@ -241,6 +241,104 @@ export async function userMaps(req: Request, res: Response, next: NextFunction) 
     });
 }
 
+export async function roomList(req: Request, res: Response, next: NextFunction) {
+    const totalRoom = await GameModel.count({});
+    const { limit = 10, skip = 0 } = req.query;
+    const data = await GameModel.find().limit(+limit).skip(+skip).exec();
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: {
+            list: data,
+            totalRoom: totalRoom
+        }
+    });
+}
 
+export async function roomDayStatistic(req: Request, res: Response, next: NextFunction) {
+    
+    const dbResult = await GameModel.aggregate([
+        { $project: { createdAt: { '$substr': ['$createdAt', 0, 10] } } },
+        { $group: { _id: '$createdAt', count: { $sum: 1 } } },
+        { $sort: { _id: -1 } }
+    ]);
 
-export default { list, userList, userDayStatistic, userGames, userMaps };
+    const data = dbResult.map(item => {
+        const createdAt = new Date(item._id);
+        return {
+            createdAt: createdAt,
+            count: item.count,
+            dayOfWeek: moment(createdAt).weekday()
+        };
+    });
+
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: data
+    });
+}
+
+export async function cycleStatistic(req: Request, res: Response, next: NextFunction) {
+    
+    let cycleTime: number = 1000 * 60 * 60;
+    if (req.query.type == 'weeks') {
+        cycleTime = 1000 * 60 * 60 * 24 * 7;
+    }
+    const dbUserResult = await WxUserModel.aggregate([
+        { $project: { registeredAt: 1 } },
+        { $group: { _id: { 
+            $subtract: [
+                { $subtract: [ "$registeredAt", new Date("1970-01-01") ] },
+                { $mod: [
+                    { $subtract: [ "$registeredAt", new Date("1970-01-01") ] }, cycleTime
+                ]}
+            ]
+          }, count: { $sum: 1 } } 
+        },
+        { $sort: { _id: -1 } }
+    ]);
+    const dbRoomResult = await GameModel.aggregate([
+        { $project: { createdAt: 1 } },
+        { $group: { _id: { 
+            $subtract: [
+                { $subtract: [ "$createdAt", new Date("1970-01-01") ] },
+                { $mod: [
+                    { $subtract: [ "$createdAt", new Date("1970-01-01") ] }, cycleTime
+                ]}
+            ]
+          }, count: { $sum: 1 } } 
+        },
+        { $sort: { _id: -1 } }
+    ]);
+
+    const data = {
+        user: dbUserResult.map(item => {
+            const registeredAt = new Date(item._id);
+            return {
+                registeredAt: registeredAt,
+                count: item.count,
+            };
+        }),
+        room: dbRoomResult.map(item => {
+            const createdAt = new Date(item._id);
+            return {
+                createdAt: createdAt,
+                count: item.count,
+            };
+        }),
+    };
+
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: data
+    });
+}
+
+export default { 
+    list, 
+    userList, userDayStatistic, userGames, userMaps, 
+    roomList, roomDayStatistic,
+    cycleStatistic
+};
