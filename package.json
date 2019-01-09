@@ -40,6 +40,7 @@
     "http-errors": "~1.6.2",
     "http-status": "^1.2.0",
     "jade": "~1.11.0",
+    "joi": "^14.3.1",
     "lodash": "^4.17.4",
     "lusca": "^1.5.2",
     "moment": "^2.23.0",
@@ -54,7 +55,8 @@
     "reflect-metadata": "^0.1.12",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
-    "typegoose": "^5.2.1"
+    "typegoose": "^5.2.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.11.0",
@@ -113,6 +115,7 @@
     "@types/shelljs": "^0.7.8",
     "@types/supertest": "^2.0.4",
     "@types/winston": "^2.3.7",
+    "@types/uuid": "^3.4.4",
     "angular-tree-component": "7.2.0",
     "bootstrap": "4.0.0",
     "codelyzer": "^4.5.0",

@@ -3,10 +3,11 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, Htt
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { NbAuthService } from '@nebular/auth';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
-    constructor(private authService: NbAuthService) { }
+    constructor(private authService: NbAuthService, private router: Router) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -28,7 +29,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
                     console.log(error);
 
                     if (error.status === 401) {
-                        location.href = '/auth/login';
+                        this.router.navigateByUrl('/auth/login');
                         return;
                     }
 

@@ -60,6 +60,8 @@ const envVarsSchema = Joi.object({
     .description('MSSQL_DATABASE'),
   REDIS_URI: Joi.string().required()
     .description('REDIS_URI'),
+  IM_HOST: Joi.string().required()
+    .description('IM_HOST')
 }).unknown()
   .required();
 
@@ -118,6 +120,11 @@ export const config = {
     uri: envVars.REDIS_URI,
   },
   rootUrl: envVars.ROOT_URI,
+  im: {
+    host: envVars.IM_HOST,
+    appKey: envVars.IM_APP_KEY,
+    appSecret: envVars.IM_APP_SECRET,
+  }
 };
 
 export default config;

@@ -66,6 +66,11 @@ export class WxUser extends Typegoose {
     migrated?: Boolean;
     @prop()
     anonymous?: Boolean;
+
+    @prop()
+    imAccId?: String;
+    @prop()
+    imToken?: String;
 }
 
 const WxUserModel = new WxUser().getModelForClass(WxUser, {

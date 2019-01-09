@@ -1,8 +1,8 @@
 {
 	"initial": [
-		"js/egret.min_f3705262.js",
+		"js/egret.min_1f88eb98.js",
 		"js/egret.web.min_2dd0bd72.js",
-		"js/eui.min_4f767512.js",
+		"js/eui.min_38a8c284.js",
 		"js/assetsmanager.min_f2e50bd1.js",
 		"js/tween.min_6c5a88f9.js",
 		"js/game.min_45aa06f6.js",
@@ -12,10 +12,11 @@
 		"js/promise.min_83a6a5d.js",
 		"js/puremvc.min_15c0395c.js",
 		"js/lodash.min_fca082dd.js",
-		"js/photon.min_face9e9c.js"
+		"js/photon.min_face9e9c.js",
+		"js/antiques-play.min_f15aa6bc.js"
 	],
 	"game": [
-		"js/default.thm_883c831e.js",
-		"js/main.min_7c16591a.js"
+		"js/default.thm_850dd9d2.js",
+		"js/main.min_7b74a256.js"
 	]
 }

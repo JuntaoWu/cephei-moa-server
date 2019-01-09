@@ -19,6 +19,7 @@ import noticeRouter from './notice';
 import adRouter from './ad';
 import gameIconRouter from './gameicon';
 import sharedRouter from './shared';
+import imRouter from './im';
 
 router.use('/users', userRouter);
 router.use('/ranks', rankRouter);
@@ -31,5 +32,6 @@ router.use('/notice', noticeRouter);
 router.use('/ads', adRouter);
 router.use('/gameIcons', gameIconRouter);
 router.use('/shared', sharedRouter);
+router.use('/im', imRouter);
 
 export default router;

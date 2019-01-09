@@ -4,7 +4,7 @@
   </nb-card-header>
   <nb-card-body>
     <ul class="traffic-list">
-      <li *ngFor="let item of trafficData; trackBy: trackByDate">
+      <li *ngFor="let item of trafficData;">
         <div class="date">{{item.date | date: 'MM-dd'}}, {{ item.dayOfWeek | dayOfWeek }}</div>
         <div class="value">{{ item.count }}</div>
         <div class="delta" [class.up]="item.delta.up" [class.down]="!item.delta.up">
