@@ -1,3 +1,29 @@
-<p>
-  days works!
-</p>
+<div class="row">
+
+  <div class="col-md-12">
+    <mat-tab-group>
+      <mat-tab label="单日同比数据">
+        <nb-card>
+          <nb-card-header>
+            单日同比数据
+          </nb-card-header>
+    
+          <nb-card-body>
+            <ngx-line-bar-chart *ngIf="dayChartDataReady" [data]="dayChartData"></ngx-line-bar-chart>
+          </nb-card-body>
+        </nb-card>
+      </mat-tab>
+      <mat-tab label="时间叠加数据">
+        <nb-card>
+          <nb-card-header>
+            时间叠加数据
+          </nb-card-header>
+    
+          <nb-card-body>
+            <ngx-line-bar-chart *ngIf="hourChartData" [data]="hourChartData"></ngx-line-bar-chart>
+          </nb-card-body>
+        </nb-card>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

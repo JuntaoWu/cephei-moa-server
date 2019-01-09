@@ -43,6 +43,21 @@ export class UserManagementService {
     );
   }
 
+  listWeekStatistic() {
+    return this.http.get('/api/dashboard/userWeekStatistic').pipe(
+      map((res: any) => {
+        if (res.code !== 0) {
+          return throwError(res && res.message || '获取数据失败');
+        }
+        return res.data;
+      }),
+      catchError((error) => {
+        console.error(error);
+        return of([]);
+      })
+    );
+  }
+
   listUserGames() {
     return this.http.get('/api/dashboard/userGames').pipe(
       map((res: any) => {

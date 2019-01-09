@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserMapComponent } from './user-map.component';
+import { WinRateComponent } from './win-rate.component';
 
-describe('UserMapComponent', () => {
-  let component: UserMapComponent;
-  let fixture: ComponentFixture<UserMapComponent>;
+describe('WinRateComponent', () => {
+  let component: WinRateComponent;
+  let fixture: ComponentFixture<WinRateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserMapComponent ]
+      declarations: [ WinRateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserMapComponent);
+    fixture = TestBed.createComponent(WinRateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,3 +1,29 @@
-<p>
-  weeks works!
-</p>
+<div class="row">
+
+  <div class="col-md-12">
+    <mat-tab-group>
+      <mat-tab label="单周同比数据">
+        <nb-card>
+          <nb-card-header>
+            单周同比数据
+          </nb-card-header>
+    
+          <nb-card-body>
+            <ngx-line-bar-chart *ngIf="chartDataReady" [data]="chartData1"></ngx-line-bar-chart>
+          </nb-card-body>
+        </nb-card>
+      </mat-tab>
+      <mat-tab label="单周叠加数据">
+        <nb-card>
+          <nb-card-header>
+            单周叠加数据
+          </nb-card-header>
+    
+          <nb-card-body>
+            <ngx-line-bar-chart *ngIf="chartData2" [data]="chartData2"></ngx-line-bar-chart>
+          </nb-card-body>
+        </nb-card>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

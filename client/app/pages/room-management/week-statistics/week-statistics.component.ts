@@ -13,19 +13,17 @@ export class WeekStatisticsComponent implements OnInit {
   chartData: any;
 
   ngOnInit() {
-    this.RMService.listDayStatistic().subscribe(val => {
+    this.RMService.listWeekStatistic().subscribe(val => {
       let xList = [], newRooms = [], totalRooms = [];
       let index = 0;
       let data = val.reverse();
       console.log(data);
 
       data.forEach((item, index) => {
-        let i = Math.floor(index / 7);
-        newRooms[i] = +(newRooms[i] || 0) + item.count;
-        if (index % 7 == 6 || index + 1 == data.length) {
-          totalRooms[i] = +newRooms[i] + (+totalRooms[i - 1] || 0);
-          xList[i] = `${data[index - index % 7].createdAt && data[index - index % 7].createdAt.substr(0, 10)}~${item.createdAt && item.createdAt.substr(0, 10)}`;
-        }
+        xList.push(item.createdAt && item.createdAt.substr(0, 10))
+        newRooms.push(item.count);
+        let total = +item.count + (+totalRooms[index - 1] || 0);
+        totalRooms.push(total);
       });
       
       this.chartData = {

@@ -21,8 +21,8 @@ export class DayStatisticsComponent implements OnInit {
 
     this.RMService.listDayStatistic().subscribe(res => {
       let xList = [],
-        _new = [],
-        _total = [];
+          _new = [],
+          _total = [];
       console.log(res)
       res.reverse().forEach((item, index) => {
         xList.push(item.createdAt && item.createdAt.substr(0, 10))

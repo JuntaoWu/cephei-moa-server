@@ -11,6 +11,7 @@ import { hashSync } from 'bcrypt-nodejs';
 import WxUserModel from '../../models/wxuser.model';
 import * as moment from 'moment';
 import GameModel from '../../models/game.model';
+import RecordModel from '../../models/record.model';
 
 export async function list(req: Request, res: Response, next: NextFunction) {
 
@@ -138,6 +139,37 @@ export async function userDayStatistic(req: Request, res: Response, next: NextFu
     });
 }
 
+export async function userWeekStatistic(req: Request, res: Response, next: NextFunction) {
+    
+    const dbResult = await WxUserModel.aggregate([
+        { $project: { registeredAt: 1 } },
+        { $group: { _id: { 
+            $subtract: [
+                { $subtract: [ "$registeredAt", new Date("1970-01-01") ] },
+                { $mod: [
+                    { $subtract: [ "$registeredAt", new Date("1970-01-01") ] }, 1000 * 60 * 60 * 24 * 7
+                ]}
+            ]
+          }, count: { $sum: 1 } } 
+        },
+        { $sort: { _id: -1 } }
+    ]);
+
+    const data = dbResult.map(item => {
+        const registeredAt = new Date(item._id);
+        return {
+            registeredAt: registeredAt,
+            count: item.count
+        };
+    });
+
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: data
+    });
+}
+
 export async function userGames(req: Request, res: Response, next: NextFunction) {
     
     const totalUser = await WxUserModel.count({});
@@ -245,12 +277,46 @@ export async function roomList(req: Request, res: Response, next: NextFunction) 
     const totalRoom = await GameModel.count({});
     const { limit = 10, skip = 0 } = req.query;
     const data = await GameModel.find().limit(+limit).skip(+skip).exec();
+
+    const dbRecordResult = await RecordModel.aggregate([
+        { $project: { 
+            roomName: 1,
+            winCount: {
+                $cond: {
+                    if: {$eq: [true, "$isWin"]},
+                    then: 1,
+                    else: 0
+                }
+            },
+          } 
+        },
+        { $group: { _id: '$roomName', count: { $sum: 1 }, winCount: { $sum: '$winCount' } } },
+        { $sort: { _id: -1 } }
+    ]);
+
+    const list = data.map(item => {
+        let players = 0, winCamp = '';
+        dbRecordResult.forEach(val => {
+            if (item.GameId == val._id) {
+                players = val.count;
+                winCamp = val.winCount > 3 ? '许愿阵营' : '老朝奉阵营';
+            }
+        });
+        return {
+            GameId: item.GameId,
+            Players: players,
+            WinCamp: winCamp,
+            createdAt: item.createdAt,
+        }
+    })
+
     return res.json({
         code: 0,
         message: 'OK',
         data: {
-            list: data,
-            totalRoom: totalRoom
+            list: list,
+            totalRoom: totalRoom,
+            record: dbRecordResult
         }
     });
 }
@@ -279,32 +345,15 @@ export async function roomDayStatistic(req: Request, res: Response, next: NextFu
     });
 }
 
-export async function cycleStatistic(req: Request, res: Response, next: NextFunction) {
+export async function roomWeekStatistic(req: Request, res: Response, next: NextFunction) {
     
-    let cycleTime: number = 1000 * 60 * 60;
-    if (req.query.type == 'weeks') {
-        cycleTime = 1000 * 60 * 60 * 24 * 7;
-    }
-    const dbUserResult = await WxUserModel.aggregate([
-        { $project: { registeredAt: 1 } },
-        { $group: { _id: { 
-            $subtract: [
-                { $subtract: [ "$registeredAt", new Date("1970-01-01") ] },
-                { $mod: [
-                    { $subtract: [ "$registeredAt", new Date("1970-01-01") ] }, cycleTime
-                ]}
-            ]
-          }, count: { $sum: 1 } } 
-        },
-        { $sort: { _id: -1 } }
-    ]);
-    const dbRoomResult = await GameModel.aggregate([
+    const dbResult = await WxUserModel.aggregate([
         { $project: { createdAt: 1 } },
         { $group: { _id: { 
             $subtract: [
                 { $subtract: [ "$createdAt", new Date("1970-01-01") ] },
                 { $mod: [
-                    { $subtract: [ "$createdAt", new Date("1970-01-01") ] }, cycleTime
+                    { $subtract: [ "$createdAt", new Date("1970-01-01") ] }, 1000 * 60 * 60 * 24 * 7
                 ]}
             ]
           }, count: { $sum: 1 } } 
@@ -312,18 +361,96 @@ export async function cycleStatistic(req: Request, res: Response, next: NextFunc
         { $sort: { _id: -1 } }
     ]);
 
+    const data = dbResult.map(item => {
+        const createdAt = new Date(item._id);
+        return {
+            createdAt: createdAt,
+            count: item.count
+        };
+    });
+
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: data
+    });
+}
+
+export async function roomRate(req: Request, res: Response, next: NextFunction) {
+
+    const dbRecordResult = await RecordModel.aggregate([
+        { $project: { 
+            roomName: 1,
+            winCount: {
+                $cond: {
+                    if: {$eq: [true, "$isWin"]},
+                    then: 1,
+                    else: 0
+                }
+            },
+          } 
+        },
+        { $group: { _id: '$roomName', count: { $sum: 1 }, winCount: { $sum: '$winCount' } } },
+        { $sort: { _id: -1 } }
+    ]);
+
+    let obj = { all: { winXu: 0, winLao: 0 } };
+    dbRecordResult.forEach(item => {
+        if (!obj[item.count]) {
+          obj[item.count] = { winXu: 0, winLao: 0 };
+        }
+        if (item.winCount > 3) {
+            obj[item.count].winXu += 1;
+            obj.all.winXu += 1;
+        }
+        else {
+            obj[item.count].winLao += 1;
+            obj.all.winLao += 1;
+        }
+    });
+
+    return res.json({
+        code: 0,
+        message: 'OK',
+        data: obj
+    });
+}
+
+export async function cycleStatistic(req: Request, res: Response, next: NextFunction) {
+    
+    let groupId: string = "$hour";
+    if (req.query.type == 'week') {
+        groupId = "$dayOfWeek";
+    }
+    const dbUserResult = await WxUserModel.aggregate([
+        { $project: { 
+            hour: { $hour: "$registeredAt" },
+            dayOfWeek: { $dayOfWeek: "$registeredAt" }
+          } 
+        },
+        { $group: { _id: groupId, count: { $sum: 1 } } },
+        { $sort: { _id: -1 } }
+    ]);
+    const dbRoomResult = await GameModel.aggregate([
+        { $project: { 
+            hour: { $hour: "$createdAt" },
+            dayOfWeek: { $dayOfWeek: "$createdAt" }
+          } 
+        },
+        { $group: { _id: groupId, count: { $sum: 1 } } },
+        { $sort: { _id: -1 } }
+    ]);
+
     const data = {
         user: dbUserResult.map(item => {
-            const registeredAt = new Date(item._id);
             return {
-                registeredAt: registeredAt,
+                registeredAt: item._id,
                 count: item.count,
             };
         }),
         room: dbRoomResult.map(item => {
-            const createdAt = new Date(item._id);
             return {
-                createdAt: createdAt,
+                createdAt: item._id,
                 count: item.count,
             };
         }),
@@ -338,7 +465,7 @@ export async function cycleStatistic(req: Request, res: Response, next: NextFunc
 
 export default { 
     list, 
-    userList, userDayStatistic, userGames, userMaps, 
-    roomList, roomDayStatistic,
+    userList, userDayStatistic, userWeekStatistic, userGames, userMaps, 
+    roomList, roomDayStatistic, roomWeekStatistic, roomRate, 
     cycleStatistic
 };

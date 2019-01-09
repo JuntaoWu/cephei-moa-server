@@ -10,7 +10,7 @@ export class CycleStatisticsService {
 
   constructor(private http: HttpClient) { }
   
-  daysStatistic(type: string = "days") {
+  cycleStatistic(type: string = "") {
     return this.http.get(`/api/dashboard/cycleStatistic?type=${type}`).pipe(
       map((res: any) => {
         if (res.code !== 0) {

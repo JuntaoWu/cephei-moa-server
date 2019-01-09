@@ -13,17 +13,15 @@ export class WeekStatisticsComponent implements OnInit {
   chartData: any;
 
   ngOnInit() {
-    this.UMService.listDayStatistic().subscribe(val => {
+    this.UMService.listWeekStatistic().subscribe(val => {
       let xList = [], newUsers = [], totalUsers = [];
       let index = 0;
       let data = val.reverse();
       data.forEach((item, index) => {
-        let i = Math.floor(index / 7);
-        newUsers[i] = +(newUsers[i] || 0) + item.count;
-        if (index % 7 == 6) {
-          totalUsers[i] = +newUsers[i] + (+totalUsers[i - 1] || 0);
-          xList[i] = `${data[index - index % 7].registeredAt.substr(0, 10)}~${item.registeredAt.substr(0, 10)}`;
-        }
+        xList.push(item.registeredAt.substr(0, 10))
+        newUsers.push(item.count);
+        let total = +item.count + (+totalUsers[index - 1] || 0);
+        totalUsers.push(total);
       });
       
       this.chartData = {

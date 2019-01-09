@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RoomManagementComponent } from './room-management.component'
 import { DayStatisticsComponent } from './day-statistics/day-statistics.component'
 import { WeekStatisticsComponent } from './week-statistics/week-statistics.component'
+import { WinRateComponent } from './win-rate/win-rate.component'
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'week',
     component: WeekStatisticsComponent
+  },
+  {
+    path: 'rate',
+    component: WinRateComponent
   },
 ];
 

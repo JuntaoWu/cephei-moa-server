@@ -1,0 +1,52 @@
+<div class="row">
+
+  <div class="col-md-12">
+    <mat-tab-group>
+      <mat-tab label="全部胜率视图">
+        <nb-card>
+          <nb-card-header>
+            全部胜率视图
+          </nb-card-header>
+    
+          <nb-card-body>
+            <ngx-pie-chart *ngIf="chartData" [data]="chartData"></ngx-pie-chart>
+          </nb-card-body>
+        </nb-card>
+      </mat-tab>
+      <mat-tab label="6人局胜率视图">
+        <nb-card>
+          <nb-card-header>
+            6人局胜率视图
+          </nb-card-header>
+    
+          <nb-card-body>
+            <ngx-pie-chart *ngIf="chartData6" [data]="chartData6"></ngx-pie-chart>
+          </nb-card-body>
+        </nb-card>
+      </mat-tab>
+      <mat-tab label="7人局胜率视图">
+        <nb-card>
+          <nb-card-header>
+            7人局胜率视图
+          </nb-card-header>
+    
+          <nb-card-body>
+            <ngx-pie-chart *ngIf="chartData7" [data]="chartData7"></ngx-pie-chart>
+          </nb-card-body>
+        </nb-card>
+      </mat-tab>
+      <mat-tab label="8人局胜率视图">
+        <nb-card>
+          <nb-card-header>
+            8人局胜率视图
+          </nb-card-header>
+    
+          <nb-card-body>
+            <ngx-pie-chart *ngIf="chartData8" [data]="chartData8"></ngx-pie-chart>
+          </nb-card-body>
+        </nb-card>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+  

@@ -74,6 +74,12 @@ export class Game extends Typegoose {
     UserId: String;
     @prop()
     NickName: String;
+    @prop()
+    Players: Number;
+    @prop()
+    WinCamp: String;
+    @prop()
+    createdAt: Date;
 }
 
 const GameModel = new Game().getModelForClass(Game, {

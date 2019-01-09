@@ -53,6 +53,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: '周增开局',
         link: '/room/week',
       },
+      {
+        title: '胜率数据',
+        link: '/room/rate',
+      },
     ],
   },
   {

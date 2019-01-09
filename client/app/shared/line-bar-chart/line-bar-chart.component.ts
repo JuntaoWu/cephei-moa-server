@@ -48,7 +48,7 @@ export class LineBarChartComponent implements OnInit {
             name: item,
             data: this.data.series[item],
             type: 'line',
-            stack: 'one',
+            // stack: 'one',
             symbol: 'circle',
             symbolSize: 8,
             sampling: 'average',
