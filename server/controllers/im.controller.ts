@@ -86,11 +86,12 @@ export async function create(user: InstanceType<WxUser>): Promise<any> {
 
 function getGeneralHeaders() {
     const appKey = config.im.appKey;
+    const appSecret = config.im.appSecret;
     const nonceStr = _.random(100000, 999999);
     const curTime = Math.floor(+new Date() / 1000);
 
     const hash = createHash('sha1');
-    const checksum = hash.update(`${appKey}${nonceStr}${curTime}`).digest('hex').toLowerCase();
+    const checksum = hash.update(`${appSecret}${nonceStr}${curTime}`).digest('hex').toLowerCase();
 
     console.log(`AppKey: ${appKey}, Nonce: ${nonceStr}, CurTime: ${curTime}, CheckSum: ${checksum}`);
 

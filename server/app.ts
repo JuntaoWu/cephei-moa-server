@@ -51,13 +51,12 @@ app.use((passport).session());
 app.use('/api', adminIndexRouter);
 app.use('/', indexRouter);
 
+app.get('/admin/*', (req, res, next) => {
+  return res.sendFile(path.join(__dirname, '../client/index.html'));
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-
-  if (/admin/.test(req.path)) {
-    return res.redirect('/admin/');
-  }
-
   next(createError(404));
 });
 
