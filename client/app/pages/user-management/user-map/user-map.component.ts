@@ -63,85 +63,112 @@ export class UserMapComponent implements OnInit {
           });
         });
         this.showloading = false;
-        this.chartOption1 = {
-          title : {
-            text: '用户省级地理视图',
-            left: 'center'
-          },
-          tooltip : {
-            trigger: 'item'
-          },
-          legend: {
-            orient: 'vertical',
-            left: 'left',
-            data:['男','女','游客']
-          },
-          visualMap: {
-            min: 0,
-            max: 2500,
-            left: 'left',
-            top: 'bottom',
-            text:['高','低'],           // 文本，默认为数值文本
-            calculable : true
-          },
-          toolbox: {
-            show: true,
-            orient : 'vertical',
-            left: 'right',
-            top: 'center',
-            feature : {
-              dataView : {show: true, readOnly: false},
-              restore : {show: true}
-            }
-          },
-          series : [
-            {
-              name: '男',
-              type: 'map',
-              mapType: 'china',
-              roam: false,
-              label: {
-                normal: {
-                  show: false
-                },
-                emphasis: {
-                  show: true
-                }
-              },
-              data: menData
+        
+        this.theme.getJsTheme()
+        .subscribe(config => {
+          const trafficTheme: any = config.variables.traffic;
+          this.chartOption1 = {
+            title : {
+              text: '用户省级地理视图',
+              left: 'center',
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+              }
             },
-            {
-              name: '女',
-              type: 'map',
-              mapType: 'china',
-              roam: false,
-              label: {
-                normal: {
-                  show: false
-                },
-                emphasis: {
-                  show: true
-                }
+            tooltip : {
+              trigger: 'item',
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+                fontWeight: trafficTheme.tooltipFontWeight,
+                fontSize: 16,
               },
-              data: womenData
+              position: 'top',
+              backgroundColor: trafficTheme.tooltipBg,
+              borderColor: trafficTheme.tooltipBorderColor,
+              borderWidth: 3,
+              extraCssText: trafficTheme.tooltipExtraCss,
             },
-            {
-              name: '游客',
-              type: 'map',
-              mapType: 'china',
-              roam: false,
-              label: {
-                normal: {
-                  show: false
-                },
-                emphasis: {
-                  show: true
-                }
+            legend: {
+              orient: 'vertical',
+              left: 'left',
+              data:['男','女','游客'],
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+              }
+            },
+            visualMap: {
+              min: 0,
+              max: 2500,
+              left: 'left',
+              top: 'bottom',
+              text:['高','低'],           // 文本，默认为数值文本
+              calculable : true,
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+              }
+            },
+            toolbox: {
+              show: true,
+              orient : 'vertical',
+              left: 'right',
+              top: 'center',
+              feature : {
+                dataView : {show: true, readOnly: false},
+                restore : {show: true}
               },
-              data: anonymousData
-            }
-          ]
-        }
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+              }
+            },
+            series : [
+              {
+                name: '男',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                label: {
+                  normal: {
+                    show: false
+                  },
+                  emphasis: {
+                    show: true
+                  }
+                },
+                data: menData
+              },
+              {
+                name: '女',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                label: {
+                  normal: {
+                    show: false
+                  },
+                  emphasis: {
+                    show: true
+                  }
+                },
+                data: womenData
+              },
+              {
+                name: '游客',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                label: {
+                  normal: {
+                    show: false
+                  },
+                  emphasis: {
+                    show: true
+                  }
+                },
+                data: anonymousData
+              }
+            ]
+          }
+        });
       });
       
     }
@@ -169,86 +196,111 @@ export class UserMapComponent implements OnInit {
         });
 
         this.showloading = false;
-        this.chartOption2 = {
-          title : {
-            text: '用户城市地理视图',
-            left: 'center'
-          },
-          tooltip : {
-            trigger: 'item',
-            
-          },
-          legend: {
-            orient: 'vertical',
-            left: 'left',
-            data:['男','女','游客']
-          },
-          visualMap: {
-            min: 0,
-            max: 2500,
-            left: 'left',
-            top: 'bottom',
-            text:['高','低'],           // 文本，默认为数值文本
-            calculable : true
-          },
-          toolbox: {
-            show: true,
-            orient : 'vertical',
-            left: 'right',
-            top: 'center',
-            feature : {
-              dataView : {show: true, readOnly: false},
-              restore : {show: true}
-            }
-          },
-          series : [
-            {
-              name: '男',
-              type: 'map',
-              mapType: 'chinaCities',
-              roam: false,
-              label: {
-                normal: {
-                  show: false
-                },
-                emphasis: {
-                  show: true
-                }
-              },
-              data: menData
+        this.theme.getJsTheme()
+        .subscribe(config => {
+          const trafficTheme: any = config.variables.traffic;
+          this.chartOption2 = {
+            title : {
+              text: '用户城市地理视图',
+              left: 'center',
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+              }
             },
-            {
-              name: '女',
-              type: 'map',
-              mapType: 'chinaCities',
-              roam: false,
-              label: {
-                normal: {
-                  show: false
-                },
-                emphasis: {
-                  show: true
-                }
+            tooltip : {
+              trigger: 'item',
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+                fontWeight: trafficTheme.tooltipFontWeight,
+                fontSize: 16,
               },
-              data: womenData
+              position: 'top',
+              backgroundColor: trafficTheme.tooltipBg,
+              borderColor: trafficTheme.tooltipBorderColor,
+              borderWidth: 3,
+              extraCssText: trafficTheme.tooltipExtraCss,
             },
-            {
-              name: '游客',
-              type: 'map',
-              mapType: 'chinaCities',
-              roam: false,
-              label: {
-                normal: {
-                  show: false
-                },
-                emphasis: {
-                  show: true
-                }
+            legend: {
+              orient: 'vertical',
+              left: 'left',
+              data:['男','女','游客'],
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+              }
+            },
+            visualMap: {
+              min: 0,
+              max: 2500,
+              left: 'left',
+              top: 'bottom',
+              text:['高','低'],           // 文本，默认为数值文本
+              calculable : true,
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+              }
+            },
+            toolbox: {
+              show: true,
+              orient : 'vertical',
+              left: 'right',
+              top: 'center',
+              feature : {
+                dataView : {show: true, readOnly: false},
+                restore : {show: true}
               },
-              data: anonymousData
-            }
-          ]
-        }
+              textStyle: {
+                color: trafficTheme.tooltipTextColor,
+              }
+            },
+            series : [
+              {
+                name: '男',
+                type: 'map',
+                mapType: 'chinaCities',
+                roam: false,
+                label: {
+                  normal: {
+                    show: false
+                  },
+                  emphasis: {
+                    show: true
+                  }
+                },
+                data: menData
+              },
+              {
+                name: '女',
+                type: 'map',
+                mapType: 'chinaCities',
+                roam: false,
+                label: {
+                  normal: {
+                    show: false
+                  },
+                  emphasis: {
+                    show: true
+                  }
+                },
+                data: womenData
+              },
+              {
+                name: '游客',
+                type: 'map',
+                mapType: 'chinaCities',
+                roam: false,
+                label: {
+                  normal: {
+                    show: false
+                  },
+                  emphasis: {
+                    show: true
+                  }
+                },
+                data: anonymousData
+              }
+            ]
+          }
+        });
       });
     }
   }
