@@ -259,8 +259,20 @@ const jwtWxLogin = new JwtStrategy(jwtOptions, (payload, done) => {
         return done(null, false);
     }
 
-    WxUserModel.findOne({ userId: payload.userId }).then(user => {
-        done(null, user);
+    WxUserModel.findOne({ userId: payload.userId }).then(async user => {
+        if (!user) {
+            user = new WxUserModel({
+                registeredAt: new Date(),
+                migrated: true,
+                anonymous: true,
+            });
+            await user.save();
+            done(null, user);
+        }
+        else {
+            done(null, user);
+        }
+
     }).catch(error => {
         done(null, false);
     });

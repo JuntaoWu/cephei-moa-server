@@ -40,12 +40,12 @@ router.get('/photon-login', (req: Request, res: Response, next: NextFunction) =>
     wxUserCtrl.load(req.query).then(async (user) => {
         console.log('photon-login completed:', user && user.userId);
 
-        if (user && (!user.imAccId || !user.imToken)) {
-            // create im account now.
-            await imController.create(user).catch(error => {
-                console.error('Error occurred while creating IM account', error);
-            });
-        }
+        // if (user && (!user.imAccId || !user.imToken)) {
+        //     // create im account now.
+        //     // await imController.create(user).catch(error => {
+        //     //     console.error('Error occurred while creating IM account', error);
+        //     // });
+        // }
 
         return res.json({
             ResultCode: user ? 1 : 2,
