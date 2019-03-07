@@ -80,6 +80,8 @@ export class Game extends Typegoose {
     WinCamp: String;
     @prop()
     createdAt: Date;
+    @prop()
+    updatedAt: Date;
 }
 
 const GameModel = new Game().getModelForClass(Game, {
