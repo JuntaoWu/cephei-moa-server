@@ -31,28 +31,28 @@ import * as _ from 'lodash';
             {
                 updateOne: {
                     filter: { userId: record.userId, mode: 0, role: 0 },
-                    update: { $inc: { countWin: record.isWin ? 1 : 0, countTotal: 1, winRate: winRate00 } },
+                    update: { $inc: { countWin: record.isWin ? 1 : 0, countTotal: 1 }, $set: { winRate: Math.round(winRate00 * 100) } },
                     upsert: true
                 }
             },
             {
                 updateOne: {
                     filter: { userId: record.userId, mode: record.gameType, role: 0 },
-                    update: { $inc: { countWin: record.isWin ? 1 : 0, countTotal: 1, winRate: winRate0r } },
+                    update: { $inc: { countWin: record.isWin ? 1 : 0, countTotal: 1 }, $set: { winRate: Math.round(winRate0r * 100) } },
                     upsert: true
                 }
             },
             {
                 updateOne: {
                     filter: { userId: record.userId, mode: 0, role: record.roleId },
-                    update: { $inc: { countWin: record.isWin ? 1 : 0, countTotal: 1, winRate: winRatem0 } },
+                    update: { $inc: { countWin: record.isWin ? 1 : 0, countTotal: 1 }, $set: { winRate: Math.round(winRatem0 * 100) } },
                     upsert: true
                 }
             },
             {
                 updateOne: {
                     filter: { userId: record.userId, mode: record.gameType, role: record.roleId },
-                    update: { $inc: { countWin: record.isWin ? 1 : 0, countTotal: 1, winRate: winRatemr } },
+                    update: { $inc: { countWin: record.isWin ? 1 : 0, countTotal: 1 }, $set: { winRate: Math.round(winRatemr * 100) } },
                     upsert: true
                 }
             }
