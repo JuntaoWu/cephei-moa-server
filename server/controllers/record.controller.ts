@@ -1,15 +1,16 @@
 import RecordModel, { Record } from '../models/record.model';
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from 'express';
 import { IncomingMessage } from 'http';
 import RankModel from '../models/rank.model';
-import * as _ from "lodash";
+import * as _ from 'lodash';
 import config from '../config/config';
 import * as jwt from 'jsonwebtoken';
 import * as http from 'http';
+import GameModel, { GameStatus } from '../models/game.model';
 
 export let list = async (req: Request, res: Response, next: NextFunction) => {
 
-    console.log("Finding records, type:", typeof req.user.userId, req.user.userId);
+    console.log('Finding records, type:', typeof req.user.userId, req.user.userId);
     let myRank = await RankModel.find({ userId: +req.user.userId });
 
     let total = myRank.find(rank => rank.mode == 0 && rank.role == 0);
@@ -73,18 +74,18 @@ async function getPlayerInfoViaPublicServiceAsync(unionId: string) {
             path: userInfoPath,
             method: "GET",
         }, (wxRes) => {
-            console.log("response from service api /shared/:unionId");
+            console.log('response from service api /shared/:unionId');
 
             if (wxRes.statusCode != 200) {
                 console.error(wxRes.statusCode, wxRes.statusMessage);
                 return reject(wxRes.statusMessage);
             }
 
-            let userInfoData = "";
-            wxRes.on("data", (chunk) => {
+            let userInfoData = '';
+            wxRes.on('data', (chunk) => {
                 userInfoData += chunk;
             });
-            wxRes.on("end", async () => {
+            wxRes.on('end', async () => {
 
                 try {
                     let result = JSON.parse(userInfoData);
@@ -108,16 +109,17 @@ async function getPlayerInfoViaPublicServiceAsync(unionId: string) {
 
 export let load = (recordId: string) => {
     return RecordModel.findOne({ recordId: recordId });
-}
+};
 
 export let create = async (req, res, next) => {
 
-    let existingRecord = await RecordModel.findOne({ roomName: req.body.roomName, userId: req.user.userId });
+    const existingRecord = await RecordModel.findOne({ roomName: req.query.roomName, userId: req.user.userId });
     if (existingRecord) {
         return;
     }
 
     const records = req.body.map(m => new RecordModel(m));
+
     RecordModel.insertMany(records)
         .catch(error => {
             console.error(error);
@@ -127,22 +129,24 @@ export let create = async (req, res, next) => {
             });
         });
 
+    GameModel.findOneAndUpdate({ GameId: req.query.roomName, UserId: req.query.createdBy }, { $set: { Status: GameStatus.Completed } });
+
     return res.json({
         error: false,
-        message: "OK",
+        message: 'OK',
     });
-}
+};
 
 export let insertManyTest = async (req, res, next) => {
-    let records = [
-        { userId: 200051, roomName: "200051", camp: 1, gameType: 8, roleId: 1, isWin: true },
-        { userId: 200052, roomName: "200051", camp: 1, gameType: 8, roleId: 2, isWin: true },
-        { userId: 200053, roomName: "200051", camp: 1, gameType: 8, roleId: 3, isWin: true },
-        { userId: 200054, roomName: "200051", camp: 1, gameType: 8, roleId: 4, isWin: true },
-        { userId: 200055, roomName: "200051", camp: 1, gameType: 8, roleId: 5, isWin: true },
-        { userId: 200056, roomName: "200051", camp: 2, gameType: 8, roleId: 6, isWin: false },
-        { userId: 200057, roomName: "200051", camp: 2, gameType: 8, roleId: 7, isWin: false },
-        { userId: 200058, roomName: "200051", camp: 2, gameType: 8, roleId: 8, isWin: false },
+    const records = [
+        { userId: 200051, roomName: '200051', camp: 1, gameType: 8, roleId: 1, isWin: true },
+        { userId: 200052, roomName: '200051', camp: 1, gameType: 8, roleId: 2, isWin: true },
+        { userId: 200053, roomName: '200051', camp: 1, gameType: 8, roleId: 3, isWin: true },
+        { userId: 200054, roomName: '200051', camp: 1, gameType: 8, roleId: 4, isWin: true },
+        { userId: 200055, roomName: '200051', camp: 1, gameType: 8, roleId: 5, isWin: true },
+        { userId: 200056, roomName: '200051', camp: 2, gameType: 8, roleId: 6, isWin: false },
+        { userId: 200057, roomName: '200051', camp: 2, gameType: 8, roleId: 7, isWin: false },
+        { userId: 200058, roomName: '200051', camp: 2, gameType: 8, roleId: 8, isWin: false },
     ];
     await RecordModel.insertMany(records.map(record => new RecordModel(record)))
         .catch(error => {
@@ -155,12 +159,12 @@ export let insertManyTest = async (req, res, next) => {
 
     return res.json({
         error: false,
-        message: "OK",
+        message: 'OK',
     });
-}
+};
 
 export let remove = (params: any) => {
     return load(params).then((record) => record.remove());
-}
+};
 
 export default { list, create, insertManyTest };

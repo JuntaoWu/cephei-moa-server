@@ -14,7 +14,7 @@ const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '../../views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // parse body params and attache them to req.body
 app.use(bodyParser.json({

@@ -63,4 +63,18 @@ router.post('/save', (req, res, next) => {
         .catch(e => next(e));
 });
 
+router.post('/ready', (req, res, next) => {
+    console.log("save:", req.query);
+
+    return gameCtrl.ready(req.query.roomName, req.query.createdBy)
+        .then(savedGame => {
+            let result = {
+                ResultCode: 0,
+                Message: "OK"
+            };
+            return res.json(result);
+        })
+        .catch(e => next(e));
+});
+
 export default router;

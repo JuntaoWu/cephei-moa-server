@@ -306,6 +306,7 @@ export async function roomList(req: Request, res: Response, next: NextFunction) 
             GameId: item.GameId,
             Players: players,
             WinCamp: winCamp,
+            GameStatus: item.Status,
             createdAt: item.createdAt,
             updatedAt: item.updatedAt,
         }

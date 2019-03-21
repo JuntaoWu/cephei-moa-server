@@ -11,12 +11,14 @@ import { TrafficBarComponent } from './traffic-bar/traffic-bar.component';
 import { StatsAreaChartComponent } from './stats-area-chart/stats-area-chart.component';
 import { LineBarChartComponent } from './line-bar-chart/line-bar-chart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { GameStatusPipe } from 'app/pipes/game-status.pipe';
 
 
 @NgModule({
   declarations: [
     DayOfWeekPipe,
     GenderPipe,
+    GameStatusPipe,
     TrafficBarComponent,
     StatsAreaChartComponent,
     LineBarChartComponent,
@@ -41,6 +43,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     NgxEchartsModule,
     DayOfWeekPipe,
     GenderPipe,
+    GameStatusPipe,
     TrafficBarComponent,
     StatsAreaChartComponent,
     LineBarChartComponent,

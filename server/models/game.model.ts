@@ -1,6 +1,12 @@
 
 import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
 
+export enum GameStatus {
+    Initialized,
+    Ready,
+    Completed,
+}
+
 /**
     ActorCount: Number,
     AppVersion: String,
@@ -82,6 +88,8 @@ export class Game extends Typegoose {
     createdAt: Date;
     @prop()
     updatedAt: Date;
+    @prop({ default: GameStatus.Initialized })
+    Status: GameStatus;
 }
 
 const GameModel = new Game().getModelForClass(Game, {
