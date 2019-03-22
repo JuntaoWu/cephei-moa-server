@@ -11,7 +11,7 @@ export class RoomManagementComponent implements OnInit {
 
   constructor(private RMService: RoomManagementService) { }
 
-  public displayedColumns: string[] = ['id', 'players', 'winCamp', 'createdAt', 'dayOfWeek'];
+  public displayedColumns: string[] = ['id', 'players', 'winCamp', 'status', 'createdAt', 'updatedAt', 'dayOfWeek'];
 
   pageIndex = 0;
   pageSize = 10;
